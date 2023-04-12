@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Controllers;
+use new \App\Models\UsuarioModel;
 
-
-class CadastroController extends BaseController
+class UsuarioController extends BaseController
 {
     private $UsuarioModel;
 
     public function __construct() {
-        $this->UsuarioModel = new \App\Models\UsuarioModel();
+        $this->UsuarioModel = UsuarioModel();
     }
 
     public function adicionar()
     {
 
         $data = [
+            "NOME" => $this->request->getPost("NOME"),
             "EMAIL" => $this->request->getPost("EMAIL"),
             "SENHA" => $this->request->getPost("SENHA"),
             "TELEFONE" => $this->request->getPost("TELEFONE"),
