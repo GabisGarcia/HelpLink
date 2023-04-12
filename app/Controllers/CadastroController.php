@@ -2,14 +2,13 @@
 
 namespace App\Controllers;
 
-use Models\UsuarioModel;
 
 class CadastroController extends BaseController
 {
     private $UsuarioModel;
 
     public function __construct() {
-        $this->UsuarioModel = new UsuarioModel();
+        $this->UsuarioModel = new \App\Models\UsuarioModel();
     }
 
     public function adicionar()
