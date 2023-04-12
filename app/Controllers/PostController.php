@@ -19,7 +19,7 @@ class PostController extends BaseController
             'DOACAO' => $this->request->getPost('DOACAO'),
             'CONTATO' => $this->request->getPost('CONTATO'),
         ];
-
+        // dsadasddsdsa
         $this->PostModel->save($data);
         $this->response->redirect(base_url("welcome")); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
     }
