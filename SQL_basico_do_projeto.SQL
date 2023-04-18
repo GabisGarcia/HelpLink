@@ -31,7 +31,7 @@ CREATE TABLE POST(
     VALOR FLOAT NOT NULL,
     DOACAO VARCHAR(50),
     CONTATO VARCHAR(255)  NOT NULL,
-    POST_DATE DATE NOT NULL DEFAULT NOW(),
+    POST_DATE DATETIME NOT NULL DEFAULT NOW(),
     APROVADO BIT DEFAULT 0,
     REPUTACAO INT DEFAULT 0,
     PRIMARY KEY (ID_POST, ID_CONTA),
@@ -44,3 +44,9 @@ CREATE TABLE POST_TAG(
     FOREIGN KEY (ID_POST) REFERENCES POST(ID_POST),
     FOREIGN KEY (ID_TAG) REFERENCES TAGS(ID_TAG)
 );
+insert into USUARIO (ID_CONTA, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values (null, 'a@a.cum', 'b', '123', 'desc');
+insert into TAGS values (null, 'animal');
+insert into TAGS values (null, 'humanitario');
+insert into post (ID_POST, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO) values (null, 1, 'a', 'b', 50, '','c');
+insert into POST_TAG values (1,1);
+insert into POST_TAG values (1,2);
