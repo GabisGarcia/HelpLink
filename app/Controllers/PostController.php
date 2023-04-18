@@ -5,11 +5,11 @@ namespace App\Controllers;
 class PostController extends BaseController
 {
     private $PostModel;
-    /*
+
     public function __construct() {
         $this->PostModel = new \App\Models\PostModel();
     }
-    */
+    
     public function postar()
     {
         $data = [
@@ -19,7 +19,6 @@ class PostController extends BaseController
             'DOACAO' => $this->request->getPost('DOACAO'),
             'CONTATO' => $this->request->getPost('CONTATO'),
         ];
-        // dsadasddsdsa
         $this->PostModel->save($data);
         $this->response->redirect(base_url("welcome")); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
     }
@@ -29,5 +28,33 @@ class PostController extends BaseController
         $this->PostModel->delete($idPost);
         $this->response->redirect(base_url("welcome"));
     }
+
+    public function post_edit($idPost)
+    {
+        
+        $post = $this->PostModel->find($idPost);
+
+        return view('post_edit', [
+            'post' => $post,
+        ]);
+
+    }
+
+    public function editar($idPost)
+    {
+        $data = [
+            'TITULO' => $this->request->getPost('TITULO'),
+            'DESCRICAO' => $this->request->getPost('DESCRICAO'),
+            'VALOR' => $this->request->getPost('VALOR'),
+            'DOACAO' => $this->request->getPost('DOACAO'),
+            'CONTATO' => $this->request->getPost('CONTATO'),
+        ];
+
+        $this->PostModel->update($idPost, $data);
+
+        $this->response->redirect(base_url("welcome"));
+    }
+
+    
 }
 ?>
