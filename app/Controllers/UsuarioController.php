@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Controllers;
-use new \App\Models\UsuarioModel;
+use \App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {
     private $UsuarioModel;
 
     public function __construct() {
-        $this->UsuarioModel = UsuarioModel();
+        $this->UsuarioModel = new UsuarioModel();
     }
 
     public function adicionar()
