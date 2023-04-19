@@ -34,7 +34,7 @@ $routes->get('/adicionar', 'CadastroController::adicionar');
 $routes->post('/postar', 'PostController::postar');
 $routes->post('/deletar(:num)', 'PostController::deletar/$1');
 $routes->put('/post_edit(:num)', 'PostController::post_edit/$1');
-$routes->put('/editar(:num)', 'PostController::editar/$1');
+$routes->put('PostController/editar(:num)', 'PostController::editar/$1');
 
 
 /*

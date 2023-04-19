@@ -1,6 +1,6 @@
-CREATE DATABASE PROJETO;
+CREATE DATABASE HelpLink;
 
-USE PROJETO;
+USE HelpLink;
 --  tabelas básicas - FEITO
 -- Hierarquia de tabelas- FEITO
 -- popular tabelas
