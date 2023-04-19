@@ -44,6 +44,7 @@ CREATE TABLE POST_TAG(
     FOREIGN KEY (ID_POST) REFERENCES POST(ID_POST),
     FOREIGN KEY (ID_TAG) REFERENCES TAGS(ID_TAG)
 );
+
 insert into USUARIO (ID_CONTA, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values (null, 'a@a.cum', 'b', '123', 'desc');
 insert into TAGS values (null, 'animal');
 insert into TAGS values (null, 'humanitario');
