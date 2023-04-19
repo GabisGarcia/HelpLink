@@ -31,10 +31,10 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/adicionar', 'CadastroController::adicionar');
-$routes->get('/postar', 'PostController::postar');
-$routes->get('/deletar(:num)', 'PostController::deletar');
-$routes->get('/post_edit(:num)', 'PostController::post_edit');
-$routes->get('/editar(:num)', 'PostController::editar');
+$routes->post('/postar', 'PostController::postar');
+$routes->post('/deletar(:num)', 'PostController::deletar/$1');
+$routes->put('/post_edit(:num)', 'PostController::post_edit/$1');
+$routes->put('/editar(:num)', 'PostController::editar/$1');
 
 
 /*
