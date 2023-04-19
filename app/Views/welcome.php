@@ -11,53 +11,24 @@
 ?>
 
 
+<div class="swiffy-slider">
+    <ul class="slider-container">
+        <li><img src="https://i.pinimg.com/originals/73/b1/2e/73b12eaf89a0e032842d47db3cab34d2.png" style="max-width: 100%;height: auto;"></li>
+        <li><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgICAcICAgIBwcHBwoHBwcHCA8ICQcKFREWFiARHx8YHSggGBolGxMfITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQ0NDg0NEi0ZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAK4BIgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIG/8QAFxABAQEBAAAAAAAAAAAAAAAAABEBIf/EABcBAQEBAQAAAAAAAAAAAAAAAAABBQT/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDpwHO1AFAAAUAAUEUABQEUAAAAAEUBBQEABBUARQEABBUAAAAAAAUAFRQAUAFAAAFAAABQEIoCAAIoCCoCCoCCoAigIACAAAALiKAACgAoACgAoAAoAAAoCCgIKgIKgAAIACAAgaAgaAIqAAAKigLiKAqKAqKAqKAGAKGAKGAAKggqAAKIACGgAipoCKgCKgCKgCKmgAAoAKACgAoACooGAAoAKIoCoIKgAAKIACAaAmqgCKgCKgCKgCKgAAKCgKigKigAAAAoigKgCgAogCiAAACAAACAAgAJoACKgCKAgoAqKAqYoKACgAgAAAKIAoACoAogAAACAAAIAAABFASI0gIABAAQAFVFAVFAAABAAAUAFEAVAAAAoAAAAAIAAqKBBQERpAZFTAIKAkWCgigAAAKAhFUGYRoBIRoBIRQEhFUGYkbQGYRoBmEaAZhFAZhGgGYjQDPS6oCUqoBUUBBQFEUAAFEAURQFQBRAFEAaGQGhkoNDNKDQyAogCiAKgAAgKIAAAAgCooIAAACiAKIAogCiAKAAAAAAAAAAAAIUFEAUQBRAAAAAAAH/2Q==" style="max-width: 100%;height: auto;"></li>
+        <li><img src="https://i.pinimg.com/originals/73/b1/2e/73b12eaf89a0e032842d47db3cab34d2.png" style="max-width: 100%;height: auto;"></li>
+    </ul>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-      <div class="container">
-        <div class="carousel-caption text-left">
-          <h1>Bichinhos.</h1>
-          <p>blablabla.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-        </div>
-      </div>
+    <button type="button" class="slider-nav"></button>
+    <button type="button" class="slider-nav slider-nav-next"></button>
+
+    <div class="slider-indicators">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
     </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Another example headline.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"><rect width="100%" height="100%" fill="#777"/></svg>
-      <div class="container">
-        <div class="carousel-caption text-right">
-          <h1>One more for good measure.</h1>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
 </div>
+
+
 <?php
     $this->endSection();
 ?>
