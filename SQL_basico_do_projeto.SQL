@@ -48,8 +48,14 @@ CREATE TABLE POST_TAG(
 
 
 insert into USUARIO (ID_CONTA, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values (null, 'a@a.cum', 'b', '123', 'desc');
+                                                                              (null, 'a@a.teste', 'c', '456', 'des');
+                                                                              (null, 'a@a.teste1', 'd', '789', 'de');
 insert into TAGS values (null, 'animal');
+                        (null, 'gato');
+                        (null, 'cavalo');
+
 insert into TAGS values (null, 'humanitario');
 insert into post (ID_POST, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO) values (null, 1, 'a', 'b', 50, '','c');
 insert into POST_TAG values (1,1);
 insert into POST_TAG values (1,2);
+
