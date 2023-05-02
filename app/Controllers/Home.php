@@ -8,4 +8,9 @@ class Home extends BaseController
     {
         return view('welcome');
     }
+
+    public function Cadastro()
+    {
+        return view('cadastro');
+    }
 }
