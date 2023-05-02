@@ -11,4 +11,8 @@
         //protected $foreignkey = ['ID_TAG]; PESQUISAR SOBRE...
         protected $returnType = 'object';
 
+
+
+
+        
     }
