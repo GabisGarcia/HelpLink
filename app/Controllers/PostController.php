@@ -62,7 +62,8 @@ class PostController extends BaseController
         }
 
         $info = ['post' => $this->PostModel->like('TITULO', $pesquisa)];
-        return 0;
+        
+        var_dump($info);
     }
 }
 ?>
