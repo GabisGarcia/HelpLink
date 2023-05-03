@@ -11,6 +11,9 @@
     <link rel="stylesheet" type="text/css" href="../../public/index.css"/>
     <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+
+    <link rel="icon" href="<?= base_url()?>/favicon.ico" type="image/x-icon">
+
     <style>
         .lala{
             background-color: #53AFAF;
