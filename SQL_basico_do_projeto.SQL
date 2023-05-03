@@ -46,12 +46,17 @@ CREATE TABLE POST_TAG(
     FOREIGN KEY (ID_TAG) REFERENCES TAGS(ID_TAG)
 );
 
+CREATE TRIGGER DEL_REL_POST_TAG
+BEFORE DELETE ON POST 
+FOR EACH ROW
+    DELETE FROM POST_TAG WHERE ID_POST = ID_POST;
 
-insert into USUARIO (ID_CONTA, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values (null, 'a@a.cum', 'b', '123', 'desc');
-                                                                              (null, 'a@a.teste', 'c', '456', 'des');
+
+insert into USUARIO (ID_CONTA, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values (null, 'a@a.cum', 'b', '123', 'desc'),
+                                                                              (null, 'a@a.teste', 'c', '456', 'des'),
                                                                               (null, 'a@a.teste1', 'd', '789', 'de');
-insert into TAGS values (null, 'animal');
-                        (null, 'gato');
+insert into TAGS values (null, 'animal'),
+                        (null, 'gato'),
                         (null, 'cavalo');
 
 insert into TAGS values (null, 'humanitario');

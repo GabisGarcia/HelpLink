@@ -26,7 +26,7 @@ class PostController extends BaseController
     public function deletar($idPost)
     {
         $this->PostModel->delete($idPost);
-        $this->response->redirect(base_url("welcome"));
+        $this->response->redirect(base_url("Home"));
     }
 
     public function post_edit($idPost)
