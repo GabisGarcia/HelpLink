@@ -30,6 +30,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/cadastro', 'Home::Cadastro');
 $routes->get('CadastroController/adicionar', 'CadastroController::adicionar');
 $routes->post('PostController/postar', 'PostController::postar');
 $routes->post('PostController/deletar(:num)', 'PostController::deletar/$1');
