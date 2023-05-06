@@ -169,7 +169,7 @@
     </div>
     <button class="button3">Forgot Password</button>
 </form>
-teste
+
 <body>
     <?= $this->renderSection('content');?>
 </body>
