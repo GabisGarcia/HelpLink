@@ -10,7 +10,7 @@
     $this->section('content');
 ?>
 
-    <img src="../public/img/banner.jpg" alt="Banner" width="1500" height="603">
+    <img class="img-fluid" src="../public/img/banner.jpg" alt="Banner" width="1500" height="603">
 <br>
 <div class="swiffy-slider">
     <ul class="slider-container">

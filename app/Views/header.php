@@ -114,9 +114,10 @@
                                  <img src="https://cdn0.iconfinder.com/data/icons/eon-social-media-contact-info-2/32/user_people_person_users_man-256.png" alt="Pesquisar" height="25" width="25"><img>  <i class="fa fa-caret-down"></i>
                             </button>
                             <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-4">
-                                <a href="#" class="w3-bar-item w3-button">Meu Perfil</a>
-                                <a href="#" class="w3-bar-item w3-button">Configurações</a>
-                                <a href="#" class="w3-bar-item w3-button">Sair</a>
+                                <a href="<?= base_url('cadastro') ?>" class="w3-bar-item w3-button">Cadastrar</a>
+                                <a href="#" class="w3-bar-item w3-button">Logar</a>
+                                <a href="#" class="w3-bar-item w3-button">Quem somos nós?</a>
+
                             </div>
                     </li>
                 </ul>
