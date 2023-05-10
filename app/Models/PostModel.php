@@ -12,13 +12,18 @@
         protected $allowedFields = ['TITULO', 'DESCRICAO', 'VALOR', 'DOACAO', 'CONTATO', 'ID_CONTA'];
         protected $returnType = 'object';
 
-        public function listarPesquisa($pesquisa, $tag)
+        public function listarPesquisa($data)
         {
+            $pesquisa = ''; // $data['Pesquisa'];
+            $tag = '2';// $data['Tags'];
 
-
-            $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '"');
-            // WORK - $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .')');
-            // ERRO - $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .' AND TITULO LIKE "'. $pesquisa . '"');
+            if(isset($pesquisa) && isset($tags)){
+                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .' AND TITULO LIKE "'. $pesquisa . '")');
+            }elseif($pesquisa == ''){
+                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .')');
+            }else{
+                $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '"');
+            }
             // if ($pesquisa != ''){
             //     $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '"');
             // }else if($tag != ''){
