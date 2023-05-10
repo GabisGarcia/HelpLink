@@ -55,14 +55,14 @@ class PostController extends BaseController
         $this->response->redirect(base_url("welcome"));
     }
 
-    public function listar($pesquisa)
+    public function listar($pesquisa, $tag)
     {
         /*/if($pesquisa = '' && $tag = []){
             return print('Pesquisa vazia favor preenche-la');
         }*/
 
 
-        $this->PostModel->listarPesquisa($pesquisa);
+        $this->PostModel->listarPesquisa($pesquisa, $tag);
 /*
         $info = ['post' => $this->PostModel->like('TITULO', $pesquisa)];
         
