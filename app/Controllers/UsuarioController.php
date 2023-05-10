@@ -27,6 +27,16 @@ class UsuarioController extends BaseController
         $this->response->redirect(base_url("/cadastro"));
     }
 
+    public function login() {
+
+        $data = [
+            "EMAIL" => $this->request->getPost("EMAIL"),
+            "SENHA" => md5($this->request->getPost("SENHA")),
+        ];
+
+        $this->UsuarioModel->verificaUsuario($data);
+    }
+
     public function alterar() {
         $data = [
             "ID_CONTA" => $this->request->getPost("ID_CONTA"),
