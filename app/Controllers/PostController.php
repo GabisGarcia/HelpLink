@@ -61,8 +61,7 @@ class PostController extends BaseController
             return print('Pesquisa vazia favor preenche-la');
         }*/
 
-
-        $this->PostModel->listarPesquisa($pesquisa, $tag);
+        $this->PostModel->listarPesquisa($pesquisa, (int)$tag);
 /*
         $info = ['post' => $this->PostModel->like('TITULO', $pesquisa)];
         
