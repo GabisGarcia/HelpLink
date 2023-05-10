@@ -13,4 +13,9 @@ class Home extends BaseController
     {
         return view('cadastro');
     }
+
+        public function Perfil()
+    {
+        return view('perfil');
+    }
 }
