@@ -18,6 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <title>Meu perfil</title>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -10991,6 +10992,10 @@ section.resume-section .resume-section-content {
     min-height: 100vh;
   }
 }
+.pubb{
+  border-radius: 25px solid;
+}
+
 @media (min-width: 992px) {
   section.resume-section {
     padding-left: 3rem;
@@ -11048,6 +11053,11 @@ section.resume-section .resume-section-content {
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">00/00/0000</span></div>
                     </div>
+                    <center>
+                    <div class="pubb">
+                      <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
+                    </div>
+                    </center><hr><br>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <h3 class="mb-0">Pub</h3>
@@ -11055,8 +11065,13 @@ section.resume-section .resume-section-content {
                             <p>Descrição 2</p>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">00/00/0000</span></div>
+                      </center><hr><br>
                     </div>
-                </div>
+                    <center>
+                    <div class="img_pub">
+                    <img src="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/87c/869/c08180588db4c37af55a6ab3d8.jpg" width="300" height="300"><br><br><br>
+                    </center><hr><br>                
+                  </div>
             </section>
             <hr class="m-0" />
         </div>
