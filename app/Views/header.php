@@ -117,7 +117,6 @@
                                 <a href="<?= base_url('cadastro') ?>" class="w3-bar-item w3-button">Cadastrar</a>
                                 <a href="#" class="w3-bar-item w3-button">Logar</a>
                                 <a href="#" class="w3-bar-item w3-button">Quem somos nós?</a>
-
                             </div>
                     </li>
                 </ul>

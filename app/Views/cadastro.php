@@ -33,8 +33,7 @@
   box-shadow: 17px 12px 64px -24px rgba(97,94,97,1);
 }
 .form:hover {
-  transform: scale(1.05);
-  border: 1px solid black;
+  transform: scale(1.02);
 }
 
 
@@ -78,8 +77,18 @@
 .form .btn {
   display: flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 2.5em;
+}
+
+.btn button {
+  margin: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .button1 {
@@ -88,11 +97,14 @@
   padding-right: 1.1em;
   border-radius: 15px;
   margin-right: 0.5em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border: none;
   outline: none;
   transition: .4s ease-in-out;
   background-color: #252525;
   color: white;
+
 }
 
 .button1:hover {
@@ -120,7 +132,7 @@
 .button3 {
   margin-bottom: 3em;
   padding: 0.5em;
-  border-radius: 5px;
+  border-radius: 15px;
   border: none;
   outline: none;
   transition: .4s ease-in-out;
@@ -135,42 +147,53 @@
 
 </style>
 <center>
-    
-<form class="form">
+<body>
+
+<div class="container">
+  
+<form  action="<?= base_url('UsuarioController/adicionar') ?>" method="post" class="form">
     <p id="heading">Cadastre-se</p>
     <!--nome-->
     <div class="field">
     <img src="https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-512.png"  height="25" width="25">
-      <input autocomplete="off" placeholder="Username" class="input-field" type="text">
+      <input autocomplete="off" placeholder="Username" class="input-field" name="NOME" id="NOME" type="text">
     </div>
     <!--email-->
     <div class="field">
     <img src="https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-at-512.png" alt="email" height="25" width="25">
-      <input autocomplete="off" placeholder="E-mail" class="input-field" type="text">
+      <input autocomplete="off" placeholder="E-mail" class="input-field" name="EMAIL" id="EMAIL" type="text">
     </div>
     <!--telefone-->
     <div class="field">
     <img src="https://cdn1.iconfinder.com/data/icons/modern-universal/32/icon-03-256.png" alt="telefone" height="25" width="25">
-      <input autocomplete="off" placeholder="Telefone" class="input-field" type="text">
+      <input autocomplete="off" placeholder="Telefone" class="input-field" name="TELEFONE" id="TELEFONE" type="text">
     </div>
     <!--descricao-->
     <div class="field">
     <img src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Task-256.png" alt="desc"  height="25" width="25" >
-      <input autocomplete="off" placeholder="Descrição" class="input-field" type="text">
+      <input autocomplete="off" placeholder="Descrição" class="input-field" name="DESCRICAO_USER" id="DESCRICAO_USER" type="text">
     </div>
     <!--senha-->
     <div class="field">
     <img src="https://cdn0.iconfinder.com/data/icons/essentials-4/1710/lock-256.png" alt="senha"height="25" width="25" >
-      <input placeholder="Password" class="input-field" type="password">
+      <input placeholder="Password" class="input-field" name="SENHA" id="SENHA" type="password">
     </div>
+  
     <div class="btn">
-    <button class="button1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-    <button class="button2">Sign Up</button>
+    <button class="button2">Entrar</button>
+    <button class="button3" type="button">Esqueci a senha</button>
     </div>
-    <button class="button3">Forgot Password</button>
+
 </form>
 
-<body>
-    <?= $this->renderSection('content');?>
+  <button class="button1" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Já tem uma conta? Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+</div>
+<?php
+    $this->endSection();
+?>
+
+
+
 </body>
 </html>

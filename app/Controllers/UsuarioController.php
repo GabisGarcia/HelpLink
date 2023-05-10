@@ -24,7 +24,7 @@ class UsuarioController extends BaseController
 
         $this->UsuarioModel->save($data);
 
-        $this->response->redirect(base_url("/posts"));
+        $this->response->redirect(base_url("/cadastro"));
     }
 
     public function alterar() {
