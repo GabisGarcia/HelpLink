@@ -101,7 +101,7 @@
     <header>
         <nav class="navbar navbar-light lala">
             <form class="form-inline">
-                <img src="<?= base_url()?>/img/logo_white.png" width="80px" height="80px" alt="logo">
+               <a href="<?= base_url('/')?>"><img src="<?= base_url()?>/img/logo_white.png" width="80px" height="80px" alt="logo"></a> 
 
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
                 <button class="btn btnPink" type="submit">
@@ -116,7 +116,7 @@
                             </button>
                             <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-4">
                                 <a href="<?= base_url('cadastro') ?>" class="w3-bar-item w3-button">Cadastrar</a>
-                                <a href="#" class="w3-bar-item w3-button">Logar</a>
+                                <a href="<?= base_url('login') ?>" class="w3-bar-item w3-button">Logar</a>
                                 <a href="#" class="w3-bar-item w3-button">Quem somos nós?</a>
                             </div>
                     </li>

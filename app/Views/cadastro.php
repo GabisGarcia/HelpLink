@@ -16,7 +16,9 @@
 <div class="container">
   
 <form  action="<?= base_url('UsuarioController/adicionar') ?>" method="post" class="form">
-    <p id="heading">Cadastre-se</p>
+  <div class="titulo">
+      <img src="<?=base_url('')?>/img/foto_cadastro.png" alt="Cadastre-se">
+  </div>
     <!--nome-->
     <div class="field">
     <img src="https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-512.png"  height="25" width="25">
