@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<>
+<html lang="pt-br">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <link rel="icon" href="<?= base_url()?>/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="<?= base_url()?>/css/formulario.css">
 
     <style>
         .lala{
@@ -101,6 +101,8 @@
     <header>
         <nav class="navbar navbar-light lala">
             <form class="form-inline">
+               <a href="<?= base_url('/')?>"><img src="<?= base_url()?>/img/logo_white.png" width="80px" height="80px" alt="logo"></a> 
+
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
                 <button class="btn btnPink" type="submit">
                 <img src="https://cdn3.iconfinder.com/data/icons/mix-and-miscellaneous/93/handrawn_search_magnify-512.png" alt="Pesquisar" height="25" width="25">
@@ -114,7 +116,7 @@
                             </button>
                             <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-4">
                                 <a href="<?= base_url('cadastro') ?>" class="w3-bar-item w3-button">Cadastrar</a>
-                                <a href="#" class="w3-bar-item w3-button">Logar</a>
+                                <a href="<?= base_url('login') ?>" class="w3-bar-item w3-button">Logar</a>
                                 <a href="#" class="w3-bar-item w3-button">Quem somos nós?</a>
                             </div>
                     </li>
