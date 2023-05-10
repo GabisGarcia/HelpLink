@@ -24,7 +24,7 @@ class UsuarioController extends BaseController
 
         $this->UsuarioModel->save($data);
 
-        $this->response->redirect(base_url("/cadastro"));
+        $this->response->redirect(base_url("/login"));
     }
 
     public function alterar() {

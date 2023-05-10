@@ -31,6 +31,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/cadastro', 'Home::Cadastro');
+$routes->get('/login', 'Home::Login');
 $routes->get('/meuperfil', 'Home::Perfil');
 $routes->get('CadastroController/adicionar', 'CadastroController::adicionar');
 $routes->post('PostController/postar', 'PostController::postar');
