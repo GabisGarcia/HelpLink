@@ -12,10 +12,12 @@ class UsuarioModel extends Model
     protected $allowedFields = ['EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
     protected $returnType = 'object';
 
-    public function verificaUsuario($data) {
-       $email = $this->db->query('SELECT * FROM USUARIO WHERE EMAIL = ' + $data['EMAIL'] + ';');
+    public function verificaUsuario($data)
+    {
+        var_dump($data);
+        $email = $this->db->query('SELECT * FROM USUARIO WHERE EMAIL = ' . $data['EMAIL'] . ';');
 
-       var_dump($email);
+        //var_dump($email);
 
     }
 }
