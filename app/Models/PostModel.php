@@ -16,18 +16,21 @@
         {
 
 
-            if ($pesquisa != ''){
-                $resultado = $this->db->query('SELECT * FROM post WHERE TITULO LIKE "'. $pesquisa . '"');
-            }elseif($tag != ''){
-                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .')');
-            }else{
-                $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '" AND ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .')');
-            }
+            $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '"');
+            // WORK - $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .')');
+            // ERRO - $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .' AND TITULO LIKE "'. $pesquisa . '"');
+            // if ($pesquisa != ''){
+            //     $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '"');
+            // }else if($tag != ''){
+            //     $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG = '. $tag .')');
+            // }
 
             foreach ($resultado->getResult('array') as $row) {
                 echo $row['TITULO'];
                 echo "<br>";
                 echo $row['DESCRICAO'];
+                echo "<br>";
+                var_dump($resultado);
             }
         }
     }
