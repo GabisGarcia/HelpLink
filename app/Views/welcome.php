@@ -13,7 +13,8 @@
     <img src="../public/img/banner.jpg" alt="Banner" width="1500" height="500">
 
 <br><br><br><br> 
-
+    <img class="img-fluid" src="../public/img/banner.jpg" alt="Banner" width="1500" height="603">
+<br>
 <div class="swiffy-slider">
     <ul class="slider-container">
         <li><img src="https://i.pinimg.com/originals/73/b1/2e/73b12eaf89a0e032842d47db3cab34d2.png"></li>
