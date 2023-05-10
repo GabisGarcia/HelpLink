@@ -2,12 +2,22 @@ body {
   background-color: #c2fcfc;
 }
 
+.titulo p {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    line-height: 28px;
+
+}
+
 .form {
   align-items: center;
   text-align: center;
   display: inline-grid;
   flex-direction: column;
   margin-top: 20vh;
+  margin-bottom: 20vh;
   gap: 10px;
   padding-left: 3em;
   padding-right: 3em;
@@ -21,14 +31,6 @@ body {
   transform: scale(1.02);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Sofia&display=swap");
-#heading {
-  text-align: center;
-  margin: 35px;
-  color: black;
-  font-size: 40px;
-  font-family: "Sofia", cursive;
-}
 
 .field {
   display: flex;
