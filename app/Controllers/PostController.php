@@ -63,10 +63,6 @@ class PostController extends BaseController
         ];
 
         $this->PostModel->listarPesquisa($data);
-/*
-        $info = ['post' => $this->PostModel->like('TITULO', $pesquisa)];
-        
-        var_dump($info);*/
     }
 }
 ?>
