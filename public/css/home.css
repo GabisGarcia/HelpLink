@@ -1,3 +1,12 @@
+.inputCheckbox{
+  width: 1git0px;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid grey;
+  padding: 1rem;
+  height: 50px;
+}
+
+
 #botao {
   text-align: center;
 }
@@ -11492,14 +11501,6 @@ section.resume-section .resume-section-content {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
-}
-
-input {
-  width: 190px;
-  border-radius: 12px 0 0 12px;
-  border: 1px solid grey;
-  padding: 1rem;
-  height: 50px;
 }
 
 form {
