@@ -9,15 +9,15 @@ class UsuarioModel extends Model
     protected $table = 'USUARIO';
     protected $primaryKey = 'ID_CONTA';
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
+    protected $allowedFields = ['NOME', 'EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
     protected $returnType = 'object';
 
-    public function verificaUsuario($data)
+    public function verificaUsuarioExiste($data)
     {
-        var_dump($data);
-        $email = $this->db->query('SELECT * FROM USUARIO WHERE EMAIL = ' . $data['EMAIL'] . ';');
+        return $this->db->query('SELECT * FROM USUARIO WHERE EMAIL = "' . $data['EMAIL'] . '";')->getRow();
+    }
 
-        //var_dump($email);
-
+    public function verificaSenha($data) {
+        return $this->db->query('SELECT NOME FROM USUARIO WHERE EMAIL = "' . $data['EMAIL'] . '" AND SENHA = "' . $data['SENHA'] . '";')->getRow();
     }
 }
