@@ -31,22 +31,22 @@
 
         public function listarPesquisa($data)
         {
-            $pesquisa = 'carro'; // $data['Pesquisa'];
-            $tags = [1, 2];
-            $consulta = "ID_TAG = ";
+            $pesquisa = ''; // $data['Pesquisa'];
+            $tags = [4];
+            $consulta = "";
 
 
             if(sizeof($tags) > 1) {
                 for($i = 0; $i < sizeof($tags); $i++) {
                     if($i == (sizeof($tags) - 1)) {
-                        $consulta .= "{$tags[$i]} ";
+                        $consulta .= "{$tags[$i]}) ";
                     } else {
-                        $consulta .= "{$tags[$i]} AND ";
+                        $consulta .= "{$tags[$i]}, ";
 
                     }
                 }
             } else if(sizeof($tags) == 1){
-                $consulta .= "{$tags[0]} ";
+                $consulta .= "{$tags[0]}) ";
             }else{
                 $consulta = $consulta;
             }
@@ -58,8 +58,8 @@
                 $this->listarRes($resultado);
             }elseif($pesquisa == '' && $tags != []){
                 echo "tem tag<br>";
-                echo 'SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .');';
-                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .');');
+                echo 'SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN ('. $consulta .'GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');';
+                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');');
                 $this->listarRes($resultado);
             }elseif($pesquisa != '' && $tags == []){
                 echo "tem pesquisa<br>";
