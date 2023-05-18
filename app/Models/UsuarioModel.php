@@ -1,14 +1,23 @@
 <?php
 
-    namespace App\Models;
+namespace App\Models;
 
-    use CodeIgniter\Model;
+use CodeIgniter\Model;
 
-    class UsuarioModel extends Model
+class UsuarioModel extends Model
+{
+    protected $table = 'USUARIO';
+    protected $primaryKey = 'ID_CONTA';
+    protected $useAutoIncrement = true;
+    protected $allowedFields = ['NOME', 'EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
+    protected $returnType = 'object';
+
+    public function verificaUsuarioExiste($data)
     {
-        protected $table = 'USUARIO';
-        protected $primaryKey = 'ID_CONTA';
-        protected $useAutoIncrement = true;
-        protected $allowedFields = ['EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
-        protected $returnType = 'object';
+        return $this->db->query('SELECT * FROM USUARIO WHERE EMAIL = "' . $data['EMAIL'] . '";')->getRow();
     }
+
+    public function verificaSenha($data) {
+        return $this->db->query('SELECT NOME FROM USUARIO WHERE EMAIL = "' . $data['EMAIL'] . '" AND SENHA = "' . $data['SENHA'] . '";')->getRow();
+    }
+}

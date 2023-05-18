@@ -14,11 +14,12 @@ class Home extends BaseController
         return view('cadastro');
     }
 
+
     public function Login()
     {
         return view('login');
     }    
-
+    
     public function Perfil()
     {
         return view('perfil');

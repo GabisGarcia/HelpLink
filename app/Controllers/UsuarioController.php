@@ -17,7 +17,7 @@ class UsuarioController extends BaseController
         $data = [
             "NOME" => $this->request->getPost("NOME"),
             "EMAIL" => $this->request->getPost("EMAIL"),
-            "SENHA" => $this->request->getPost("SENHA"),
+            "SENHA" => md5($this->request->getPost("SENHA")),
             "TELEFONE" => $this->request->getPost("TELEFONE"),
             "DESCRICAO_USER" => $this->request->getPost("DESCRICAO_USER"),
         ];
@@ -25,6 +25,24 @@ class UsuarioController extends BaseController
         $this->UsuarioModel->save($data);
 
         $this->response->redirect(base_url("/login"));
+    }
+
+    public function login() {
+
+        $data = [
+            "EMAIL" => $this->request->getPost("EMAIL"),
+            "SENHA" => md5($this->request->getPost("SENHA")),
+        ];
+
+        if($this->UsuarioModel->verificaUsuarioExiste($data)) {
+            if($this->UsuarioModel->verificaSenha($data)) {
+                $this->response->redirect(base_url("/"));
+            } else {
+                $this->response->redirect(base_url("/login"));
+            }
+        } else {
+            $this->response->redirect(base_url("/login"));
+        }
     }
 
     public function alterar() {
