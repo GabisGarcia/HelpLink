@@ -55,14 +55,24 @@ class PostController extends BaseController
         $this->response->redirect(base_url("welcome"));
     }
 
-    public function listar()
+    public function listarPesquisa()
     {
         $data = [
             'Pesquisa'=> $this->request->getPost('Pesquisa'),
             'Tags' => $this->request->getPost('Tags')
         ];
 
-        $this->PostModel->listarPesquisa($data);
+        $post = $this->PostModel->listarPesquisa($data);
+
+        return view('lista(?)', [
+            'post' => $post,
+        ]);
+    }
+
+    public function listarInicial()
+    {
+        echo "oi";
+        $this->PostModel->listarInicial();
     }
 }
 ?>
