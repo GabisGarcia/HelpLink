@@ -40,8 +40,8 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
         public function listarPesquisa($data)
         {
-            $pesquisa = ''; // $data['Pesquisa'];
-            $tags = [1];
+            $pesquisa = $data['Pesquisa'];
+            $tags = $data['Tags'];
             $consulta = "";
 
 

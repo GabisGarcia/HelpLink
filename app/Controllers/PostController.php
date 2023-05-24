@@ -55,7 +55,7 @@ class PostController extends BaseController
         $this->response->redirect(base_url("welcome"));
     }
 
-    public function listar()
+    public function listarPesquisa()
     {
         $data = [
             'Pesquisa'=> $this->request->getPost('Pesquisa'),
