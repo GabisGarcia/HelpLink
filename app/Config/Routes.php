@@ -38,7 +38,8 @@ $routes->post('PostController/postar', 'PostController::postar');
 $routes->post('PostController/deletar(:num)', 'PostController::deletar/$1');
 $routes->put('PostController/post_edit(:num)', 'PostController::post_edit/$1');
 $routes->put('PostController/editar(:num)', 'PostController::editar/$1');
-$routes->get('PostController/listar', 'PostController::listar');
+$routes->get('PostController/listarPesquisa', 'PostController::listarPesquisa');
+$routes->get('PostController/listarInicial', 'PostController::listarInicial');
 
 
 /*

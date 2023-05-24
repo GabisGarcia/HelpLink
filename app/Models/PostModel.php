@@ -79,4 +79,11 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
                 return "<h1>Não há post</h1>";
             }
         }
+
+        public function listarInicial()
+        {
+            $resultado = $this->db->query('SELECT * FROM POST WHERE POST_DATE > NOW() - 7');
+
+            return $this->listarRes($resultado);
+        }
     }

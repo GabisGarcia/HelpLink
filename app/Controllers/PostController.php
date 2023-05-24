@@ -68,5 +68,11 @@ class PostController extends BaseController
             'post' => $post,
         ]);
     }
+
+    public function listarInicial()
+    {
+        echo "oi";
+        $this->PostModel->listarInicial();
+    }
 }
 ?>
