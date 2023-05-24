@@ -62,7 +62,11 @@ class PostController extends BaseController
             'Tags' => $this->request->getPost('Tags')
         ];
 
-        $this->PostModel->listarPesquisa($data);
+        $post = $this->PostModel->listarPesquisa($data);
+
+        return view('lista(?)', [
+            'post' => $post,
+        ]);
     }
 }
 ?>

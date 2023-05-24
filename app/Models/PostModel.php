@@ -3,6 +3,7 @@
     namespace App\Models;
 
     use CodeIgniter\Model;
+use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
     class PostModel extends Model
     {
@@ -15,16 +16,24 @@
         private function listarRes($resultado)
         {
             if($resultado->getRow() == null){
-                echo "<h1>Não há post</h1>";
+                return "<h1>Não há post</h1>";
             }else{  
-                foreach ($resultado->getResult('array') as $row) {
-                    // var_dump($resultado);
-                    echo $row['TITULO'];
-                    echo "<br>";
-                    echo $row['DESCRICAO'];
-                    echo "<br>";
-                    
-                }
+                // foreach ($resultado->getResult('array') as $row) {
+                //     //var_dump($resultado);
+                //     // echo $row['TITULO'];
+                //     // echo "<br>";
+                //     // echo $row['DESCRICAO'];
+                //     // echo "<br>";
+                //     // echo $row['VALOR'];
+                //     // echo "<br>";
+                //     $posts = [$row];
+                //     var_dump($posts);
+                //     return $row;
+                // }
+                // var_dump($resultado);
+                $foo = [$resultado->getResult()];
+                $post = $foo[0];
+                return $post;
             }
         }
         
@@ -32,7 +41,7 @@
         public function listarPesquisa($data)
         {
             $pesquisa = ''; // $data['Pesquisa'];
-            $tags = [4];
+            $tags = [1];
             $consulta = "";
 
 
@@ -55,19 +64,19 @@
                 echo "tem dois<br>";
                 echo 'SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");';
                 $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");');
-                $this->listarRes($resultado);
+                return  $this->listarRes($resultado);
             }elseif($pesquisa == '' && $tags != []){
                 echo "tem tag<br>";
                 echo 'SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN ('. $consulta .'GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');';
                 $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');');
-                $this->listarRes($resultado);
+                return  $this->listarRes($resultado);
             }elseif($pesquisa != '' && $tags == []){
                 echo "tem pesquisa<br>";
                 echo 'SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '";';
                 $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '";');
-                $this->listarRes($resultado);
+                return  $this->listarRes($resultado);
             }else{
-                echo "<h1>Não há post</h1>";
+                return "<h1>Não há post</h1>";
             }
         }
     }
