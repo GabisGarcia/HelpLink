@@ -34,8 +34,11 @@ class UsuarioController extends BaseController
             "SENHA" => md5($this->request->getPost("SENHA")),
         ];
 
+        $session = session();
+
         if($this->UsuarioModel->verificaUsuarioExiste($data)) {
             if($this->UsuarioModel->verificaSenha($data)) {
+                $session->set('user', $this->UsuarioModel->verificaUsuarioExiste($data));
                 $this->response->redirect(base_url("/"));
             } else {
                 $this->response->redirect(base_url("/login"));
@@ -43,6 +46,12 @@ class UsuarioController extends BaseController
         } else {
             $this->response->redirect(base_url("/login"));
         }
+    }
+
+    public function logout() {
+        $session = session();
+        $session->destroy();
+        $this->response->redirect(base_url("/login"));
     }
 
     public function alterar() {

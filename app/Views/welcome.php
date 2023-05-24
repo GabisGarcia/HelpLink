@@ -1,3 +1,4 @@
+<?php $session = session(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,6 +25,8 @@
 </head>
 
 <body id="page-top">
+  <?php var_dump($session->get('user')->NOME); ?>
+
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="<?= base_url() ?>/">
@@ -36,12 +39,12 @@
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/meuperfil">Meu perfil</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('cadastro') ?>">Cadastrar</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/meuperfil">Meu
+            perfil</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('cadastro') ?>">Cadastrar</a>
+        </li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Configurações</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sair">Sair</a></li>
-
-
       </ul>
     </div>
   </nav>
@@ -129,6 +132,7 @@
           <div class="img_pub">
             <img src="https://wl-incrivel.cf.tsp.li/resize/728x/jpg/87c/869/c08180588db4c37af55a6ab3d8.jpg" width="300"
               height="300"><br><br><br>
+          </div>
         </center>
         <div id="botao">
           <button>
@@ -149,6 +153,7 @@
         </div>
         <br><br><br><br>
         <hr>
+      </div>
 
     </section>
 
@@ -171,12 +176,15 @@
           </div>
         </div>
       </section>
-      <!-- Bootstrap core JS-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+  </div>
+  </div>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Core theme JS-->
-      <script src="js/scripts.js"></script>
-      <script src="https://kit.fontawesome.com/e8b01ec522.js" crossorigin="anonymous"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+  <script src="https://kit.fontawesome.com/e8b01ec522.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
