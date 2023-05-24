@@ -1,3 +1,4 @@
+<?php $session = session(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -21,6 +22,7 @@
  </head>
  
     <body id="page-top">
+      <?php var_dump($session->get('user')->NOME);  ?>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="<?= base_url()?>/">
@@ -33,7 +35,7 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url()?>/meuperfil">Meu perfil</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('cadastro')?>">Cadastrar</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Configurações</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sair">Sair</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
 
 
                 </ul>
