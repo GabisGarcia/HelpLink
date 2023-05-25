@@ -144,14 +144,18 @@ $this->section('content');
             <hr>
     </div>
     </section>
-    <section class="resume-section" id="experience">
+
+        <hr>
+        <div class="container225">
+            <button type="button" class="buttonCompartilha">
+                <img src="<?=base_url()?>/img/remove.png" height="28px" weight="28px">
+            </button>
+        </div>
 
 
-    </section>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    
     <script src="https://kit.fontawesome.com/e8b01ec522.js" crossorigin="anonymous"></script>
 </body>
 

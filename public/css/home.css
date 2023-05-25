@@ -101,7 +101,7 @@
   }
 }
 
-button {
+.buttonAmei {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,7 +137,6 @@ button {
 }
 
 button:hover {
-  background-color: #eee;
   transform: scale(105%);
   animation: movingBorders 3s infinite;
 }
@@ -415,7 +414,6 @@ figure {
 img {
   vertical-align: middle;
   border-radius: 5%; 
-  margin-left: 3rem;
 }
 
 .img-post,
@@ -456,10 +454,7 @@ label {
   display: inline-block;
 }
 
-button {
-  border-radius: 80%;
-  float: right;
-}
+
 
 button:focus:not(:focus-visible) {
   outline: 0;
@@ -11572,4 +11567,32 @@ form button img {
   width: 1rem;
   height: 1rem;
  }
- 
+
+.container225 {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999; /* Certifique-se de que o z-index seja maior do que outros elementos para garantir que o botão fique acima deles */
+}
+
+.buttonCompartilha {
+  outline: none;
+  margin: 1rem;
+  color: #54C7A6;
+  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: 2px dashed #54C7A6;
+  border-radius: 15px;
+  background-color: #53afaf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0 4px #C2FCFC, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  transition: .1s ease-in-out, .4s color;
+}
+
+.buttonCompartilha:active {
+  transform: translateX(0.1em) translateY(0.1em);
+  box-shadow: 0 0 0 4px #EADDCA, 1.5px 1.5px 2.5px 1.5px rgba(0, 0, 0, 0.5);
+}
