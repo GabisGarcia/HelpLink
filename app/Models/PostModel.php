@@ -82,7 +82,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
         public function listarInicial()
         {
-            $resultado = $this->db->query('SELECT * FROM POST WHERE POST_DATE > NOW() - 7');
+            $resultado = $this->db->query('SELECT * FROM POST');
 
             return $this->listarRes($resultado);
         }

@@ -1,0 +1,41 @@
+
+ .pub-card {
+    border: 2px;
+    margin: 2rem;
+  }
+
+/* botão de like */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    display: inline;
+    float: right;
+  }
+  
+  .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 35px;
+    width: 35px;
+    transition: all 0.3s;
+    fill: #666;
+  }
+  
+  .container svg:hover {
+    transform: scale(1.1);
+  }
+  
+  .container input:checked ~ svg {
+    fill: #E3474F;
+  }
