@@ -158,6 +158,11 @@
     </div>
   </div>
   </div>
+  <div class="container225">
+      <button type="button" class="buttonCompartilha">
+          <img src="<?=base_url()?>/img/remove.png" height="28px" weight="28px">
+      </button>
+  </div>
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
