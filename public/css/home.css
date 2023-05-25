@@ -11588,7 +11588,7 @@ form button img {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 0 4px #C2FCFC, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 4px #fea1a1, 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
   transition: .1s ease-in-out, .4s color;
 }
 

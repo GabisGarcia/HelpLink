@@ -7,10 +7,13 @@
 /* botão de like */
 .container input {
     position: absolute;
+    left:50%;
+    right: 50%;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
+    margin: 1rem;
     display: inline;
     float: right;
   }
@@ -20,6 +23,9 @@
     position: relative;
     cursor: pointer;
     user-select: none;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right; 
   }
   
   .container svg {
