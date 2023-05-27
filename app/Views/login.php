@@ -4,8 +4,6 @@ $this->extend('header');
 
 $this->section('title');
 
-echo "Login";
-
 $this->endSection();
 
 $this->section('content');
@@ -22,15 +20,13 @@ $this->section('content');
             </div>
             <!--email-->
             <div class="field">
-                <img src="https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-at-512.png" alt="email"
-                    height="25" width="25">
+                <img src="https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-at-512.png" alt="email" height="25" width="25">
                 <input autocomplete="off" placeholder="E-mail" class="input-field" name="EMAIL" id="EMAIL" type="text">
             </div>
 
             <!--senha-->
             <div class="field">
-                <img src="https://cdn0.iconfinder.com/data/icons/essentials-4/1710/lock-256.png" alt="senha" height="25"
-                    width="25">
+                <img src="https://cdn0.iconfinder.com/data/icons/essentials-4/1710/lock-256.png" alt="senha" height="25" width="25">
                 <input placeholder="Password" class="input-field" name="SENHA" id="SENHA" type="password">
             </div>
 
