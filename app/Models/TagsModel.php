@@ -12,9 +12,9 @@
         protected $useAutoIncrement = true;      
         protected $returnType = 'object';
 
-        public function GetTags()
+        public function getTags()
         {
-            $resultado = $this->db->query('SELECT NOME FROM TAGS');
+            $resultado = $this->db->query('SELECT * FROM TAGS');
             return $resultado;
         }
     }
