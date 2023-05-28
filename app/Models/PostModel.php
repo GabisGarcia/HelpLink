@@ -97,7 +97,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
                 echo "<br><h1>Sobrecarga</h1><br>";
             }
 
-            var_dump($rep);
+            return $this->listarRes($resultado);
 
         }
 }
