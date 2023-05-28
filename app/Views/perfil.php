@@ -1,9 +1,14 @@
 <?php
+
+$session = session();
+if ($session->get('user') == null) {
+  header('Location: http://localhost/HelpLink/public/login');
+  exit;
+}
+
 $this->extend('header');
 
 $this->section('title');
-
-echo "Meu perfil";
 
 $this->endSection();
 
