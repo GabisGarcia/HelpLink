@@ -161,7 +161,9 @@ if ($session->get('user') == null) {
   </div>
   <div class="container225">
     <button type="button" class="buttonCompartilha">
-      <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">
+      <a href="<?= base_url() ?>/PostController/postar">       
+      <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">   
+      </a>
     </button>
   </div>
   <!-- Bootstrap core JS-->

@@ -24,4 +24,9 @@ class Home extends BaseController
     {
         return view('perfil');
     }
+        
+    public function formularioPost()
+    {
+        return view('formularioPub');
+    }
 }

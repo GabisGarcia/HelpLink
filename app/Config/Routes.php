@@ -33,6 +33,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/cadastro', 'Home::Cadastro');
 $routes->get('/login', 'Home::Login');
 $routes->get('/meuperfil', 'Home::Perfil');
+$routes->get('/formpost', 'Home::formularioPost');
 $routes->get('CadastroController/adicionar', 'CadastroController::adicionar');
 $routes->post('PostController/postar', 'PostController::postar');
 $routes->post('PostController/deletar(:num)', 'PostController::deletar/$1');
@@ -40,6 +41,7 @@ $routes->put('PostController/post_edit(:num)', 'PostController::post_edit/$1');
 $routes->put('PostController/editar(:num)', 'PostController::editar/$1');
 $routes->get('PostController/listarPesquisa', 'PostController::listarPesquisa');
 $routes->get('PostController/listarInicial', 'PostController::listarInicial');
+
 
 
 /*
