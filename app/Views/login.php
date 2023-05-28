@@ -35,6 +35,10 @@ $this->section('content');
                 <button class="button3" type="button">Esqueci a senha</button>
             </div>
         </form>
+
+        <a href="<?= base_url('cadastro') ?>"><button class="button1" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não tem uma conta?
+        Cadastre-se&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></a>
+
     </div>
 </center>
 <?php

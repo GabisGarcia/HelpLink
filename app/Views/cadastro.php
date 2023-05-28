@@ -53,8 +53,8 @@ $this->section('content');
 
       </form>
 
-      <button class="button1" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Já tem uma conta?
-        Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+      <a href="<?= base_url('login') ?>"><button class="button1" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Já tem uma conta?
+        Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></a>
 
     </div>
     <?php
