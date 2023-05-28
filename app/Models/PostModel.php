@@ -17,20 +17,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         {
             if($resultado->getRow() == null){
                 return "<h1>Não há post</h1>";
-            }else{  
-                // foreach ($resultado->getResult('array') as $row) {
-                //     //var_dump($resultado);
-                //     // echo $row['TITULO'];
-                //     // echo "<br>";
-                //     // echo $row['DESCRICAO'];
-                //     // echo "<br>";
-                //     // echo $row['VALOR'];
-                //     // echo "<br>";
-                //     $posts = [$row];
-                //     var_dump($posts);
-                //     return $row;
-                // }
-                // var_dump($resultado);
+            }else{
                 $foo = [$resultado->getResult()];
                 $post = $foo[0];
                 return $post;
@@ -62,28 +49,55 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             
             if($pesquisa != '' && $tags != []){
                 echo "tem dois<br>";
-                echo 'SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");';
-                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");');
+                echo 'SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");';
+                $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");');
                 return  $this->listarRes($resultado);
             }elseif($pesquisa == '' && $tags != []){
                 echo "tem tag<br>";
-                echo 'SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN ('. $consulta .'GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');';
-                $resultado = $this->db->query('SELECT * FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');');
+                echo 'SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN ('. $consulta .'GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');';
+                $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');');
                 return  $this->listarRes($resultado);
             }elseif($pesquisa != '' && $tags == []){
                 echo "tem pesquisa<br>";
-                echo 'SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '";';
-                $resultado = $this->db->query('SELECT * FROM POST WHERE TITULO LIKE "'. $pesquisa . '";');
+                echo 'SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE TITULO LIKE "'. $pesquisa . '";';
+                $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE TITULO LIKE "'. $pesquisa . '";');
                 return  $this->listarRes($resultado);
             }else{
                 return "<h1>Não há post</h1>";
             }
         }
 
-        public function listarInicial()
-        {
-            $resultado = $this->db->query('SELECT * FROM POST');
+        public function listarInicial(){
+            $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE POST_DATE < NOW() - 7');
+            $posts = $this->listarRes($resultado);
+            $rep = [];
+            $threshold = 0;
 
-            return $this->listarRes($resultado);
+            $falha = false;
+
+            $valoresSortidos = [];
+
+            for($i = 0; $i < 5; $i++){
+                if($threshold == 20){
+                    $falha = true;
+                    break;
+                }
+                $intervalo = rand(0 , (sizeof($posts) - 1)); //erro irrelevante
+                array_push($valoresSortidos, $intervalo);
+                array_push($rep, $posts[$intervalo]);
+                if(in_array($intervalo, $valoresSortidos)){
+                    $i--;
+                    $threshold++;
+                } else {
+                    array_pop($rep[$i]);
+                }
+            }
+
+            if($falha){
+                echo "<br><h1>Sobrecarga</h1><br>";
+            }
+
+            var_dump($rep);
+
         }
-    }
+}
