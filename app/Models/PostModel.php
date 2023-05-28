@@ -16,7 +16,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         private function listarRes($resultado)
         {
             if($resultado->getRow() == null){
-                return "<h1>Não há post</h1>";
+                return [];
             }else{
                 $foo = [$resultado->getResult()];
                 $post = $foo[0];
@@ -63,7 +63,6 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
                 $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE TITULO LIKE "'. $pesquisa . '";');
                 return  $this->listarRes($resultado);
             }else{
-                echo "<h1>Não há post</h1>";
                 return [];
             }
         }
@@ -71,7 +70,6 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         public function listarInicial(){
             $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE, REPUTACAO FROM POST WHERE POST_DATE < NOW() - 7 LIMIT 5');
             $posts = $this->listarRes($resultado);
-            
             if(!$posts || !isset($posts)) {
                 echo "<h1>NAO TEM POST</h1>";
                 return [];
