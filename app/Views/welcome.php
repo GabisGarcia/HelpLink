@@ -161,7 +161,7 @@ if ($session->get('user') == null) {
   </div>
   <div class="container225">
     <button type="button" class="buttonCompartilha">
-      <a href="<?= base_url() ?>/PostController/postar">       
+      <a href="<?= base_url() ?>/formpost">       
       <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">   
       </a>
     </button>
