@@ -83,6 +83,15 @@
   input[type="submit"]:hover {
     background-color: #45a049;
   }
+  .input-containerTeste{
+    display: flex;
+  }
+  .input-containerTeste input{
+    margin-right:15px;
+    margin: 25px;
+  }
+
+  
 </style>
 </head>
 <body class="bodyForm">
@@ -113,10 +122,21 @@
 
 <form>
   <h4>Faça aqui seu Post:</h4>
-  <label class="labelPost" for="TITULO">Título:</label>
-  <input class="inputPost" type="text" id="TITULO" name="TITULO" required>
-  <label class="labelPost" for="CONTATO">Contato:</label>
-  <input class="inputPost" type="text" id="CONTATO" name="CONTATO" required>
+  <div class="input-containerTeste">
+    <label class="labelPost" for="TITULO">Título:</label>
+    <input class="inputPost" type="text" id="TITULO" name="TITULO" required>
+    <label class="labelPost" for="CONTATO">Contato:</label>
+    <input class="inputPost" type="text" id="CONTATO" name="CONTATO" required>
+  </div>
+  <div class="input-containerTeste">
+    <label class="labelPost" for="CONTATO">Valor:</label>
+    <input class="inputPost" type="text" id="VALOR" name="VALOR" required>
+    <label class="labelPost" for="CONTATO">Doação:</label>
+    <input class="inputPost" type="text" id="DOACAO" name="DOACAO" required>
+  </div>
+  <br>
+  checkbox
+  <br> <br> 
   <label class="labelPost" for="DESCRICAO">Descrição:</label>
   <textarea id="mensagem" name="DESCRICAO" required></textarea>
   <br>
