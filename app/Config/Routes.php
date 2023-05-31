@@ -34,6 +34,7 @@ $routes->get('/cadastro', 'Home::Cadastro');
 $routes->get('/login', 'Home::Login');
 $routes->get('/meuperfil', 'Home::Perfil');
 $routes->get('/formpost', 'Home::formularioPost');
+$routes->get('/configuracoesperfil', 'Home::Config_perfil');
 $routes->get('CadastroController/adicionar', 'CadastroController::adicionar');
 $routes->post('PostController/postar', 'PostController::postar');
 $routes->post('PostController/deletar(:num)', 'PostController::deletar/$1');

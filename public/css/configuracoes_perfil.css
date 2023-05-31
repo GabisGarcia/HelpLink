@@ -1,0 +1,49 @@
+.main {
+    background-color: white;
+    padding: 1em;
+    padding-bottom: 1.1em;
+    border-radius: 15px;
+    margin: 1em;
+  }
+  
+  .cabine {
+    display: flex;
+    flex-direction: row;
+    height: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    transform: rotate(180deg);
+    justify-content: right;
+    border-radius: 10px;
+    transition: .4s ease-in-out;
+  }
+  
+  .cabine:hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+  
+  .titulo {
+    display: flex;
+    margin: 1em;
+  }
+
+  .heading {
+    color: black;
+    font-size: 1.1em;
+    font-weight: bold;
+    align-self: center;
+  }
+  
+  .opcao {
+    position: relative;
+    transform: rotate(180deg);
+    margin-right: 1em;
+    color: black;
+    align-self: center;
+  }
+  
+  .descricao {
+    font-size: 0.6em;
+  }
+  

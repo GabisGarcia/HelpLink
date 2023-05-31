@@ -29,4 +29,9 @@ class Home extends BaseController
     {
         return view('formularioPub');
     }
+
+    public function Config_perfil()
+    {
+        return view('config_perfil');
+    }
 }

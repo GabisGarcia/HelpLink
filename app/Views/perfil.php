@@ -47,7 +47,7 @@ $this->section('content');
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre mim</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Minhas publicações</a>
                 </li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Configurações</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/configuracoesperfil">Configurações</a></li>
             </ul>
         </div>
     </nav>
@@ -104,7 +104,7 @@ $this->section('content');
         
         </div>
         </section>
-        
+
     <div class="container225">
         <button type="button" class="buttonCompartilha">
             <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">
