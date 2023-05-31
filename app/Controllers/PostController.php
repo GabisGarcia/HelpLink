@@ -5,13 +5,16 @@ namespace App\Controllers;
 class PostController extends BaseController
 {
     private $PostModel;
+    private $PostTagModel;
 
     public function __construct() {
         $this->PostModel = new \App\Models\PostModel();
+        $this->PostTagModel = new \App\Models\Post_tagModel();
     }
     
     public function postar()
     {
+        $tags = $this->request->getPost('TAGS');
         $data = [
             'TITULO' => $this->request->getPost('TITULO'),
             'DESCRICAO' => $this->request->getPost('DESCRICAO'),
@@ -20,6 +23,7 @@ class PostController extends BaseController
             'CONTATO' => $this->request->getPost('CONTATO'),
         ];
         $this->PostModel->save($data);
+        $this->PostTagModel->CriarRelacao($tags);
         $this->response->redirect(base_url("welcome")); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
     }
 
