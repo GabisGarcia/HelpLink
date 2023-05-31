@@ -28,6 +28,9 @@ $this->section('content');
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
     <!-- CSS-->
     <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/configuracoes_perfil.css">
+
+
 
 </head>
 
@@ -105,11 +108,13 @@ $this->section('content');
         </div>
         </section>
 
-    <div class="container225">
-        <button type="button" class="buttonCompartilha">
-            <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">
-        </button>
-    </div>
+        <div class="container225">
+            <button type="button" class="buttonCompartilha">
+                <a href="<?= base_url() ?>/formpost">       
+                    <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">   
+                </a>
+            </button>
+        </div>
 
 
     <!-- Bootstrap core JS-->

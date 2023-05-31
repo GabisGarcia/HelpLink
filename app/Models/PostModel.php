@@ -78,4 +78,14 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             return $posts;
 
         }
+
+        public function like($idPost)
+        {
+            $this->db->query('UPDATE POST SET REPUTACAO = REPUTACAO + 1 WHERE ID_POST = '. $idPost .';');
+        }
+
+        public function dislike($idPost)
+        {
+            $this->db->query('UPDATE POST SET REPUTACAO = REPUTACAO - 1 WHERE ID_POST = '. $idPost .';');
+        }
 }
