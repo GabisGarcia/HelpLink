@@ -33,6 +33,14 @@ if ($session->get('user') == null) {
 
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+      <!-- Tema escuro -->
+    <label class="ui-switch">
+        <input type="checkbox">
+          <div class="slider">
+            <div class="circle"></div>
+          </div>
+    </label>
+
     <a class="navbar-brand js-scroll-trigger" href="<?= base_url() ?>/">
       <span class="d-block d-lg-none">Meu perfil</span>
       <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<?= base_url() ?>/img/logo_white.png" alt="..." height="80px" weight="50px" /></span>
@@ -52,6 +60,7 @@ if ($session->get('user') == null) {
   </nav>
 
   <div class="container-fluid">
+
     <br>
     <form class="d-flex" role="search">
       <div class="group">
