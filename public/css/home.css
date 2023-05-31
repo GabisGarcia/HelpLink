@@ -706,6 +706,7 @@ progress {
 .img-fluid {
   max-width: 100%;
   height: auto;
+  border-radius: 50px
 }
 
 .img-thumbnail {
@@ -11396,6 +11397,11 @@ p.lead {
   #sideNav .navbar-brand .img-profile {
     max-width: 200px;
     max-height: 250px;
+    border-radius: 50%;
+  }
+
+  #imagemPerfil{
+    border-radius: 50% !important;
   }
   #sideNav .navbar-collapse {
     display: flex;

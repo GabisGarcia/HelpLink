@@ -88,7 +88,7 @@
   }
   .input-containerTeste input{
     margin-right:15px;
-    margin: 25px;
+    margin: 15px;
   }
   .checkTeste {
   --checkbox-radius: 6px;
@@ -191,7 +191,9 @@
   <br><br><br>
 
 <form>
-  <h4>Faça aqui seu Post:</h4>
+  <div class="titulo">
+    <img src="<?= base_url('') ?>/img/foto_post.png" height="170px" width="350px">
+  </div>
   <div class="input-containerTeste">
     <label class="labelPost" for="TITULO">Título:</label>
     <input class="inputPost" type="text" id="TITULO" name="TITULO" required>
@@ -199,43 +201,43 @@
     <input class="inputPost" type="text" id="CONTATO" name="CONTATO" required>
   </div>
   <div class="input-containerTeste">
-    <label class="labelPost" for="CONTATO">Valor:</label>
-    <input class="inputPost" type="text" id="VALOR" name="VALOR" required>
-    <label class="labelPost" for="CONTATO">Doação:</label>
-    <input class="inputPost" type="text" id="DOACAO" name="DOACAO" required>
+    <label class="labelPost" for="VALOR">Valor:</label>
+    <input class="inputPost" type="number" id="VALOR" name="VALOR" required>
+    <label class="labelPost" for="DOCAO">Doação:</label>
+    <input class="inputPost" type="number" id="DOACAO" name="DOACAO" required>
   </div>
   <br>
   <div class="input-containerTeste">
     Humanitário  
     <label class="checkTeste">
-      <input checked="" type="checkbox">
+      <input checked="" type="checkbox" id="4">
         <span class="checkboxClass" tabindex="0">
         <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
         </span>
    </label>
    Gatos
    <label class="checkTeste">
-      <input checked="" type="checkbox">
+      <input checked="" type="checkbox" id="2">
         <span class="checkboxClass" tabindex="0">
         <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
         </span>
    </label>
    Animal
    <label class="checkTeste">
-      <input checked="" type="checkbox">
+      <input checked="" type="checkbox" id="1">
         <span class="checkboxClass" tabindex="0">
         <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
         </span>
    </label>
    Cavalo
    <label class="checkTeste">
-      <input checked="" type="checkbox">
+      <input checked="" type="checkbox" id="3">
         <span class="checkboxClass" tabindex="0">
         <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
         </span>
    </label>
   </div> 
-  <br> <br> 
+  <br>
   <label class="labelPost" for="DESCRICAO">Descrição:</label>
   <textarea id="mensagem" name="DESCRICAO" required></textarea>
   <br>
