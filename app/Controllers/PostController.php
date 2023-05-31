@@ -72,5 +72,17 @@ class PostController extends BaseController
             'post' => $post,
         ]);
     }
+
+    public function like($idPost)
+    {
+        $this->PostModel->like($idPost);
+        // $this->response->redirect(base_url("")); // n sei pra onde mandar
+    }
+
+    public function dislike($idPost)
+    {
+        $this->PostModel->dislike($idPost);
+        // $this->response->redirect(base_url("")); // n sei pra onde mandar
+    }
 }
 ?>
