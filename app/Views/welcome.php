@@ -34,7 +34,7 @@ if ($session->get('user') == null) {
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <!-- Tema escuro -->
-    <label class="ui-switch">
+    <label class="ui-switch" id="toggle">
         <input type="checkbox">
           <div class="slider">
             <div class="circle"></div>
@@ -179,6 +179,8 @@ if ($session->get('user') == null) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core theme JS-->
+  
+  <script src="<?= base_url() ?>/js/tema.js"></script>
   <script src="js/scripts.js"></script>
   <script src="https://kit.fontawesome.com/e8b01ec522.js" crossorigin="anonymous"></script>
 </body>
