@@ -7,12 +7,14 @@
     class Post_tagModel extends Model
     {
         protected $table = 'POST_TAG';
-        //protected $foreignkey = ['ID_POST]; PESQUISAR SOBRE...
-        //protected $foreignkey = ['ID_TAG]; PESQUISAR SOBRE...
+        protected $allowedFields = ['ID_TAG', 'ID_POST'];
         protected $returnType = 'object';
 
-
-
-
-        
+        public function CriarRelacao($tags)
+        {
+            $idPost = $this->db->query('SELECT ID_POST FROM POST ORDER BY ID_POST DESC LIMIT 1');
+            foreach($tags as $tag){    
+                $this->db->query('INSERT INTO POST_TAG VALUES ('. $idPost .','. $tag .');');
+            }
+        }
     }
