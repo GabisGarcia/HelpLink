@@ -90,6 +90,76 @@
     margin-right:15px;
     margin: 25px;
   }
+  .checkTeste {
+  --checkbox-radius: 6px;
+  --checkbox-diameter: 20px;
+  --checkbox-checked-bg: linear-gradient(270deg, #4f83bd 0%, #FF61D2 100%);
+  --checkbox-unchecked-bg: rgb(200, 200, 200);
+  --checkbox-transition: .2s;
+  --checkbox-shadow-color1: #c2fcfc;
+  --checkbox-shadow-color2: #ff61d264;
+  --checkbox-shadow-width: 4px;
+  --checkmark-diameter: 16px;
+  --checkmark-color: #fff;
+  --checkmark-transition: .1s;
+  margin-right: 30px; 
+  margin-left: 10px; 
+
+}
+
+/* checkbox settings 👆 */
+
+.checkTeste {
+  display: inline-block;
+}
+
+.checkTeste input {
+  display: none;
+}
+
+.checkboxClass {
+  display: flex;
+  width: var(--checkbox-diameter);
+  height: var(--checkbox-diameter);
+  background: var(--checkbox-unchecked-bg);
+  border-radius: var(--checkbox-radius);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--checkbox-transition);
+}
+
+.checkboxClass::before {
+  position: absolute;
+  content: '';
+  inset: 0;
+  background: var(--checkbox-checked-bg);
+  opacity: 0;
+  transition: var(--checkbox-transition);
+}
+
+.checkboxClass svg {
+  width: var(--checkmark-diameter);
+  height: var(--checkmark-diameter);
+  color: var(--checkmark-color);
+  z-index: 1;
+  transform: scale(0);
+  transition: .1s;
+}
+
+.checkTeste input:checked+span::before {
+  opacity: 1;
+}
+
+.checkTeste input:checked+span svg {
+  transform: scale(1);
+}
+
+.checkboxClass:focus {
+  box-shadow: 0 0 0 var(--checkbox-shadow-width) var(--checkbox-shadow-color1), 0 0 0 var(--checkbox-shadow-width) var(--checkbox-shadow-color2);
+}
+
 
   
 </style>
@@ -135,7 +205,36 @@
     <input class="inputPost" type="text" id="DOACAO" name="DOACAO" required>
   </div>
   <br>
-  checkbox
+  <div class="input-containerTeste">
+    Humanitário  
+    <label class="checkTeste">
+      <input checked="" type="checkbox">
+        <span class="checkboxClass" tabindex="0">
+        <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
+        </span>
+   </label>
+   Gatos
+   <label class="checkTeste">
+      <input checked="" type="checkbox">
+        <span class="checkboxClass" tabindex="0">
+        <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
+        </span>
+   </label>
+   Animal
+   <label class="checkTeste">
+      <input checked="" type="checkbox">
+        <span class="checkboxClass" tabindex="0">
+        <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
+        </span>
+   </label>
+   Cavalo
+   <label class="checkTeste">
+      <input checked="" type="checkbox">
+        <span class="checkboxClass" tabindex="0">
+        <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg"><g><path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path></g></svg>
+        </span>
+   </label>
+  </div> 
   <br> <br> 
   <label class="labelPost" for="DESCRICAO">Descrição:</label>
   <textarea id="mensagem" name="DESCRICAO" required></textarea>
