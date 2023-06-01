@@ -20,4 +20,10 @@ class UsuarioModel extends Model
     public function verificaSenha($data) {
         return $this->db->query('SELECT NOME FROM USUARIO WHERE EMAIL = "' . $data['EMAIL'] . '" AND SENHA = "' . $data['SENHA'] . '";')->getRow();
     }
+
+    public function deletarUsuario($idUsuario)
+    {
+        $this->db->query('DELETE FROM POST WHERE ID_CONTA = '. $idUsuario .';');
+        $this->db->query('DELETE FROM USUARIO WHERE ID_CONTA = '. $idUsuario .';');
+    }
 }

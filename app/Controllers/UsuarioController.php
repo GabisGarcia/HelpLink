@@ -69,5 +69,9 @@ class UsuarioController extends BaseController
         $this->response->redirect(base_url("/posts"));
     }
 
-    
+    public function deletarUsuario($IdUsuario)
+    {
+        $this->UsuarioModel->deletarUsuario($IdUsuario);
+        $this->response->redirect(base_url("/cadastro"));
+    }    
 }
