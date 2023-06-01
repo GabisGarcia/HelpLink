@@ -48,18 +48,12 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             }
             
             if($pesquisa != '' && $tags != []){
-                echo "tem dois<br>";
-                echo 'SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");';
                 $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%");');
                 return  $this->listarRes($resultado);
             }elseif($pesquisa == '' && $tags != []){
-                echo "tem tag<br>";
-                echo 'SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN ('. $consulta .'GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');';
                 $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .');');
                 return  $this->listarRes($resultado);
             }elseif($pesquisa != '' && $tags == []){
-                echo "tem pesquisa<br>";
-                echo 'SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE TITULO LIKE "'. $pesquisa . '";';
                 $resultado = $this->db->query('SELECT TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE FROM POST WHERE TITULO LIKE "'. $pesquisa . '";');
                 return  $this->listarRes($resultado);
             }else{
