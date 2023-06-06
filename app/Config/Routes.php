@@ -42,6 +42,9 @@ $routes->put('PostController/post_edit(:num)', 'PostController::post_edit/$1');
 $routes->put('PostController/editar(:num)', 'PostController::editar/$1');
 $routes->get('PostController/listarPesquisa', 'PostController::listarPesquisa');
 $routes->get('PostController/listarInicial', 'PostController::listarInicial');
+$routes->get('PostController/like(:num)', 'PostController::like/$1');
+$routes->get('PostController/dislike(:num)', 'PostController::dislike/$1');
+
 
 
 

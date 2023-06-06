@@ -5,11 +5,11 @@ namespace App\Controllers;
 class PostController extends BaseController
 {
     private $PostModel;
-    private $PostTagModel;
+    //private $PostTagModel;
 
     public function __construct() {
         $this->PostModel = new \App\Models\PostModel();
-        $this->PostTagModel = new \App\Models\Post_tagModel();
+        //$this->PostTagModel = new \App\Models\Post_tagModel();
     }
     
     public function postar()
@@ -23,7 +23,7 @@ class PostController extends BaseController
             'CONTATO' => $this->request->getPost('CONTATO'),
         ];
         $this->PostModel->save($data);
-        $this->PostTagModel->CriarRelacao($tags);
+        //$this->PostTagModel->CriarRelacao($tags);
         $this->response->redirect(base_url("welcome")); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
     }
 
@@ -76,13 +76,11 @@ class PostController extends BaseController
     public function like($idPost)
     {
         $this->PostModel->like($idPost);
-        // $this->response->redirect(base_url("")); // n sei pra onde mandar
     }
 
     public function dislike($idPost)
     {
         $this->PostModel->dislike($idPost);
-        // $this->response->redirect(base_url("")); // n sei pra onde mandar
     }
 }
 ?>
