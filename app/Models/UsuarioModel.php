@@ -26,4 +26,6 @@ class UsuarioModel extends Model
         $this->db->query('DELETE FROM POST WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM USUARIO WHERE ID_CONTA = '. $idUsuario .';');
     }
+
+    
 }

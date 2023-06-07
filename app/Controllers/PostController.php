@@ -23,8 +23,9 @@ class PostController extends BaseController
             'CONTATO' => $this->request->getPost('CONTATO'),
         ];
         $this->PostModel->save($data);
+
         //$this->PostTagModel->CriarRelacao($tags);
-        $this->response->redirect(base_url("welcome")); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
+        $this->response->redirect(base_url()); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
     }
 
     public function deletar($idPost)
