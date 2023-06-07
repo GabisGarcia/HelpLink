@@ -14,8 +14,11 @@ class PostController extends BaseController
     
     public function postar()
     {
+        $session = session();
+        $usuario = $session->get('user');
         $tags = $this->request->getPost('TAGS');
         $data = [
+            'ID_CONTA' => $usuario->ID_CONTA,
             'TITULO' => $this->request->getPost('TITULO'),
             'DESCRICAO' => $this->request->getPost('DESCRICAO'),
             'VALOR' => $this->request->getPost('VALOR'),
