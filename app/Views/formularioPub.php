@@ -1,4 +1,11 @@
 <?php
+  $session = session();
+  if ($session->get('user') == null) {
+    $location = 'Location: '.base_url('/login');
+    header($location);
+    exit;
+  }
+
   $this->extend('header');
 
   $this->section('title');

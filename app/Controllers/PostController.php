@@ -21,10 +21,14 @@ class PostController extends BaseController
         $qtsTags = sizeof($this->TagModel->getTags());
         $tags = [];
 
-        for($i = 0; $i < $qtsTags; $i++) {
-            $string = 'TAGS'.$i;
-            array_push($tags, $this->request->getPost($string));
+        for($i = 0; $i <= $qtsTags; $i++) {
+            $tagId = 'TAGS'.$i;
+            
+            if($this->request->getPost($tagId) != null) {
+                array_push($tags, $this->request->getPost($tagId));
+            } 
         }
+
 
         $data = [
             'ID_CONTA' => $usuario->ID_CONTA,
@@ -36,7 +40,7 @@ class PostController extends BaseController
         ];
         $this->PostModel->save($data);
         $this->PostTagModel->CriarRelacao($tags);
-        //$this->response->redirect(base_url()); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
+        $this->response->redirect(base_url());
 
     }
 

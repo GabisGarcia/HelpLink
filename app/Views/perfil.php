@@ -2,8 +2,9 @@
 
 $session = session();
 if ($session->get('user') == null) {
-  header('Location: http://localhost/HelpLink/public/login');
-  exit;
+    $location = 'Location: '.base_url('/login');
+    header($location);
+    exit;
 } else {
     $usuario = $session->get('user');
 }
@@ -99,7 +100,7 @@ $this->section('content');
                         <div class="subheading mb-3" id="assunto">Assunto</div>
                         <p><?= $post->DESCRICAO ?></p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary"><?= $post->POST_DATE ?></span></div>
+                    <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
                 </div>
                 <center>
                     <div class="pubb" id="pubb">

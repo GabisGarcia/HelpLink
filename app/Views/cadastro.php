@@ -1,9 +1,9 @@
 <?php
 
 $session = session();
-
-if ($session->get('user') != null) {
-  header('Location: http://localhost:8080/7/HelpLink/public/');
+if ($session->get('user') == null) {
+  $location = 'Location: '.base_url('/login');
+  header($location);
   exit;
 }
 

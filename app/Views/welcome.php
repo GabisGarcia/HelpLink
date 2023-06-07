@@ -1,7 +1,8 @@
 <?php
 $session = session();
 if ($session->get('user') == null) {
-  header('Location: http://localhost/HelpLink/public/login');
+  $location = 'Location: '.base_url('/login');
+  header($location);
   exit;
 }
 ?>
@@ -109,7 +110,7 @@ if ($session->get('user') == null) {
                   <div class="subheading mb-3" id="assunto">TAG</div>
                   <p><?= $post->DESCRICAO ?></p>
                 </div>
-                <div class="flex-shrink-0"><span class="text-primary"><?= $post->POST_DATE ?></span></div>
+                <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
               </div>
               <!-- Imagem da pub-->
               <center>
