@@ -1,9 +1,18 @@
 <?php
+
+$session = session();
+
+if ($session->get('user') != null) {
+  header('Location: http://localhost/HelpLink/public/');
+  exit;
+}
+
 $this->extend('header');
 
 $this->section('title');
 
 echo "Cadastro";
+
 
 $this->endSection();
 

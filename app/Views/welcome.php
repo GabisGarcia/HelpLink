@@ -54,7 +54,7 @@ if ($session->get('user') == null) {
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('cadastro') ?>">Cadastrar</a>
         </li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Configurações</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sair">Sair</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
       </ul>
     </div>
   </nav>
