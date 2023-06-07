@@ -46,4 +46,16 @@
   .name {
     align-items: center;
   }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
    
+  a:active {
+    color: #53AFAF;
+  }
+
+  a:hover {
+    color: #53AFAF;
+  }
