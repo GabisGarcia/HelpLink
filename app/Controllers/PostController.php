@@ -82,5 +82,6 @@ class PostController extends BaseController
     {
         $this->PostModel->dislike($idPost);
     }
+
 }
 ?>

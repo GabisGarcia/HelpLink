@@ -82,4 +82,15 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         {
             $this->db->query('UPDATE POST SET REPUTACAO = REPUTACAO - 1 WHERE ID_POST = '. $idPost .';');
         }
+
+        public function listarPostUsuario($idUsuario) {
+            $resultado = $this->db->query('SELECT * FROM POST WHERE ID_CONTA = '. $idUsuario . ';');
+            $posts = $this->listarRes($resultado);
+            if(!$posts || !isset($posts)) {
+                echo "<h1>NAO TEM POST</h1>";
+                return [];
+            }
+
+            return $posts;
+        }
 }

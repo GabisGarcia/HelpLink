@@ -4,6 +4,8 @@ $session = session();
 if ($session->get('user') == null) {
   header('Location: http://localhost/HelpLink/public/login');
   exit;
+} else {
+    $usuario = $session->get('user');
 }
 
 $this->extend('header');
@@ -84,7 +86,7 @@ $this->section('content');
             <h2 class="mb-5">Minhas publicações</h2>
         <?php
           $postsModel = new \App\Models\PostModel();
-          $posts = $postsModel->listarInicial();
+          $posts = $postsModel->listarPostUsuario($usuario->ID_CONTA); // listarPostUsuario
 
           foreach ($posts as $post) {
         ?>
