@@ -12,9 +12,10 @@
 
         public function CriarRelacao($tags)
         {
+            var_dump($tags);
             $idPost = $this->db->query('SELECT ID_POST FROM POST ORDER BY ID_POST DESC LIMIT 1');
-            foreach($tags as $tag){    
-                $this->db->query('INSERT INTO POST_TAG VALUES ('. $idPost .','. $tag .');');
-            }
+            // foreach($tags as $tag){    
+            //     $this->db->query('INSERT INTO POST_TAG VALUES ('. $idPost .','. $tag .');');
+            // }
         }
     }

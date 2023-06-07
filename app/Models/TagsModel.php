@@ -15,6 +15,6 @@
         public function getTags()
         {
             $resultado = $this->db->query('SELECT * FROM TAGS');
-            return $resultado;
+            return $resultado->getResult();
         }
     }

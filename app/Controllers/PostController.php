@@ -6,17 +6,26 @@ class PostController extends BaseController
 {
     private $PostModel;
     private $PostTagModel;
+    private $TagModel;
 
     public function __construct() {
         $this->PostModel = new \App\Models\PostModel();
         $this->PostTagModel = new \App\Models\PostTagModel();
+        $this->TagModel = new \App\Models\TagsModel();
     }
     
     public function postar()
     {
         $session = session();
         $usuario = $session->get('user');
-        $tags = $this->request->getPost('TAGS');
+        $qtsTags = sizeof($this->TagModel->getTags());
+        $tags = [];
+
+        for($i = 0; $i < $qtsTags; $i++) {
+            $string = 'TAGS'.$i;
+            array_push($tags, $this->request->getPost($string));
+        }
+
         $data = [
             'ID_CONTA' => $usuario->ID_CONTA,
             'TITULO' => $this->request->getPost('TITULO'),
@@ -27,7 +36,7 @@ class PostController extends BaseController
         ];
         $this->PostModel->save($data);
         $this->PostTagModel->CriarRelacao($tags);
-        $this->response->redirect(base_url()); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
+        //$this->response->redirect(base_url()); // provalvemente n sera redirecionado a pagina inicial mas deixaremos assim por enquanto
 
     }
 
