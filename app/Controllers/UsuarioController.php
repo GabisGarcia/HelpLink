@@ -53,6 +53,7 @@ class UsuarioController extends BaseController
         $session->destroy();
         $this->response->redirect(base_url("/login"));
     }
+//LUCAS, FAVOR INSERIR O NEGÓCIO PRA FUNFAR 
 
     public function alterar() {
         $data = [
