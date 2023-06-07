@@ -3,7 +3,7 @@
 $session = session();
 
 if ($session->get('user') != null) {
-  header('Location: http://localhost/HelpLink/public/');
+  header('Location: http://localhost:8080/7/HelpLink/public/');
   exit;
 }
 
