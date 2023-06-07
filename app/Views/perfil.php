@@ -49,13 +49,13 @@ $this->section('content');
 
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Meu perfil</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://www.zooplus.pt/magazine/wp-content/uploads/2021/03/kitten-sitzt-boden-768x512-1.jpeg" alt="..." /></span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" id="imagemPerfil" src="https://www.zooplus.pt/magazine/wp-content/uploads/2021/03/kitten-sitzt-boden-768x512-1.jpeg" alt="..." /></span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sobre mim</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Minhas publicações</a>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#sobremim">Sobre mim</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publicacoes">Minhas publicações</a>
                 </li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/configuracoesperfil">Configurações</a></li>
             </ul>
@@ -64,7 +64,7 @@ $this->section('content');
     <!-- Page Content-->
     <div class="container-fluid p-0">
         <!-- About-->
-        <section class="resume-section" id="about">
+        <section class="resume-section" id="sobremim">
             <div class="resume-section-content">
                 <h1 class="mb-0">
                     Meu
@@ -81,7 +81,7 @@ $this->section('content');
         </section>
         <hr class="m-0">
         <!-- Experience-->
-    <section class="resume-section" id="experience">
+    <section class="resume-section" id="publicacoes">
         <div class="publi-container">
             <h2 class="mb-5">Minhas publicações</h2>
         <?php
