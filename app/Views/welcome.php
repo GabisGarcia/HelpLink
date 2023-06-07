@@ -1,7 +1,8 @@
 <?php
 $session = session();
 if ($session->get('user') == null) {
-  header('Location: http://localhost/HelpLink/public/login');
+  $location = 'Location: '.base_url('/login');
+  header($location);
   exit;
 }
 ?>

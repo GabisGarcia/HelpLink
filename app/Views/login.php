@@ -1,11 +1,11 @@
 <?php
 
 $session = session();
-
-if ($session->get('user') != null) {
-  header('Location: http://localhost/HelpLink/public/');
-  exit;
-}
+  if ($session->get('user') != null) {
+    $location = 'Location: '.base_url('/');
+    header($location);
+    exit;
+  }
 
 
 $this->extend('header');

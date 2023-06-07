@@ -2,8 +2,9 @@
 
 $session = session();
 if ($session->get('user') == null) {
-  header('Location: http://localhost/HelpLink/public/login');
-  exit;
+    $location = 'Location: '.base_url('/login');
+    header($location);
+    exit;
 } else {
     $usuario = $session->get('user');
 }
