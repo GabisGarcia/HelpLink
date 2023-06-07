@@ -59,17 +59,17 @@ $this->section('content');
         </div>
         <div class="cabine">
             <div class="opcao">
-                <p class="name">Editar perfil</p>
+               <a href=" "><p class="name"> Editar perfil</p></a>
             </div>
         </div>
         <div class="cabine">
             <div class="opcao">
-            <p class="name">Mudar minha senha</p>
+                <a href=" "><p class="name"> Mudar minha senha </p></a>
             </div>
         </div>
         <div class="cabine">
             <div class="opcao">
-            <p class="name">Apagar perfil</p>
+                <a href=""><p class="name">Apagar perfil</p></a>
             </div>
         </div>
         </div>
