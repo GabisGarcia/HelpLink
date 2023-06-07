@@ -4,7 +4,7 @@
 
     use CodeIgniter\Model;
 
-    class Post_tagModel extends Model
+    class PostTagModel extends Model
     {
         protected $table = 'POST_TAG';
         protected $allowedFields = ['ID_TAG', 'ID_POST'];
