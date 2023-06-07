@@ -203,6 +203,7 @@
   border-radius: 999px;
   position: relative;
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .slider .circle {
