@@ -34,4 +34,11 @@ class Home extends BaseController
     {
         return view('config_perfil');
     }
+
+    /*provisorio*/
+    
+    public function visaoADM()
+    {
+        return view('visaoAdmin');
+    }
 }
