@@ -100,5 +100,9 @@ class PostController extends BaseController
         $this->PostModel->dislike($idPost);
     }
 
+    public function curtidas($idConta)
+    {
+       return $this->PostModel->listaCurtidas($idConta);
+    }
 }
 ?>

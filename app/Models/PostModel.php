@@ -73,13 +73,15 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
         }
 
-        public function like($idPost)
+        public function like($idPost, $idConta)
         {
+            $this->db->query('INSERT INTO LIKES (ID_POST, ID_CONTA) VALUES ('. $idPost . ', ' . $idConta . ');');
             $this->db->query('UPDATE POST SET REPUTACAO = REPUTACAO + 1 WHERE ID_POST = '. $idPost .';');
         }
 
-        public function dislike($idPost)
+        public function dislike($idPost, $idConta)
         {
+            $this->db->query('DELETE FROM LIKES WHERE ID_POST = '. $idPost . ' AND ID_CONTA=' . $idConta . ';');
             $this->db->query('UPDATE POST SET REPUTACAO = REPUTACAO - 1 WHERE ID_POST = '. $idPost .';');
         }
 
@@ -92,5 +94,10 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             }
 
             return $posts;
+        }
+
+        public function listaCurtidas($idConta) {
+            $resultado = $this->db->query("SELECT ID_POST FROM LIKES WHERE ID_CONTA = ". $idConta . ";");
+            return $resultado->getResult();
         }
 }
