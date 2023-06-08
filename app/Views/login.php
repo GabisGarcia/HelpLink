@@ -1,12 +1,11 @@
 <?php
 
 $session = session();
-  if ($session->get('user') != null) {
+if ($session->get('user') != null) {
     $location = 'Location: '.base_url('/');
     header($location);
     exit;
-  }
-
+}
 
 $this->extend('header');
 
