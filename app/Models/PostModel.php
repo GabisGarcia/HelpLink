@@ -100,4 +100,10 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             $resultado = $this->db->query("SELECT ID_POST FROM LIKES WHERE ID_CONTA = ". $idConta . ";");
             return $resultado->getResult();
         }
+
+        public function listarAdminView()
+        {
+            $resultado = $this->db->query("SELECT * FROM POST WHERE APROVADO = 0");
+            return $this->listarRes($resultado);
+        }
 }
