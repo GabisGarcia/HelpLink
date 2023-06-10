@@ -34,4 +34,9 @@ class Home extends BaseController
     {
         return view('config_perfil');
     }
+
+    public function edicaoPerfil()
+    {
+        return view('edicao_perfil');
+    }
 }
