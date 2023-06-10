@@ -6,17 +6,9 @@
     exit;
   }
 
-  $this->extend('header');
-
-  $this->section('title');
-
-  echo "Post";
-
-  $this->endSection();
-
-  $this->section('content');
 ?>
-
+<!DOCTYPE html>
+<html>
   <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -174,11 +166,7 @@
 .checkboxClass:focus {
   box-shadow: 0 0 0 var(--checkbox-shadow-width) var(--checkbox-shadow-color1), 0 0 0 var(--checkbox-shadow-width) var(--checkbox-shadow-color2);
 }
-
-
-  
 </style>
-</head>
 <body class="bodyForm">
   <header id="page-top">
 
@@ -203,9 +191,7 @@
   </header>
 <center>
 
-<body>
 
-  <div class="container">
 
     <form action="<?= base_url('UsuarioController/alterar') ?>" method="post" class="form">
       <div class="titulo">
@@ -214,7 +200,7 @@
       <!--nome-->
       <div class="field">
         <img src="https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-512.png" height="25" width="25">
-        <input name="NOME" id="NOME" type="text" value="Nome - Lele">
+        <input class="input-field" name="NOME" id="NOME" type="text" value="Nome - Lele">
       </div>
       <!--email-->
       <div class="field">
@@ -224,7 +210,7 @@
       <!--telefone-->
       <div class="field">
         <img src="https://cdn1.iconfinder.com/data/icons/modern-universal/32/icon-03-256.png" alt="telefone" height="25" width="25">
-        <input name="TELEFONE" id="TELEFONE" type="text" value="1658146416">
+        <input class="input-field" name="TELEFONE" id="TELEFONE" type="text" value="1658146416">
       </div>
       <!--descricao-->
       <div class="field">
