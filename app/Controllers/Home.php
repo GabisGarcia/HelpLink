@@ -39,4 +39,9 @@ class Home extends BaseController
     {
         return view('edicao_perfil');
     }
+    
+    public function visaoADM()
+    {
+        return view('visaoAdmin');
+    }
 }

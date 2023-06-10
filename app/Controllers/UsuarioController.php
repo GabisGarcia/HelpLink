@@ -75,4 +75,14 @@ class UsuarioController extends BaseController
         $this->UsuarioModel->deletarUsuario($IdUsuario);
         $this->response->redirect(base_url("/cadastro"));
     }    
+
+    public function Aprovar($ID_POST)
+    {
+        $this->UsuarioModel->Aprovar($ID_POST);
+    }
+
+    public function Negar($ID_CONTA, $ID_POST, $mensagem)
+    {
+        $this->UsuarioModel->Negar($ID_CONTA, $ID_POST, $mensagem);
+    }
 }

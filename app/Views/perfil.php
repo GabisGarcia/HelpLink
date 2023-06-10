@@ -73,6 +73,7 @@ $this->section('content');
                 </h1>
                 <div class="subheading mb-5">
                     Descrição dada pelo usuário
+                    
                 </div>
                 <p class="lead mb-5">Sobre o perfil</p>
                 <div class="social-icons">

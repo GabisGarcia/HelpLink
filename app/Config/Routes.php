@@ -47,7 +47,9 @@ $routes->get('PostController/like(:num)', 'PostController::like/$1');
 $routes->get('PostController/dislike(:num)', 'PostController::dislike/$1');
 
 
+/*provisorio*/ 
 
+$routes->get('/visaoadm', 'Home::visaoADM');
 
 /*
  * --------------------------------------------------------------------
