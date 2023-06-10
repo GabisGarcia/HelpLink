@@ -1,8 +1,8 @@
 <?php
 
 $session = session();
-if ($session->get('user') == null) {
-  $location = 'Location: '.base_url('/login');
+if ($session->get('user') !== null) {
+  $location = 'Location: ' . base_url('/login');
   header($location);
   exit;
 }
@@ -37,7 +37,7 @@ $this->section('content');
         <!--email-->
         <div class="field">
           <img src="https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-at-512.png" alt="email" height="25" width="25">
-          <input autocomplete="off" placeholder="E-mail" class="input-field" name="EMAIL" id="EMAIL" type="text">
+          <input autocomplete="off" placeholder="E-mail" class="input-field" name="EMAIL" id="EMAIL" type="email">
         </div>
         <!--telefone-->
         <div class="field">
@@ -62,8 +62,7 @@ $this->section('content');
 
       </form>
 
-      <a href="<?= base_url('login') ?>"><button class="button1" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Já tem uma conta?
-        Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button></a>
+      <a href="<?= base_url('login') ?>"><button class="button1" type="button">Já tem uma conta? Login</button></a>
 
     </div>
     <?php

@@ -93,18 +93,15 @@ class PostController extends BaseController
     public function like($idPost, $idConta)
     {
         $this->PostModel->like($idPost,$idConta);
+        $this->response->redirect(base_url());
     }
 
     public function dislike($idPost, $idConta)
     {
         $this->PostModel->dislike($idPost, $idConta);
-    }
+        $this->response->redirect(base_url());
 
-    public function curtidas($idConta)
-    {
-       return $this->PostModel->listaCurtidas($idConta);
     }
-
     public function listarAdminView()
     {
         $post = $this->PostModel->listarAdminView();
@@ -114,4 +111,3 @@ class PostController extends BaseController
         ]);
     }
 }
-?>

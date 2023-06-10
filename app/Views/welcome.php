@@ -1,10 +1,21 @@
 <?php
 $session = session();
 if ($session->get('user') == null) {
-  $location = 'Location: '.base_url('/login');
+  $location = 'Location: ' . base_url('/login');
   header($location);
   exit;
 }
+
+function verificaSeJaCurtiuPost($curtidas, $idPost)
+{
+  foreach ($curtidas as $curtida) {
+    if ($curtida->ID_POST == $idPost) {
+      return true;
+    }
+  }
+  return false;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -34,12 +45,12 @@ if ($session->get('user') == null) {
 
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-      <!-- Tema escuro -->
+    <!-- Tema escuro -->
     <label class="ui-switch" id="toggle">
-        <input type="checkbox">
-          <div class="slider">
-            <div class="circle"></div>
-          </div>
+      <input type="checkbox">
+      <div class="slider">
+        <div class="circle"></div>
+      </div>
     </label>
 
     <a class="navbar-brand js-scroll-trigger" href="<?= base_url() ?>/">
@@ -100,6 +111,8 @@ if ($session->get('user') == null) {
           <?php
           $postsModel = new \App\Models\PostModel();
           $posts = $postsModel->listarInicial();
+          $usuario = $session->get('user');
+          $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
 
           foreach ($posts as $post) {
           ?>
@@ -114,19 +127,19 @@ if ($session->get('user') == null) {
               </div>
               <!-- Imagem da pub-->
               <center>
-                <div class="img-pub" id="pubb">
+                <div class="img-pub" id="pub">
                   <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
                 </div>
               </center>
               <!-- Botao de like-->
-              <label class="container button-like">
-                <!-- Adicionar um onclick que quando ativar a checkbox o número de likes aumenta e tb aumenta no banco de dados -->
-                <input type="checkbox">
+              <a class="container" href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
+                <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
                 <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
                 </svg>
                 <?= $post->REPUTACAO ?>
-              </label>
+              </a>
+
               <hr>
             </div>
 
@@ -162,20 +175,16 @@ if ($session->get('user') == null) {
   </div>
   </div>
   <div class="container225">
-    <button type="button" class="buttonCompartilha">
-      <a href="<?= base_url() ?>/formpost">       
-      <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">   
-      </a>
-    </button>
-  </div>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <a href="<?= base_url() ?>/formpost">
+      <button type="button" class="buttonCompartilha">
+        <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">
+      </button>
+    </a>
 
-  <!-- Core theme JS-->
-  
+  </div>
+
   <script src="<?= base_url() ?>/js/tema.js"></script>
-  <script src="<?= base_url() ?>/js/usuarioLike.js"></script>
-  <script src="js/scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/e8b01ec522.js" crossorigin="anonymous"></script>
 </body>
 

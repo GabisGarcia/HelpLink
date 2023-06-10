@@ -11590,7 +11590,7 @@ form button img {
 }
 
 /* botão de like */
-.container input {
+.container  a{
   position: absolute;
   left:50%;
   right: 50%;
@@ -11601,6 +11601,7 @@ form button img {
   margin: 1rem;
   display: inline;
   float: right;
+  font-style: none;
 }
 
 .container {
@@ -11719,4 +11720,9 @@ form button img {
   opacity: 1;
   width: 0;
   height: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }

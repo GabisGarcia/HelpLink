@@ -1,14 +1,18 @@
 <?php
 
 namespace App\Controllers;
+
 use \App\Models\UsuarioModel;
 
 class UsuarioController extends BaseController
 {
     private $UsuarioModel;
+    private $session;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->UsuarioModel = new UsuarioModel();
+        $this->session = session();
     }
 
     public function adicionar()
@@ -27,18 +31,18 @@ class UsuarioController extends BaseController
         $this->response->redirect(base_url("/login"));
     }
 
-    public function login() {
+    public function login()
+    {
 
         $data = [
             "EMAIL" => $this->request->getPost("EMAIL"),
             "SENHA" => md5($this->request->getPost("SENHA")),
         ];
 
-        $session = session();
 
-        if($this->UsuarioModel->verificaUsuarioExiste($data)) {
-            if($this->UsuarioModel->verificaSenha($data)) {
-                $session->set('user', $this->UsuarioModel->verificaUsuarioExiste($data));
+        if ($this->UsuarioModel->verificaUsuarioExiste($data)) {
+            if ($this->UsuarioModel->verificaSenha($data)) {
+                $this->session->set('user', $this->UsuarioModel->verificaUsuarioExiste($data));
                 $this->response->redirect(base_url("/"));
             } else {
                 $this->response->redirect(base_url("/login"));
@@ -48,14 +52,14 @@ class UsuarioController extends BaseController
         }
     }
 
-    public function logout() {
-        $session = session();
-        $session->destroy();
+    public function logout()
+    {
+        $this->session->destroy();
         $this->response->redirect(base_url("/login"));
     }
-//LUCAS, FAVOR INSERIR O NEGÓCIO PRA FUNFAR 
 
-    public function alterar() {
+    public function alterar()
+    {
         $data = [
             "ID_CONTA" => $this->request->getPost("ID_CONTA"),
             "NOME" => $this->request->getPost("NOME"),
@@ -74,7 +78,7 @@ class UsuarioController extends BaseController
     {
         $this->UsuarioModel->deletarUsuario($IdUsuario);
         $this->response->redirect(base_url("/cadastro"));
-    }    
+    }
 
     public function Aprovar($ID_POST)
     {
