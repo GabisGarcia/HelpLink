@@ -60,7 +60,7 @@ $this->section('content');
         </div>
         <div class="cabine">
             <div class="opcao">
-               <a href=" "><p class="name"> Editar perfil</p></a>
+               <a href=" <?= base_url() ?>/editarperfil"><p class="name"> Editar perfil</p></a>
             </div>
         </div>
         <div class="cabine">

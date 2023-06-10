@@ -35,7 +35,10 @@ class Home extends BaseController
         return view('config_perfil');
     }
 
-    /*provisorio*/
+    public function edicaoPerfil()
+    {
+        return view('edicao_perfil');
+    }
     
     public function visaoADM()
     {
