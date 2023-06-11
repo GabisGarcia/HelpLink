@@ -38,8 +38,6 @@ class UsuarioModel extends Model
 
         $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
         $email->setTo($userEmail);
-        // CC
-        // BCC
 
         $email->setSubject('Seu post:"'. $postTitle. '" foi negado pelas seguintes razões');
         $email->setMessage($mensagem);
