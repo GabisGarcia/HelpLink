@@ -17,4 +17,5 @@
             $resultado = $this->db->query('SELECT * FROM TAGS');
             return $resultado->getResult();
         }
+
     }

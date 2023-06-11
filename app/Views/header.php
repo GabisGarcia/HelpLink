@@ -103,7 +103,11 @@
         }
     }
 
-    @media (min-width: 62em) {}
+    .validate-error {
+        color: red;
+        margin: 0;
+        margin-top: 1rem;
+    }
 </style>
 
 <body>

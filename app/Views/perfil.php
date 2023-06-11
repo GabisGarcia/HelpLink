@@ -72,8 +72,7 @@ $this->section('content');
                     <span class="text-primary">Perfil</span>
                 </h1>
                 <div class="subheading mb-5">
-                    Descrição dada pelo usuário
-                    
+                    <?= $usuario->DESCRICAO_USER ?>
                 </div>
                 <p class="lead mb-5">Sobre o perfil</p>
                 <div class="social-icons">

@@ -18,4 +18,10 @@
                 $this->db->query('INSERT INTO POST_TAG VALUES ('. $idPost .','. $tag .');');
             }
         }
+
+        public function listarTags($idPost)
+        {
+            $resultado = $this->db->query('SELECT NOME FROM TAGS WHERE ID_TAG IN (SELECT ID_TAG FROM POST_TAG WHERE ID_POST = '. $idPost .');');
+            return $resultado->getResult();
+        }
     }

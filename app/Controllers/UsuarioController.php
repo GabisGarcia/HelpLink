@@ -26,9 +26,13 @@ class UsuarioController extends BaseController
             "DESCRICAO_USER" => $this->request->getPost("DESCRICAO_USER"),
         ];
 
-        $this->UsuarioModel->save($data);
+        try {
+            $this->UsuarioModel->save($data);
 
-        $this->response->redirect(base_url("/login"));
+            return json_encode(["status" => "ok", "message" => "Usuário cadastrado com sucesso!", "data" => $data]);
+        } catch (\Exception $e) {
+            return json_encode(["status" => "error", "message" => "Erro ao cadastrar usuário!", "data" => $data]);
+        }
     }
 
     public function login()
@@ -64,14 +68,13 @@ class UsuarioController extends BaseController
             "ID_CONTA" => $this->request->getPost("ID_CONTA"),
             "NOME" => $this->request->getPost("NOME"),
             "EMAIL" => $this->request->getPost("EMAIL"),
-            "SENHA" => $this->request->getPost("SENHA"),
             "TELEFONE" => $this->request->getPost("TELEFONE"),
             "DESCRICAO_USER" => $this->request->getPost("DESCRICAO_USER"),
         ];
 
         $this->UsuarioModel->save($data);
 
-        $this->response->redirect(base_url("/posts"));
+        $this->response->redirect(base_url("/configuracoesperfil"));
     }
 
     public function deletarUsuario($IdUsuario)

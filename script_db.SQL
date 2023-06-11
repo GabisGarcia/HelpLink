@@ -16,9 +16,9 @@ CREATE TABLE USUARIO(
     NOME VARCHAR(55) NOT NULL,
     EMAIL VARCHAR(50) UNIQUE NOT NULL,
     SENHA VARCHAR(32) NOT NULL,
-    TELEFONE VARCHAR(20) NOT NULL,
+    TELEFONE VARCHAR(11) UNIQUE NOT NULL,
     ADM BIT DEFAULT 0,
-    DESCRICAO_USER VARCHAR(150)
+    DESCRICAO_USER VARCHAR(255)
 );
 
 CREATE TABLE TAGS(
@@ -26,15 +26,14 @@ CREATE TABLE TAGS(
     NOME VARCHAR(50) NOT NULL
 );
 
--- criar procedure para apgar primeiro as menções do post em tags
 
 CREATE TABLE POST(
     ID_POST INT AUTO_INCREMENT PRIMARY KEY ,
     ID_CONTA INT,
     TITULO VARCHAR(30)  NOT NULL,
-    DESCRICAO VARCHAR(200)  NOT NULL,
+    DESCRICAO VARCHAR(5000)  NOT NULL,
     VALOR FLOAT NOT NULL,
-    DOACAO VARCHAR(50),
+    DOACAO VARCHAR(255),
     CONTATO VARCHAR(255)  NOT NULL,
     POST_DATE DATETIME NOT NULL DEFAULT NOW(),
     APROVADO BIT DEFAULT 0,
@@ -64,9 +63,10 @@ FOR EACH ROW
     DELETE FROM POST_TAG WHERE ID_POST = ID_POST;
 
 
-insert into USUARIO (ID_CONTA, NOME, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values (null, 'A DA SILVA', 'a@a.cum', 'b', '123', 'desc'),
-                                                                              (null, 'A A DA SILVA', 'a@a.teste', 'c', '456', 'des'),
-                                                                              (null, 'A TESTE DA SILVA', 'a@a.teste1', 'd', '789', 'de');
+insert into USUARIO (ID_CONTA, NOME, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values 
+                                                                                (null, 'Arnaldo', 'a.teste@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999991', 'descricao do arnaldo'),
+                                                                                (null, 'Bernado', 'b.123@teste.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999992', 'descricao do bernado'),
+                                                                                (null, 'Carlos', 'c@teste.gov', 'c4ca4238a0b923820dcc509a6f75849b', '16999999993', 'desricao do carlos');
 insert into TAGS values (null, 'Animal'),
                         (null, 'Gato'),
                         (null, 'Cavalo');

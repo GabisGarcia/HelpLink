@@ -16,6 +16,16 @@ function verificaSeJaCurtiuPost($curtidas, $idPost)
   return false;
 }
 
+
+function mostraTags($idPost)
+{
+  $postTagModel = new \App\Models\PostTagModel();
+  $tags = $postTagModel->listarTags($idPost);
+  foreach ($tags as $tag) {
+    echo '<span class="badge bg-primary me-2 mb-2">' . $tag->NOME . '</span>';
+  }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -120,7 +130,7 @@ function verificaSeJaCurtiuPost($curtidas, $idPost)
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                   <h3 class="mb-0"><?= $post->TITULO ?></h3>
-                  <div class="subheading mb-3" id="assunto">TAG</div>
+                  <?= mostraTags($post->ID_POST) ?>
                   <p><?= $post->DESCRICAO ?></p>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>

@@ -6,6 +6,13 @@
     exit;
   }
 
+  $user = $session->get('user');
+
+  $idUsuario = $user->ID_CONTA;
+
+  $usuarioModel = new \App\Models\UsuarioModel();
+  $usuario = $usuarioModel->find($idUsuario);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -197,31 +204,27 @@
       <div class="titulo">
         <img src="<?= base_url('') ?>/img/foto_cadastro.png">
       </div>
+      <input type="hidden" name="ID_CONTA" value="<?= $usuario->ID_CONTA ?>">
       <!--nome-->
       <div class="field">
         <img src="https://cdn2.iconfinder.com/data/icons/user-interface-169/32/about-512.png" height="25" width="25">
-        <input class="input-field" name="NOME" id="NOME" type="text" value="Nome - Lele">
+        <input class="input-field" name="NOME" id="NOME" type="text" value="<?= $usuario->NOME  ?>">
       </div>
       <!--email-->
       <div class="field">
         <img src="https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-at-512.png" alt="email" height="25" width="25">
-        <input class="input-field" name="EMAIL" id="EMAIL" type="text" value="Email - lele@linda">
+        <input class="input-field" name="EMAIL" id="EMAIL" type="text" value="<?= $usuario->EMAIL  ?>">
       </div>
       <!--telefone-->
       <div class="field">
         <img src="https://cdn1.iconfinder.com/data/icons/modern-universal/32/icon-03-256.png" alt="telefone" height="25" width="25">
-        <input class="input-field" name="TELEFONE" id="TELEFONE" type="text" value="1658146416">
+        <input class="input-field" name="TELEFONE" id="TELEFONE" type="text" value="<?= $usuario->TELEFONE  ?>">
       </div>
       <!--descricao-->
       <div class="field">
         <img src="https://cdn0.iconfinder.com/data/icons/free-daily-icon-set/512/Task-256.png" alt="desc" height="25" width="25">
-        <input type="text" placeholder="Descrição" class="input-field" name="DESCRICAO_USER" id="DESCRICAO_USER" value="fins lucrativos">
+        <input type="text" placeholder="Descrição" class="input-field" name="DESCRICAO_USER" id="DESCRICAO_USER" value="<?= $usuario->DESCRICAO_USER  ?>">
       </div>
-        <!--senha-->
-        <div class="field">
-          <img src="https://cdn0.iconfinder.com/data/icons/essentials-4/1710/lock-256.png" alt="senha" height="25" width="25">
-          <input placeholder="Password" class="input-field" name="SENHA" id="SENHA" type="password">
-        </div>
         <div class="btn-salvar">
           <button class="button2">Salvar Alterações</button>
         </div>

@@ -9,7 +9,7 @@ class UsuarioModel extends Model
     protected $table = 'USUARIO';
     protected $primaryKey = 'ID_CONTA';
     protected $useAutoIncrement = true;
-    protected $allowedFields = ['NOME', 'EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
+    protected $allowedFields = ['ID_CONTA', 'NOME', 'EMAIL', 'SENHA', 'TELEFONE', 'DESCRICAO_USER'];
     protected $returnType = 'object';
 
     public function verificaUsuarioExiste($data)
