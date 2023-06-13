@@ -53,7 +53,7 @@ if ($session->get('user') == null) {
                     <div class="img-pub" id="pubb">
                     <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
                     </div>
-                <button class="game-button-green">Aprovar post</button>
+                <button class="game-button-green">aprovar post</button>
                 <button class="game-button">Recusar post</button>
             </center>
               <hr>
