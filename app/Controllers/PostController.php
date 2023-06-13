@@ -107,7 +107,7 @@ class PostController extends BaseController
     {
         $post = $this->PostModel->listarAdminView();
 
-        return view('listaAdimin(?)', [
+        return view('visaoAdmin', [
             'post' => $post,
         ]);
     }
