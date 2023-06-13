@@ -102,6 +102,7 @@ class PostController extends BaseController
         $this->response->redirect(base_url());
 
     }
+
     public function listarAdminView()
     {
         $post = $this->PostModel->listarAdminView();
@@ -109,5 +110,17 @@ class PostController extends BaseController
         return view('listaAdimin(?)', [
             'post' => $post,
         ]);
+    }
+
+    public function Aprovar($ID_POST)
+    {
+        $this->PostModel->Aprovar($ID_POST);
+        $this->response->redirect(base_url('PostController/listarAdminView'));
+    }
+
+    public function Negar($ID_CONTA, $ID_POST, $mensagem)
+    {
+        $this->PostModel->Negar($ID_CONTA, $ID_POST, $mensagem);
+        $this->response->redirect(base_url('PostController/listarAdminView'));
     }
 }

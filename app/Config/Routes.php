@@ -50,11 +50,11 @@ $routes->get('PostController/listarPesquisa', 'PostController::listarPesquisa');
 $routes->get('PostController/listarInicial', 'PostController::listarInicial');
 $routes->get('PostController/like(:num)', 'PostController::like/$1');
 $routes->get('PostController/dislike(:num)', 'PostController::dislike/$1');
+$routes->get('/editarsenha', 'Home::edicaoSenha');
+$routes->get('PostController/listarAdminView', 'PostController::listarAdminView');
+$routes->get('PostController/Aprovar', 'PostController/Aprovar');
+$routes->get('PostController/Negar', 'PostController/Negar');
 
-
-/*provisorio*/ 
-
-$routes->get('/visaoadm', 'Home::visaoADM');
 
 /*
  * --------------------------------------------------------------------

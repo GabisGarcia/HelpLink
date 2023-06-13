@@ -112,4 +112,35 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
             return $posts;
         }
+
+        public function Aprovar($ID_POST)
+        {
+            $this->db->query('UPDATE POST SET APROVADO = 1 WHERE ID_POST = '. $ID_POST .';');
+        }
+
+        public function EnviarEmail($userEmail, $postTitle, $mensagem)
+        {
+            $email = \Config\Services::email();
+
+            $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
+            $email->setTo($userEmail);
+
+            $email->setSubject('Seu post:"'. $postTitle. '" foi negado pelas seguintes razões');
+            $email->setMessage($mensagem);
+
+            $email->send();
+        }
+
+        public function Negar($ID_CONTA, $ID_POST, $mensagem)
+        {
+            # não haverá nenhuma modificação no post, ele será apagado e um email enviado ao usuário
+            $postTitle = $this->db->query('SELECT TITULO FROM POST WHERE ID_POST = '. $ID_POST .';');
+
+            $this->db->query('DELETE FROM POST WHERE ID_POST = '. $ID_POST .';');
+
+            $userEmail = $this->db->query('SELECT EMAIL FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';');
+            
+            $this->EnviarEmail($userEmail, $postTitle, $mensagem);
+        }
+
 }
