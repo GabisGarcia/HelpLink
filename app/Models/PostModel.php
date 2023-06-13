@@ -104,6 +104,12 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         public function listarAdminView()
         {
             $resultado = $this->db->query("SELECT * FROM POST WHERE APROVADO = 0");
-            return $this->listarRes($resultado);
+            $posts = $this->listarRes($resultado);
+            if(!$posts || !isset($posts)) {
+                echo "<h1>NAO TEM POST</h1>";
+                return [];
+            }
+
+            return $posts;
         }
 }
