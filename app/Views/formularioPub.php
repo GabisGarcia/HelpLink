@@ -243,6 +243,10 @@
       <br>
       <label class="labelPost" for="DESCRICAO">Descrição:</label>
       <textarea id="mensagem" name="DESCRICAO" required></textarea>
+
+      <input  type="file"  name="IMAGEM" >
+
+
       <button class="botao-voltar" type="submit">Enviar</button>
   </form>
 

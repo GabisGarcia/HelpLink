@@ -67,7 +67,7 @@ function mostraTags($idPost)
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <!-- Tema escuro -->
     <label class="ui-switch" id="toggle">
-      <input type="checkbox">
+      <input type="checkbox" class="checkbox-theme">
       <div class="slider">
         <div class="circle"></div>
       </div>
@@ -133,9 +133,12 @@ function mostraTags($idPost)
           $posts = $postsModel->listarInicial();
           $usuario = $session->get('user');
           $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
+          $usuarioModel = new \App\Models\UsuarioModel();
+
 
           foreach ($posts as $post) {
             if ($post->APROVADO) {
+              $donoPost = $usuarioModel->find($post->ID_CONTA);
 
 
           ?>
@@ -146,7 +149,7 @@ function mostraTags($idPost)
                     <?= mostraTags($post->ID_POST) ?>
                     <p><?= $post->DESCRICAO ?></p>
                   </div>
-                  <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
+                  <div class="flex-shrink-0"><p class="text-secondary">Criado por <?= $donoPost->NOME ?></p><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
                 </div>
                 <!-- Imagem da pub-->
                 <center>
