@@ -113,7 +113,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             return $posts;
         }
 
-        public function Aprovar($ID_POST)
+        public function aprovar($ID_POST)
         {
             $this->db->query('UPDATE POST SET APROVADO = 1 WHERE ID_POST = '. $ID_POST .';');
         }
@@ -131,7 +131,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             $email->send();
         }
 
-        public function Negar($ID_CONTA, $ID_POST, $mensagem)
+        public function negar($ID_CONTA, $ID_POST, $mensagem)
         {
             # não haverá nenhuma modificação no post, ele será apagado e um email enviado ao usuário
             $postTitle = $this->db->query('SELECT TITULO FROM POST WHERE ID_POST = '. $ID_POST .';');

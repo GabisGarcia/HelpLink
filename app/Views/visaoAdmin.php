@@ -28,6 +28,10 @@ if ($session->get('user') == null) {
             <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<?= base_url() ?>/img/logo_white.png" alt="..." height="80px" weight="50px" /></span>
             </a>
         </center>
+
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
+        </ul>
     </nav>
 
     <section class="publi-container" id="index">
@@ -35,7 +39,7 @@ if ($session->get('user') == null) {
 
           <?php
           $postsModel = new \App\Models\PostModel();
-          $posts = $postsModel->listarInicial();
+          $posts = $postsModel->listarAdminView();
 
           foreach ($posts as $post) {
           ?>
@@ -53,8 +57,15 @@ if ($session->get('user') == null) {
                     <div class="img-pub" id="pubb">
                     <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
                     </div>
-                <button class="game-button-green">Aprovar post</button>
-                <button class="game-button">Recusar post</button>
+
+                <!-- Aprovação -->
+                <form action="<?= base_url() ?>/PostController/aprovar">
+                  <input type="hidden" <?= $post->ID_POST ?>> 
+                    <button type="submit" class="game-button-green">aprovar post</button>
+                </form>
+                <br>
+                <button class="game-button" action="<?= base_url() ?>">Recusar post</button>
+
             </center>
               <hr>
             </div>

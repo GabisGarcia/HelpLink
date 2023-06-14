@@ -27,4 +27,16 @@ class UsuarioModel extends Model
         $this->db->query('DELETE FROM USUARIO WHERE ID_CONTA = '. $idUsuario .';');
     }
     
+    public function checarSenha($ID_CONTA, $senhaInserida){
+        $senha = $this->db->query('SELECT SENHA FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';');
+        if($senhaInserida != $senha){
+            return false;
+        }
+        return true;
+    }
+
+    public function alterarSenha($ID_CONTA, $novaSenha)
+    {
+        $this->db->query('UPDATE USUARIO SET SENHA = "'. $novaSenha .'" WHERE $ID_CONTA = '. $ID_CONTA .';');
+    }
 }

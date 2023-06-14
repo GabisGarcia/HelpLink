@@ -112,15 +112,15 @@ class PostController extends BaseController
         ]);
     }
 
-    public function Aprovar($ID_POST)
+    public function aprovar($ID_POST)
     {
-        $this->PostModel->Aprovar($ID_POST);
+        $this->PostModel->aprovar($ID_POST);
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
 
-    public function Negar($ID_CONTA, $ID_POST, $mensagem)
+    public function negar($ID_CONTA, $ID_POST, $mensagem)
     {
-        $this->PostModel->Negar($ID_CONTA, $ID_POST, $mensagem);
+        $this->PostModel->negar($ID_CONTA, $ID_POST, $mensagem);
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
 }
