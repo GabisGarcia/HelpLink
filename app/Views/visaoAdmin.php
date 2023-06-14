@@ -59,8 +59,8 @@ if ($session->get('user') == null) {
                     </div>
 
                 <!-- Aprovação -->
-                <form action="<?= base_url() ?>/PostController/aprovar">
-                  <input type="hidden" <?= $post->ID_POST ?>> 
+                <form action="<?= base_url('PostController/aprovar') ?>" method="post">
+                  <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>"> 
                     <button type="submit" class="game-button-green">aprovar post</button>
                 </form>
                 <br>

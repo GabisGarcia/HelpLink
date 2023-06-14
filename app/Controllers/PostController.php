@@ -112,9 +112,10 @@ class PostController extends BaseController
         ]);
     }
 
-    public function aprovar($ID_POST)
+    public function aprovar()
     {
-        $this->PostModel->aprovar($ID_POST);
+        $idPost = $this->request->getPost("ID_POST");
+        $this->PostModel->aprovar($idPost);
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
 
