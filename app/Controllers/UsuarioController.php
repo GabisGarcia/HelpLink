@@ -98,4 +98,15 @@ class UsuarioController extends BaseController
 
         $this->response->redirect(base_url("/faio"));
     }
+
+    public function checarEmail()
+    {
+        $emailInserido = 'eu@eu.com';
+        if($this->UsuarioModel->checarEmail($emailInserido)){
+            $this->UsuarioModel->enviarEmail($emailInserido);
+            $this->response->redirect(base_url("/emailenviado"));
+        }
+
+        $this->response->redirect(base_url("/falhaaochecaremail"));
+    }
 }
