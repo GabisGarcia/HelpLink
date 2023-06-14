@@ -6,6 +6,12 @@ if ($session->get('user') == null) {
   exit;
 }
 
+if ($session->get('ADM') == 1) {
+  $location = 'Location: ' . base_url('/PostController/listarAdminView');
+  header($location);
+  exit;
+}
+
 function verificaSeJaCurtiuPost($curtidas, $idPost)
 {
   foreach ($curtidas as $curtida) {
