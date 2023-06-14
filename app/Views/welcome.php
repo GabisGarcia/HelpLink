@@ -170,24 +170,7 @@ function mostraTags($idPost)
 
 
     <!-- Configurações -->
-    <div class="container-fluid p-0">
-      <section class="resume-section" id="config">
-        <div class="resume-section-content">
-          <h1 class="mb-0">
-            Minhas
-            <span class="text-primary">Configurações </span>
-          </h1>
-          <div class="subheading mb-5">
-            Altere aqui suas informações
-          </div>
-          <p class="lead mb-5"></p>
-          <div class="social-icons">
-            <br><br><br><br><br>
-            <hr>
-          </div>
-        </div>
-      </section>
-    </div>
+    
   </div>
   </div>
   <div class="container225">

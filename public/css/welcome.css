@@ -2,6 +2,7 @@
  .pub-card {
     border: 2px;
     margin: 2rem;
+    justify-content: center;
   }
 
 /* botão de like */
