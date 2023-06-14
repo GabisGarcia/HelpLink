@@ -6,7 +6,11 @@ if ($session->get('user') == null) {
   exit;
 }
 
-if ($session->get('ADM') == 1) {
+$user = $session->get('user');
+
+$tipoUsuario = $user->ADM;
+
+if ($tipoUsuario == 1) {
   $location = 'Location: ' . base_url('/PostController/listarAdminView');
   header($location);
   exit;
