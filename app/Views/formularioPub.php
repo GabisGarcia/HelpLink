@@ -38,11 +38,11 @@
   }
 
   form {
-    background-color: #fea1a1;
+    background-color: #53afaf;
     border-radius: 10px;
     padding: 20px;
     width: 700px;
-    height: 600;
+    height: 80%;
     margin: 0 auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -56,6 +56,10 @@
     height: 150px;
     border-radius: 40px;
     max-height: 250px;
+    padding: 2rem;
+    margin: 1rem;
+    outline: none;
+    border: none;
   }
   
   .labelPost {
@@ -92,6 +96,7 @@
   }
   .input-containerTeste{
     display: flex;
+    margin: 1rem;
   }
   .input-containerTeste input{
     margin-right:15px;
@@ -211,7 +216,7 @@
         <label class="labelPost" for="VALOR">Valor:</label>
         <input class="inputPost" type="number" id="VALOR" name="VALOR" required>
         <label class="labelPost" for="DOCAO">Doação:</label>
-        <input class="inputPost" type="number" id="DOACAO" name="DOACAO" required>
+        <input class="inputPost" type="text" id="DOACAO" name="DOACAO" required>
       </div>
       <br>
       <div class="input-containerTeste" id ="TAG" name="TAG">
@@ -238,8 +243,7 @@
       <br>
       <label class="labelPost" for="DESCRICAO">Descrição:</label>
       <textarea id="mensagem" name="DESCRICAO" required></textarea>
-      <br>
-      <input type="submit" value="Enviar">
+      <button class="botao-voltar" type="submit">Enviar</button>
   </form>
 
 </body>
