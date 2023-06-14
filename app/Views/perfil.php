@@ -9,6 +9,27 @@ if ($session->get('user') == null) {
     $usuario = $session->get('user');
 }
 
+function verificaSeJaCurtiuPost($curtidas, $idPost)
+{
+  foreach ($curtidas as $curtida) {
+    if ($curtida->ID_POST == $idPost) {
+      return true;
+    }
+  }
+  return false;
+}
+
+
+function mostraTags($idPost)
+{
+  $postTagModel = new \App\Models\PostTagModel();
+  $tags = $postTagModel->listarTags($idPost);
+  foreach ($tags as $tag) {
+    echo '<span class="badge bg-primary me-2 mb-2">' . $tag->NOME . '</span>';
+  }
+}
+
+
 $this->extend('header');
 
 $this->section('title');
@@ -19,20 +40,24 @@ $this->section('content');
 ?>
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Meu perfil</title>
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- CSS-->
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
-    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/configuracoes_perfil.css">
-
+<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HelpLink</title>
+  <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
+  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/welcome.css">
 </head>
 
 <body id="page-top">
@@ -82,48 +107,54 @@ $this->section('content');
         </section>
         <hr class="m-0">
         <!-- Experience-->
-    <section class="resume-section" id="publicacoes">
+    <section id="publicacoes">
         <div class="publi-container">
-            <h2 class="mb-5">Minhas publicações</h2>
-        <?php
+            <p><h2 class="mb-5">            Minhas publicações</h2></p>
+        <br>
+    
+          <?php
           $postsModel = new \App\Models\PostModel();
-          $posts = $postsModel->listarPostUsuario($usuario->ID_CONTA); // listarPostUsuario
+          $posts = $postsModel->listarInicial();
+          $usuario = $session->get('user');
+          $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
 
           foreach ($posts as $post) {
-        ?>
+          ?>
 
-            <div class="resume-section-content">
-                
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0"><?= $post->TITULO ?></h3>
-                        <div class="subheading mb-3" id="assunto">Assunto</div>
-                        <p><?= $post->DESCRICAO ?></p>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
+            <div class="pub-card">
+              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                  <h3 class="mb-0"><?= $post->TITULO ?></h3>
+                  <?= mostraTags($post->ID_POST) ?>
+                  <p><?= $post->DESCRICAO ?></p>
                 </div>
+                <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
+              </div>
+                <!-- Imagem da pub-->
                 <center>
-                    <div class="pubb" id="pubb">
-                        <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
-                    </div>
-                </center>
-                <br>
-                <div id="botao">
-                    <label class="container">
-                        <!-- Adicionar um onclick que quando ativar a checkbox o número de likes aumenta e tb aumenta no banco de dados -->
-                        <input type="checkbox">
-                        <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
-                        </svg>
-                        <?= $post->REPUTACAO ?>
-                        </label>
+                <div class="img-pub" id="pub">
+                  <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
                 </div>
-                <hr> 
+              </center>
+              <!-- Botao de like-->
+              <a class="container" href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
+                <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
+                </svg>
+                <?= $post->REPUTACAO ?>
+              </a>
+
+              <hr>
             </div>
-        <?php
-            }
-        ?>
-        </div>  
+            
+
+
+          <?php
+          }
+          ?>
+
+        </div>
     </section>
 
         <div class="container225">
