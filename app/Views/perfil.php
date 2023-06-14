@@ -59,6 +59,83 @@ $this->section('content');
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/welcome.css">
 </head>
+<style>
+  
+.menu {
+  position: fixed;
+  display: block;
+  right: 0;
+  
+}
+
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 50px;
+}
+
+.dots {
+  width: 7px;
+  height: 7px;
+  background-color: #53afaf;
+  border-radius: 50%;
+  margin-bottom: 4px;
+  right:0;
+}
+
+.dots::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background-color: #53afaf;
+  border-radius: 50%;
+  top: -12px;
+  z-index: -1;
+}
+
+.options {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .options {
+  display: block;
+}
+
+.options ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options ul li {
+  padding: 8px 0;
+  cursor: pointer;
+  color: black;
+}
+
+.options ul li:hover {
+  background-color: #ddd;
+  padding-left: 5px;
+
+}
+
+</style>
 
 <body id="page-top">
 
@@ -124,6 +201,28 @@ $this->section('content');
             <div class="pub-card">
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
+                  <div class="menu-toggle">
+                    <div class="dropdown">
+                      <div class="dots"></div>
+                      <div class="dots"></div>
+
+                      <div class="options">
+                        <ul>
+                          <li>
+                            <a href="<?=base_url()?>/PostController/deletar/<?=$post->ID_POST?>">
+                            <img src="<?=base_url()?>/img/remover.png" alt="" widht="30px" height="30px">
+                            Excluir
+                            </a>
+                          </li>
+                          <li href="#">
+                          <img src="<?=base_url()?>/img/editar.png" alt="" widht="30px" height="30px">
+
+                            Editar
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                   <h3 class="mb-0"><?= $post->TITULO ?></h3>
                   <?= mostraTags($post->ID_POST) ?>
                   <p><?= $post->DESCRICAO ?></p>
