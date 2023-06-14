@@ -65,6 +65,7 @@ if ($session->get('user') == null) {
                 </form>
                 <br>
                 <button class="game-button" action="<?= base_url() ?>">Recusar post</button>
+
             </center>
               <hr>
             </div>

@@ -52,8 +52,8 @@ $routes->get('PostController/like(:num)', 'PostController::like/$1');
 $routes->get('PostController/dislike(:num)', 'PostController::dislike/$1');
 $routes->get('/editarsenha', 'Home::edicaoSenha');
 $routes->get('PostController/listarAdminView', 'PostController::listarAdminView');
-$routes->get('PostController/Aprovar', 'PostController/Aprovar');
-$routes->get('PostController/Negar', 'PostController/Negar');
+$routes->get('PostController/aprovar', 'PostController/aprovar');
+$routes->get('PostController/negar', 'PostController/negar');
 
 
 /*

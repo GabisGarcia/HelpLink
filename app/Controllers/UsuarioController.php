@@ -82,14 +82,20 @@ class UsuarioController extends BaseController
         $this->UsuarioModel->deletarUsuario($IdUsuario);
         $this->response->redirect(base_url("/cadastro"));
     }
-
-    public function Aprovar($ID_POST)
+    
+    public function alterarSenha($ID_CONTA, $novaSenha)
     {
-        $this->UsuarioModel->Aprovar($ID_POST);
+        $this->UsuarioModel->alterarSenha($ID_CONTA, $novaSenha);
+        $this->response->redirect(base_url("/funfo"));
     }
 
-    public function Negar($ID_CONTA, $ID_POST, $mensagem)
+    public function checarSenha($ID_CONTA, $senhaInserida)
     {
-        $this->UsuarioModel->Negar($ID_CONTA, $ID_POST, $mensagem);
+        $senhaInserida = md5($senhaInserida);
+        if($this->UsuarioModel->checarSenha($ID_CONTA, $senhaInserida)){
+            $this->response->redirect(base_url("/alterarSenha")); 
+        }
+
+        $this->response->redirect(base_url("/faio"));
     }
 }
