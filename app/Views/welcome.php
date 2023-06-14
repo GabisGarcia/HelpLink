@@ -131,36 +131,40 @@ function mostraTags($idPost)
           $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
 
           foreach ($posts as $post) {
-          ?>
-            <div class="pub-card">
-              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                  <h3 class="mb-0"><?= $post->TITULO ?></h3>
-                  <?= mostraTags($post->ID_POST) ?>
-                  <p><?= $post->DESCRICAO ?></p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
-              </div>
-              <!-- Imagem da pub-->
-              <center>
-                <div class="img-pub" id="pub">
-                  <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
-                </div>
-              </center>
-              <!-- Botao de like-->
-              <a class="container" href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
-                <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
-                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
-                </svg>
-                <?= $post->REPUTACAO ?>
-              </a>
+            if ($post->APROVADO) {
 
-              <hr>
-            </div>
+
+          ?>
+              <div class="pub-card">
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                  <div class="flex-grow-1">
+                    <h3 class="mb-0"><?= $post->TITULO ?></h3>
+                    <?= mostraTags($post->ID_POST) ?>
+                    <p><?= $post->DESCRICAO ?></p>
+                  </div>
+                  <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
+                </div>
+                <!-- Imagem da pub-->
+                <center>
+                  <div class="img-pub" id="pub">
+                    <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
+                  </div>
+                </center>
+                <!-- Botao de like-->
+                <a class="container" href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
+                  <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
+                  <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
+                  </svg>
+                  <?= $post->REPUTACAO ?>
+                </a>
+
+                <hr>
+              </div>
 
 
           <?php
+            }
           }
           ?>
 
@@ -170,7 +174,7 @@ function mostraTags($idPost)
 
 
     <!-- Configurações -->
-    
+
   </div>
   </div>
   <div class="container225">

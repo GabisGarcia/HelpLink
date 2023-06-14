@@ -63,10 +63,10 @@ FOR EACH ROW
     DELETE FROM POST_TAG WHERE ID_POST = ID_POST;
 
 
-insert into USUARIO (ID_CONTA, NOME, EMAIL, SENHA, TELEFONE, DESCRICAO_USER) values 
-                                                                                (null, 'Arnaldo', 'a.teste@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999991', 'descricao do arnaldo'),
-                                                                                (null, 'Bernado', 'b.123@teste.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999992', 'descricao do bernado'),
-                                                                                (null, 'Carlos', 'c@teste.gov', 'c4ca4238a0b923820dcc509a6f75849b', '16999999993', 'desricao do carlos');
+insert into USUARIO (ID_CONTA, NOME, EMAIL, SENHA, TELEFONE, ADM, DESCRICAO_USER) values                                -- SENHA = 1
+                                                                                (null, 'Arnaldo', 'a.teste@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999991', 1, 'descricao do arnaldo'),
+                                                                                (null, 'Bernado', 'b.123@teste.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999992', 0, 'descricao do bernado'),
+                                                                                (null, 'Carlos', 'c@teste.gov', 'c4ca4238a0b923820dcc509a6f75849b', '16999999993', 0,'desricao do carlos');
 insert into TAGS values (null, 'Animal'),
                         (null, 'Gato'),
                         (null, 'Cavalo');
