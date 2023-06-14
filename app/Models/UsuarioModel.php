@@ -39,4 +39,27 @@ class UsuarioModel extends Model
     {
         $this->db->query('UPDATE USUARIO SET SENHA = "'. $novaSenha .'" WHERE $ID_CONTA = '. $ID_CONTA .';');
     }
+
+    public function checarEmail($emailInserido)
+    {
+        $resultado = $this->db->query('SELECT EMAIL FROM USUARIO WHERE EMAIL = "'. $emailInserido .'";')->getRow();
+        if($resultado){
+            return true;
+        }
+        return false;
+    }
+
+    public function enviarEmail($emailInserido)
+    {
+        $email = \Config\Services::email();
+        $hora = $this->db->query('SELECT NOW();');
+        
+        $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
+        $email->setTo($emailInserido);
+
+        $email->setSubject('Requisição de mudança de senha');
+        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e hora :". $hora ."<br> 
+                            Se não foi você que fez esta requisição você pode ignorar essa menssagem<br>
+                            Caso tenha sido este é o código requerido:");
+    }
 }
