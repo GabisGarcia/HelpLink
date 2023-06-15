@@ -119,9 +119,19 @@ class PostController extends BaseController
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
 
-    public function negar($ID_CONTA, $ID_POST, $mensagem)
+    public function negarRedirecionar()
     {
-        $this->PostModel->negar($ID_CONTA, $ID_POST, $mensagem);
+        $idPost = $this->request->getPost("ID_POST");
+
+        $data = [
+            "idPost" => $idPost,
+        ];
+
+        return view("negando_post", $data);
+    }
+
+    public function negar(){
+        $this->PostModel->negar();
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
 }
