@@ -49,26 +49,24 @@ class UsuarioModel extends Model
         return false;
     }
 
-    public function criarCodigo()
-    {
-        $codigo = $this->rand(1000, 9999);
-        return md5($codigo);
+    public function putCodigo($codigo, $email){
+        $ID_CONTA = $this->db->query('SELECT ID_CONTA FROM USUARIO WHERE EMAIL = "'. $email . '";');
+        $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA .', '. $codigo .');');
     }
 
-    public function enviarEmail($emailInserido)
+
+    public function enviarEmail($emailInserido, $codigo)
     {
-        $codigo = 10;//$this->criarCodigo();
-        var_dump($codigo);
-        $hora = 10;//$this->db->query('SELECT NOW();');
-
-
+        $data = $this->db->query('SELECT NOW() AS tempo;')->getRow();
+        $data = $data->tempo;
+        
         $email = \Config\Services::email();
         
         $config = [
             'protocol' => 'smtp',
             'SMTPHost' => 'sandbox.smtp.mailtrap.io',
-            'SMTPUser' => '5bb30114e93ebc',
-            'SMTPPass' => '7c98abf957e92e',
+            'SMTPUser' => '1c3803a3371d0a',
+            'SMTPPass' => '4abde1e5ed71c8',
             'SMTPPort' => 25,
             'wordWrap' => true,
             'newline' => "\r\n",
@@ -77,19 +75,22 @@ class UsuarioModel extends Model
         $email->initialize($config);
 
         $email->setFrom('Gabrielrm813@gmail.com', 'HelpLink Administration');
-        $email->setTo('Gabriel-rodrigues-martins@hotmail.com');
+        $email->setTo($emailInserido);
 
         $email->setSubject('Requisicao de mudanca de senha');
-        /*$email->setMessage("Uma requisição de mudança de email foi feita nesta data e hora :". $hora ."<br> 
+        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e data :". $data ."<br> 
                             Se não foi você que fez esta requisição você pode ignorar essa menssagem<br>
                             Caso tenha sido realmente você que requeriu, este é o código:". $codigo ."<br>
                             Favor incerilo dentro de 10 minutos<br>
-                            Atenciosamente, HelpLink Administration");*/
+                            Atenciosamente, HelpLink Administration");
 
-        $email->setMessage('Funcionou!!!!');
 
         if (! $email->send()) {
            var_dump($email->printDebugger());
         }
+    }
+
+    public function checarCodigo($codigoInserido, $ID_CONTA){
+        if($this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .''));
     }
 }
