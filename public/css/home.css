@@ -215,6 +215,7 @@ h1,
 
 h2, .h2 {
   font-size: calc(1.475rem + 2.7vw);
+  margin-left: 1rem;
 }
 @media (min-width: 1200px) {
   h2, .h2 {
@@ -11396,13 +11397,15 @@ p.lead {
     padding: 0.5rem;
   }
   #sideNav .navbar-brand .img-profile {
-    max-width: 200px;
-    max-height: 250px;
-    border-radius: 50%;
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    min-height: 150px;
+    border-radius: 150px;
   }
 
   #imagemPerfil{
-    border-radius: 50% !important;
+    border-radius: 150px !important;
   }
   #sideNav .navbar-collapse {
     display: flex;
@@ -11448,14 +11451,14 @@ p.lead {
 section.resume-section {
   display: flex;
   align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-left: 50px;
+  padding-right: 3rem;
+  padding-top: 10px;
+  padding-bottom: 10px;
   max-width: 75rem;
 }
 section.resume-section .resume-section-content {
-  width: 100%;
+  width: 75%;
 }
 
 @media (min-width: 768px) {

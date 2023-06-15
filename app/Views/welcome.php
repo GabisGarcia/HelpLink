@@ -83,9 +83,7 @@ function mostraTags($idPost)
 
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/meuperfil">Meu
             perfil</a></li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('cadastro') ?>">Cadastrar</a>
         </li>
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Configurações</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
       </ul>
     </div>

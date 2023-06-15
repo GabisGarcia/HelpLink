@@ -12,7 +12,7 @@
 
   $usuarioModel = new \App\Models\UsuarioModel();
   $usuario = $usuarioModel->find($idUsuario);
-
+  
 ?>
 <!DOCTYPE html>
 <html>

@@ -170,15 +170,18 @@ $this->section('content');
         <section class="resume-section" id="sobremim">
             <div class="resume-section-content">
                 <h1 class="mb-0">
-                    Meu
-                    <span class="text-primary">Perfil</span>
+                    Meu PERFIL - 
+                    <span class="text-primary"><?= $usuario->NOME ?></span>
                 </h1>
                 <div class="subheading mb-5">
-                    <?= $usuario->DESCRICAO_USER ?>
+                    <p><?= $usuario->DESCRICAO_USER ?></p>
                 </div>
-                <p class="lead mb-5">Sobre o perfil</p>
                 <div class="social-icons">
                     <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
+                    <label class="lead mb-5"><?= $usuario->TELEFONE ?></label>
+                    <br>
+                    <i class="fa fa-envelope" height="40px" weight="40px"></i>
+                    <label class="lead mb-5"><?= $usuario->EMAIL ?></label>
                 </div>
             </div>
         </section>
@@ -186,16 +189,16 @@ $this->section('content');
         <!-- Experience-->
     <section id="publicacoes">
         <div class="publi-container">
-            <p><h2 class="mb-5">            Minhas publicações</h2></p>
+            <p><h2 class="mb-3">Minhas publicações</h2></p>
         <br>
     
           <?php
-          $postsModel = new \App\Models\PostModel();
-          $posts = $postsModel->listarInicial();
-          $usuario = $session->get('user');
-          $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
+            $postsModel = new \App\Models\PostModel();
+            $posts = $postsModel->listarInicial();
+            $usuario = $session->get('user');
+            $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
 
-          foreach ($posts as $post) {
+            foreach ($posts as $post) {
           ?>
 
             <div class="pub-card">

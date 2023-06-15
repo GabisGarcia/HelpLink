@@ -49,17 +49,48 @@ class UsuarioModel extends Model
         return false;
     }
 
-    public function enviarEmail($emailInserido)
+    public function putCodigo($codigo, $email){
+        $ID_CONTA = $this->db->query('SELECT ID_CONTA FROM USUARIO WHERE EMAIL = "'. $email . '";');
+        $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA .', '. $codigo .');');
+    }
+
+
+    public function enviarEmail($emailInserido, $codigo)
     {
-        $email = \Config\Services::email();
-        $hora = $this->db->query('SELECT NOW();');
+        $data = $this->db->query('SELECT NOW() AS tempo;')->getRow();
+        $data = $data->tempo;
         
-        $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
+        $email = \Config\Services::email();
+        
+        $config = [
+            'protocol' => 'smtp',
+            'SMTPHost' => 'sandbox.smtp.mailtrap.io',
+            'SMTPUser' => '1c3803a3371d0a',
+            'SMTPPass' => '4abde1e5ed71c8',
+            'SMTPPort' => 25,
+            'wordWrap' => true,
+            'newline' => "\r\n",
+        ];
+
+        $email->initialize($config);
+
+        $email->setFrom('Gabrielrm813@gmail.com', 'HelpLink Administration');
         $email->setTo($emailInserido);
 
-        $email->setSubject('Requisição de mudança de senha');
-        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e hora :". $hora ."<br> 
+        $email->setSubject('Requisicao de mudanca de senha');
+        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e data :". $data ."<br> 
                             Se não foi você que fez esta requisição você pode ignorar essa menssagem<br>
-                            Caso tenha sido este é o código requerido:");
+                            Caso tenha sido realmente você que requeriu, este é o código:". $codigo ."<br>
+                            Favor incerilo dentro de 10 minutos<br>
+                            Atenciosamente, HelpLink Administration");
+
+
+        if (! $email->send()) {
+           var_dump($email->printDebugger());
+        }
+    }
+
+    public function checarCodigo($codigoInserido, $ID_CONTA){
+        if($this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .''));
     }
 }
