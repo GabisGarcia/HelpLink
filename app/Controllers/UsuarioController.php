@@ -71,7 +71,7 @@ class UsuarioController extends BaseController
             "TELEFONE" => $this->request->getPost("TELEFONE"),
             "DESCRICAO_USER" => $this->request->getPost("DESCRICAO_USER"),
         ];
-
+ 
         $this->UsuarioModel->save($data);
 
         $this->response->redirect(base_url("/configuracoesperfil"));

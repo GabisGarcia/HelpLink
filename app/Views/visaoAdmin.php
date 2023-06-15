@@ -1,10 +1,22 @@
 <?php
-$session = session();
-if ($session->get('user') == null) {
-  $location = 'Location: '.base_url('/login');
-  header($location);
-  exit;
+
+  $session = session();
+  if ($session->get('user') == null) {
+    $location = 'Location: '.base_url('/login');
+    header($location);
+    exit;
+  }
+
+  function mostraTags($idPost)
+  {
+    $postTagModel = new \App\Models\PostTagModel();
+    $tags = $postTagModel->listarTags($idPost);
+    foreach ($tags as $tag) {
+      echo '<span class="badge bg-primary me-2 mb-2">' . $tag->NOME . '</span>';
+  }
+
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,7 +59,7 @@ if ($session->get('user') == null) {
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div class="flex-grow-1">
                   <h3 class="mb-0"><?= $post->TITULO ?></h3>
-                  <div class="subheading mb-3" id="assunto">TAG</div>
+                  <?= mostraTags($post->ID_POST) ?>
                   <p><?= $post->DESCRICAO ?></p>
                 </div>
                 <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
@@ -64,7 +76,12 @@ if ($session->get('user') == null) {
                     <button type="submit" class="game-button-green">aprovar post</button>
                 </form>
                 <br>
-                <button class="game-button" action="<?= base_url() ?>">Recusar post</button>
+
+                <form action="<?= base_url('PostController/negarRedirecionar') ?>" method="post">
+                  <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>"> 
+                    <button class="game-button" action="<?= base_url() ?>">Recusar post</button>
+                </form>
+               
 
             </center>
               <hr>
