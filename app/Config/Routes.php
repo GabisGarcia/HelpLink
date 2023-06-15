@@ -42,6 +42,7 @@ $routes->get('PostController/dislike/(:num)/(:num)', 'PostController::dislike/$1
 
 $routes->get('CadastroController/adicionar', 'CadastroController::adicionar');
 $routes->get('/editarperfil', 'Home::edicaoPerfil');
+$routes->get('/editarsenha', 'Home::edicaoSenha');
 $routes->post('PostController/postar', 'PostController::postar');
 $routes->post('PostController/deletar(:num)', 'PostController::deletar/$1');
 $routes->put('PostController/post_edit(:num)', 'PostController::post_edit/$1');
@@ -50,7 +51,6 @@ $routes->get('PostController/listarPesquisa', 'PostController::listarPesquisa');
 $routes->get('PostController/listarInicial', 'PostController::listarInicial');
 $routes->get('PostController/like(:num)', 'PostController::like/$1');
 $routes->get('PostController/dislike(:num)', 'PostController::dislike/$1');
-$routes->get('/editarsenha', 'Home::edicaoSenha');
 $routes->get('PostController/listarAdminView', 'PostController::listarAdminView');
 $routes->get('PostController/aprovar', 'PostController::aprovar');
 $routes->get('PostController/negar', 'PostController::negar');
