@@ -49,17 +49,47 @@ class UsuarioModel extends Model
         return false;
     }
 
+    public function criarCodigo()
+    {
+        $codigo = $this->rand(1000, 9999);
+        return md5($codigo);
+    }
+
     public function enviarEmail($emailInserido)
     {
-        $email = \Config\Services::email();
-        $hora = $this->db->query('SELECT NOW();');
-        
-        $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
-        $email->setTo($emailInserido);
+        $codigo = 10;//$this->criarCodigo();
+        var_dump($codigo);
+        $hora = 10;//$this->db->query('SELECT NOW();');
 
-        $email->setSubject('Requisição de mudança de senha');
-        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e hora :". $hora ."<br> 
+
+        $email = \Config\Services::email();
+        
+        $config = [
+            'protocol' => 'smtp',
+            'SMTPHost' => 'sandbox.smtp.mailtrap.io',
+            'SMTPUser' => '5bb30114e93ebc',
+            'SMTPPass' => '7c98abf957e92e',
+            'SMTPPort' => 25,
+            'wordWrap' => true,
+            'newline' => "\r\n",
+        ];
+
+        $email->initialize($config);
+
+        $email->setFrom('Gabrielrm813@gmail.com', 'HelpLink Administration');
+        $email->setTo('Gabriel-rodrigues-martins@hotmail.com');
+
+        $email->setSubject('Requisicao de mudanca de senha');
+        /*$email->setMessage("Uma requisição de mudança de email foi feita nesta data e hora :". $hora ."<br> 
                             Se não foi você que fez esta requisição você pode ignorar essa menssagem<br>
-                            Caso tenha sido este é o código requerido:");
+                            Caso tenha sido realmente você que requeriu, este é o código:". $codigo ."<br>
+                            Favor incerilo dentro de 10 minutos<br>
+                            Atenciosamente, HelpLink Administration");*/
+
+        $email->setMessage('Funcionou!!!!');
+
+        if (! $email->send()) {
+           var_dump($email->printDebugger());
+        }
     }
 }

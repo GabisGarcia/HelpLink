@@ -59,7 +59,7 @@ class Email extends BaseConfig
      * SMTP Encryption. Either tls or ssl
      */
     public string $SMTPCrypto = 'tls';
-
+    
     /**
      * Enable word-wrap
      */
