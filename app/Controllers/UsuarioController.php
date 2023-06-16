@@ -83,14 +83,17 @@ class UsuarioController extends BaseController
         $this->response->redirect(base_url("/cadastro"));
     }
     
-    public function alterarSenha($ID_CONTA, $novaSenha)
+    public function alterarSenha()
     {
         $data = [
             "ID_CONTA" => $this->request->getPost('idUsuario'),
-            "novaSenha" => $this->request->getPost('senhaAtual'),
+            "novaSenha" => $this->request->getPost('novaSenha'),
         ];
 
-        $this->UsuarioModel->alterarSenha($data["ID_CONTA"], $data["novaSenha"]);
+        $ID_CONTA = $data["ID_CONTA"];
+        $novaSenha = $data["novaSenha"];
+
+        $this->UsuarioModel->alterarSenha($ID_CONTA, $novaSenha);
         $this->response->redirect(base_url("/funfo"));
     }
 
