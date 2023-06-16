@@ -97,19 +97,19 @@ class UsuarioController extends BaseController
     public function checarSenha()
     {
         $data = [
-            "ID_CONTA" => $this->request->getPost('idUsuario'),
-            "novaSenha" => $this->request->getPost('senhaAtual'),
+            "ID_CONTA" => $this->request->getPost('ID_CONTA'),
+            "senhaInserida" => $this->request->getPost('senhaAtual'),
         ];
         $ID_CONTA = $data["ID_CONTA"];
-        $senhaInserida = $data["novaSenha"];
-        
-        $senhaInserida = md5($senhaInserida);
+        $senhaInserida = $data["senhaInserida"];
 
+        $senhaInserida = md5($senhaInserida);
+        var_dump($ID_CONTA);
         if($this->UsuarioModel->checarSenha($ID_CONTA, $senhaInserida)){
             $this->response->redirect(base_url("/alterar_senha")); 
         }
 
-        $this->response->redirect(base_url("/edicao_senha"));
+        $this->response->redirect(base_url("/editarsenha"));
     }
 
     public function criarCodigo($emailInserido)

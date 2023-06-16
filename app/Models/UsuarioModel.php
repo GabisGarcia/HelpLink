@@ -28,8 +28,8 @@ class UsuarioModel extends Model
     }
     
     public function checarSenha($ID_CONTA, $senhaInserida){
-        $senha = $this->db->query('SELECT SENHA FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';');
-        if($senhaInserida != $senha){
+        $senha = $this->db->query('SELECT SENHA FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';')->getRow();
+        if($senhaInserida != $senha->SENHA){
             return false;
         }
         return true;
