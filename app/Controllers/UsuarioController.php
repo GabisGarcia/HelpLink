@@ -85,18 +85,31 @@ class UsuarioController extends BaseController
     
     public function alterarSenha($ID_CONTA, $novaSenha)
     {
-        $this->UsuarioModel->alterarSenha($ID_CONTA, $novaSenha);
+        $data = [
+            "ID_CONTA" => $this->request->getPost('idUsuario'),
+            "novaSenha" => $this->request->getPost('senhaAtual'),
+        ];
+
+        $this->UsuarioModel->alterarSenha($data["ID_CONTA"], $data["novaSenha"]);
         $this->response->redirect(base_url("/funfo"));
     }
 
-    public function checarSenha($ID_CONTA, $senhaInserida)
+    public function checarSenha()
     {
+        $data = [
+            "ID_CONTA" => $this->request->getPost('idUsuario'),
+            "novaSenha" => $this->request->getPost('senhaAtual'),
+        ];
+        $ID_CONTA = $data["ID_CONTA"];
+        $senhaInserida = $data["novaSenha"];
+        
         $senhaInserida = md5($senhaInserida);
+
         if($this->UsuarioModel->checarSenha($ID_CONTA, $senhaInserida)){
-            $this->response->redirect(base_url("/alterarSenha")); 
+            $this->response->redirect(base_url("/alterar_senha")); 
         }
 
-        $this->response->redirect(base_url("/faio"));
+        $this->response->redirect(base_url("/edicao_senha"));
     }
 
     public function criarCodigo($emailInserido)
@@ -107,22 +120,26 @@ class UsuarioController extends BaseController
     }
 
     public function checarCodigo($codigoInserido, $ID_CONTA){
-        
+        // to-do
     }
 
     public function checarEmail()
     {
-        $emailInserido = [
+        $emailInserido = 'b.123@teste.com';
+        /*$emailInserido = [
             $this->request->getPost("EMAIL"),
-        ];
+        ];*/
+        $aa = $this->UsuarioModel->checarEmail($emailInserido);
+        echo !$aa;
         if($this->UsuarioModel->checarEmail($emailInserido)){
-
+            echo "dentro do if";
             $codigo = $this->criarCodigo($emailInserido);
             $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
 
-            $this->response->redirect(base_url("/emailenviado"));
+            // $this->response->redirect(base_url("/emailenviado"));
         }
 
-        $this->response->redirect(base_url("/falhaaochecaremail"));
+        // $this->response->redirect(base_url("/falhaaochecaremail"));
+        
     }
 }
