@@ -10,7 +10,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         protected $table = 'POST';
         protected $primaryKey = 'ID_POST';
         protected $useAutoIncrement = true;
-        protected $allowedFields = ['TITULO', 'DESCRICAO', 'VALOR', 'DOACAO', 'CONTATO', 'ID_CONTA'];
+        protected $allowedFields = ['TITULO', 'DESCRICAO', 'VALOR', 'DOACAO', 'CONTATO', 'ID_CONTA', 'CAMINHO_IMAGEM'];
         protected $returnType = 'object';
 
         private function listarRes($resultado)
@@ -62,7 +62,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         }
 
         public function listarInicial(){
-            $resultado = $this->db->query('SELECT ID_POST, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE, REPUTACAO, APROVADO FROM POST WHERE POST_DATE < NOW() - 7 LIMIT 5');
+            $resultado = $this->db->query('SELECT ID_POST, CAMINHO_IMAGEM, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE, REPUTACAO, APROVADO FROM POST WHERE POST_DATE < NOW() - 7 LIMIT 5');
             $posts = $this->listarRes($resultado);
             if(!$posts || !isset($posts)) {
                 echo "<h1>NAO TEM POST</h1>";

@@ -202,7 +202,7 @@
 
   <br><br><br>
 
-  <form action="<?=base_url()?>/PostController/postar" method=post>
+  <form enctype="multipart/form-data" action="<?=base_url()?>/PostController/postar" method=post>
       <div class="titulo">
         <img src="<?= base_url('') ?>/img/foto_post.png" height="170px" width="350px">
       </div>
@@ -244,7 +244,7 @@
       <label class="labelPost" for="DESCRICAO">Descrição:</label>
       <textarea id="mensagem" name="DESCRICAO" required></textarea>
 
-      <input  type="file"  name="IMAGEM" >
+      <input  type="file"  name="IMAGEM" size="20">  
 
 
       <button class="botao-voltar" type="submit">Enviar</button>

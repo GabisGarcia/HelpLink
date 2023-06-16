@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+
 class PostController extends BaseController
 {
     private $PostModel;
@@ -29,6 +30,11 @@ class PostController extends BaseController
             } 
         }
 
+        $img = $this->request->getFile('IMAGEM');
+        $newName = $img->getRandomName();
+        $url = "/imgs/uploads";
+        $img->move(ROOTPATH . $url, $newName); 
+        
 
         $data = [
             'ID_CONTA' => $usuario->ID_CONTA,
@@ -37,7 +43,10 @@ class PostController extends BaseController
             'VALOR' => $this->request->getPost('VALOR'),
             'DOACAO' => $this->request->getPost('DOACAO'),
             'CONTATO' => $this->request->getPost('CONTATO'),
+            'CAMINHO_IMAGEM' => $newName,
         ];
+
+
         $this->PostModel->save($data);
         $this->PostTagModel->CriarRelacao($tags);
         $this->response->redirect(base_url());
