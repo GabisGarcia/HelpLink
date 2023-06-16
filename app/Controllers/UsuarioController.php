@@ -99,11 +99,27 @@ class UsuarioController extends BaseController
         $this->response->redirect(base_url("/faio"));
     }
 
+    public function criarCodigo($emailInserido)
+    {
+        $codigo = rand(1000, 9999);
+        $this->UsuarioModel->putCodigo($codigo, $emailInserido);
+        return $codigo;
+    }
+
+    public function checarCodigo($codigoInserido, $ID_CONTA){
+        
+    }
+
     public function checarEmail()
     {
-        $emailInserido = 'eu@eu.com';
+        $emailInserido = [
+            $this->request->getPost("EMAIL"),
+        ];
         if($this->UsuarioModel->checarEmail($emailInserido)){
-            $this->UsuarioModel->enviarEmail($emailInserido);
+
+            $codigo = $this->criarCodigo($emailInserido);
+            $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
+
             $this->response->redirect(base_url("/emailenviado"));
         }
 
