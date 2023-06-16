@@ -67,7 +67,7 @@ function mostraTags($idPost)
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <!-- Tema escuro -->
     <label class="ui-switch" id="toggle">
-      <input type="checkbox">
+      <input type="checkbox" class="checkbox-theme">
       <div class="slider">
         <div class="circle"></div>
       </div>
@@ -130,9 +130,12 @@ function mostraTags($idPost)
           $posts = $postsModel->listarInicial();
           $usuario = $session->get('user');
           $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
+          $usuarioModel = new \App\Models\UsuarioModel();
+
 
           foreach ($posts as $post) {
             if ($post->APROVADO) {
+              $donoPost = $usuarioModel->find($post->ID_CONTA);
 
 
           ?>
@@ -143,12 +146,12 @@ function mostraTags($idPost)
                     <?= mostraTags($post->ID_POST) ?>
                     <p><?= $post->DESCRICAO ?></p>
                   </div>
-                  <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
+                  <div class="flex-shrink-0"><p class="text-secondary">Criado por <?= $donoPost->NOME ?></p><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
                 </div>
                 <!-- Imagem da pub-->
                 <center>
                   <div class="img-pub" id="pub">
-                    <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
+                    <img src="<?= "http://localhost/HelpLink/imgs/uploads/" . $post->CAMINHO_IMAGEM ?>" width="300" height="300"><br><br><br>
                   </div>
                 </center>
                 <!-- Botao de like-->
