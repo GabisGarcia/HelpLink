@@ -107,9 +107,11 @@ class UsuarioController extends BaseController
         var_dump($ID_CONTA);
         if($this->UsuarioModel->checarSenha($ID_CONTA, $senhaInserida)){
             $this->response->redirect(base_url("/alterar_senha")); 
+
+        }else{
+            $this->response->redirect(base_url("/editarsenha"));
         }
 
-        $this->response->redirect(base_url("/editarsenha"));
     }
 
     public function criarCodigo($emailInserido)
