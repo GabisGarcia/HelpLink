@@ -44,25 +44,14 @@
         </nav>
     </header>
         <center>
-            <form class="form">
+            <form class="form" action="<?= base_url('UsuarioController/checarSenha') ?>" method="post">
                 <p class="title">Mudar a senha </p>
                 <p class="message">Digite sua senha atual: </p>
 
                 <label>
-                    <input required="" placeholder="" type="email" class="input">
-                    <span>Senha atual</span>
-                </label>
-
-                <p class="message">Digite sua nova senha: </p>    
-
-                <label>
-                    <input required="" placeholder="" type="password" class="input">
-                    <span>Nova senha</span>
-                </label>
-
-                <label>
-                    <input required="" placeholder="" type="password" class="input">
-                    <span>Confirme a senha</span>
+                    <input required="" name="senhaAtual" id="senhaAtual" type="password" class="input">
+                    <span></span>
+                    <input type="hidden" name="ID_CONTA" value="<?= $user->ID_CONTA ?>">
                 </label>
 
                 <button class="submit">Enviar</button>

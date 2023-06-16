@@ -28,8 +28,8 @@ class UsuarioModel extends Model
     }
     
     public function checarSenha($ID_CONTA, $senhaInserida){
-        $senha = $this->db->query('SELECT SENHA FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';');
-        if($senhaInserida != $senha){
+        $senha = $this->db->query('SELECT SENHA FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';')->getRow();
+        if($senhaInserida != $senha->SENHA){
             return false;
         }
         return true;
@@ -50,8 +50,8 @@ class UsuarioModel extends Model
     }
 
     public function putCodigo($codigo, $email){
-        $ID_CONTA = $this->db->query('SELECT ID_CONTA FROM USUARIO WHERE EMAIL = "'. $email . '";');
-        $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA .', '. $codigo .');');
+        $ID_CONTA = $this->db->query('SELECT ID_CONTA FROM USUARIO WHERE EMAIL = "'. $email . '";')->getRow();
+        $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA->ID_CONTA .', '. $codigo .');');
     }
 
 
@@ -78,16 +78,17 @@ class UsuarioModel extends Model
         $email->setTo($emailInserido);
 
         $email->setSubject('Requisicao de mudanca de senha');
-        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e data :". $data ."<br> 
-                            Se não foi você que fez esta requisição você pode ignorar essa menssagem<br>
-                            Caso tenha sido realmente você que requeriu, este é o código:". $codigo ."<br>
-                            Favor incerilo dentro de 10 minutos<br>
+        $email->setMessage("Uma requisição de mudança de email foi feita nesta data e data :". $data ." 
+                            Se não foi você que fez esta requisição você pode ignorar essa menssagem
+                            Caso tenha sido realmente você que requeriu, este é o código:". $codigo ."
+                            Favor incerilo dentro de 10 minutos
                             Atenciosamente, HelpLink Administration");
 
 
         if (! $email->send()) {
            var_dump($email->printDebugger());
         }
+        echo "HOI";
     }
 
     public function checarCodigo($codigoInserido, $ID_CONTA){

@@ -81,10 +81,9 @@ function mostraTags($idPost)
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav">
 
-        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/meuperfil">Meu
-            perfil</a></li>
-        </li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>/meuperfil">Meu perfil</a></li>
         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url() ?>">EULA</a></li>
       </ul>
     </div>
   </nav>
