@@ -7,8 +7,12 @@ if ($session->get('user') == null) {
     exit;
 } else {
     $usuario = $session->get('user');
+    $idUsuario = $usuario->ID_CONTA;
 }
 
+
+$usuarioModel = new \App\Models\UsuarioModel;
+$nomeUsuario = $usuarioModel->find($idUsuario);
 function verificaSeJaCurtiuPost($curtidas, $idPost)
 {
   foreach ($curtidas as $curtida) {
@@ -171,7 +175,7 @@ $this->section('content');
             <div class="resume-section-content">
                 <h1 class="mb-0">
                     Meu PERFIL - 
-                    <span class="text-primary"><?= $usuario->NOME ?></span>
+                    <span class="text-primary"><?= $nomeUsuario->NOME ?></span>
                 </h1>
                 <div class="subheading mb-5">
                     <p><?= $usuario->DESCRICAO_USER ?></p>
