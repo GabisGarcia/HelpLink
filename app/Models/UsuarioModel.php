@@ -23,6 +23,7 @@ class UsuarioModel extends Model
 
     public function deletarUsuario($idUsuario)
     {
+        $this->db->query('DELETE FROM LIKES WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM POST WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM USUARIO WHERE ID_CONTA = '. $idUsuario .';');
     }
@@ -49,8 +50,13 @@ class UsuarioModel extends Model
         return false;
     }
 
-    public function putCodigo($codigo, $email){
+    public function GetIdByEmail($email){
         $ID_CONTA = $this->db->query('SELECT ID_CONTA FROM USUARIO WHERE EMAIL = "'. $email . '";')->getRow();
+        return $ID_CONTA;
+    }
+
+    public function putCodigo($codigo, $email){
+        $ID_CONTA = $this->GetIdByEmail($email);
         $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA->ID_CONTA .', '. $codigo .');');
     }
 
@@ -88,10 +94,14 @@ class UsuarioModel extends Model
         if (! $email->send()) {
            var_dump($email->printDebugger());
         }
-        echo "HOI";
     }
 
-    public function checarCodigo($codigoInserido, $ID_CONTA){
-        if($this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .''));
+    public function checarCodigo($codigoInserido, $email){
+        $ID_CONTA = $this->GetIdByEmail($email);
+        $codigo = $this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .'')->getRow();
+        if($codigo != NULL){
+            return true;
+        }
+        return false;
     }
 }
