@@ -143,6 +143,7 @@ class PostController extends BaseController
         $ID_CONTA = $this->request->getPost('ID_CONTA');
         $ID_POST = $this->request->getPost('ID_POST');
         $mensagem = $this->request->getPost('mensagem');
+        
         $this->PostModel->negar($ID_CONTA, $ID_POST, $mensagem);
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
