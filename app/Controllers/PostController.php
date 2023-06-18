@@ -49,7 +49,7 @@ class PostController extends BaseController
 
 
         $this->PostModel->save($data);
-        $this->PostTagModel->CriarRelacao($tags);
+        $this->PostTagModel->CriarRelacao($tags, null);
         $this->response->redirect(base_url());
 
     }
@@ -60,20 +60,32 @@ class PostController extends BaseController
         $this->response->redirect(base_url("Home"));
     }
 
-    public function post_edit($idPost)
+    public function editar_post($idPost)
     {
 
         $post = $this->PostModel->find($idPost);
 
-        return view('post_edit', [
+        return view('editar_post', [
             'post' => $post,
         ]);
 
     }
 
-    public function editar($idPost)
+    public function editar()
     {
+        $qtsTags = sizeof($this->TagModel->getTags());
+        $tags = [];
+
+        for ($i = 0; $i <= $qtsTags; $i++) {
+            $tagId = 'TAGS' . $i;
+
+            if ($this->request->getPost($tagId) != null) {
+                array_push($tags, $this->request->getPost($tagId));
+            }
+        }
+
         $data = [
+            'ID_POST' => $this->request->getPost('ID_POST'),
             'TITULO' => $this->request->getPost('TITULO'),
             'DESCRICAO' => $this->request->getPost('DESCRICAO'),
             'VALOR' => $this->request->getPost('VALOR'),
@@ -81,9 +93,10 @@ class PostController extends BaseController
             'CONTATO' => $this->request->getPost('CONTATO'),
         ];
 
-        $this->PostModel->update($idPost, $data);
+        $this->PostModel->save($data);
+        $this->PostTagModel->CriarRelacao($tags, $this->request->getPost('ID_POST'));
 
-        $this->response->redirect(base_url("welcome"));
+        $this->response->redirect(base_url(""));
     }
 
     public function listarPesquisa()

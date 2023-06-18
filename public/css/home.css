@@ -7750,6 +7750,7 @@ fieldset:disabled .btn {
 
 .flex-shrink-0 {
   flex-shrink: 0 !important;
+  margin-right: 30px;
 }
 
 .flex-shrink-1 {

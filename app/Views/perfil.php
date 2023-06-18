@@ -93,6 +93,8 @@ $this->section('content');
   background-color: #53afaf;
   border-radius: 50%;
   margin-bottom: 4px;
+  transform: rotate(90deg);
+
   right:0;
 }
 
@@ -204,13 +206,13 @@ $this->section('content');
 
             foreach ($posts as $post) {
           ?>
+      
 
             <div class="pub-card">
               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
+              <div class="flex-grow-1">
                   <div class="menu-toggle">
                     <div class="dropdown">
-                      <div class="dots"></div>
                       <div class="dots"></div>
 
                       <div class="options">
@@ -222,9 +224,10 @@ $this->section('content');
                             </a>
                           </li>
                           <li href="#">
-                          <img src="<?=base_url()?>/img/editar.png" alt="" widht="30px" height="30px">
-
-                            Editar
+                            <a href="<?=base_url()?>/PostController/editar_post/<?= $post->ID_POST ?>">
+                              <img src="<?=base_url()?>/img/editar.png" alt="" widht="30px" height="30px">
+                                Editar
+                            </a>  
                           </li>
                         </ul>
                       </div>
