@@ -262,3 +262,9 @@
   width: 0;
   height: 0;
 }
+
+
+li.active > .page-link {
+  background: #54C7A6;
+  border-color: #54C7A6;
+}

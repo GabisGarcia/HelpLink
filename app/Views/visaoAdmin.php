@@ -67,7 +67,7 @@
               <!-- Imagem da pub-->
             <center>
                     <div class="img-pub" id="pubb">
-                    <img src="https://tendencee.com.br/wp-content/uploads/2019/12/Se-voce-esta-se-sentindo-mal-essas-30-fotos-de-lontras-fazem-voce-sorrir-qVMQAvJ1za.jpg" width="300" height="300"><br><br><br>
+                    <img src="<?= "http://localhost/HelpLink/imgs/uploads/" . $post->CAMINHO_IMAGEM ?>" width="300" height="300"><br><br><br>
                     </div>
 
                 <!-- Aprovação -->

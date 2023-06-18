@@ -135,7 +135,8 @@ function mostraTags($idPost)
 
           <?php
           $postsModel = new \App\Models\PostModel();
-          $posts = $postsModel->listarInicial();
+          $posts = $postsModel->paginate(5);
+          $pager = $postsModel->pager;
           $usuario = $session->get('user');
           $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
           $usuarioModel = new \App\Models\UsuarioModel();
@@ -154,9 +155,8 @@ function mostraTags($idPost)
                       <?= $post->TITULO ?>
                     </h3>
                     <?= mostraTags($post->ID_POST) ?>
-                    <p>
-                      <?= $post->DESCRICAO ?>
-                    </p>
+
+                    <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
                   </div>
                   <div class="flex-shrink-0">
                     <p class="text-secondary">Criado por
@@ -169,8 +169,8 @@ function mostraTags($idPost)
                 <!-- Imagem da pub-->
                 <center>
                   <div class="img-pub" id="pub">
-                    <img src="<?= "http://localhost/HelpLink/imgs/uploads/" . $post->CAMINHO_IMAGEM ?>" width="300"
-                      height="300"><br><br><br>
+                    <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
+                      height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
                   </div>
                 </center>
                 <!-- Botao de like-->
@@ -198,10 +198,9 @@ function mostraTags($idPost)
         </div>
 
     </section>
-
-
-    <!-- Configurações -->
-
+    <div class="links">
+      <?= $pager->links('default', 'bootstrap_pagination') ?>
+    </div>
   </div>
   </div>
   <div class="container225">
