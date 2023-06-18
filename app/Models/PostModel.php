@@ -121,6 +121,18 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         public function EnviarEmail($userEmail, $postTitle, $mensagem)
         {
             $email = \Config\Services::email();
+        
+            $config = [
+                'protocol' => 'smtp',
+                'SMTPHost' => 'sandbox.smtp.mailtrap.io',
+                'SMTPUser' => '1c3803a3371d0a',
+                'SMTPPass' => '4abde1e5ed71c8',
+                'SMTPPort' => 25,
+                'wordWrap' => true,
+                'newline' => "\r\n",
+            ];
+    
+            $email->initialize($config);
 
             $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
             $email->setTo($userEmail);
@@ -128,7 +140,9 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             $email->setSubject('Seu post:"'. $postTitle. '" foi negado pelas seguintes razões');
             $email->setMessage($mensagem);
 
-            $email->send();
+            if (! $email->send()) {
+                var_dump($email->printDebugger());
+             }
         }
 
         public function negar($ID_CONTA, $ID_POST, $mensagem)
@@ -136,6 +150,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             # não haverá nenhuma modificação no post, ele será apagado e um email enviado ao usuário
             $postTitle = $this->db->query('SELECT TITULO FROM POST WHERE ID_POST = '. $ID_POST .';');
 
+            $this->db->query('DELETE FROM POST_TAG WHERE ID_POST = '. $ID_POST .';');
             $this->db->query('DELETE FROM POST WHERE ID_POST = '. $ID_POST .';');
 
             $userEmail = $this->db->query('SELECT EMAIL FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';');

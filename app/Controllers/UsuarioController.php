@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use \App\Models\UsuarioModel;
+use CodeIgniter\CodeIgniter;
 
 class UsuarioController extends BaseController
 {
@@ -77,31 +78,26 @@ class UsuarioController extends BaseController
         $this->response->redirect(base_url("/configuracoesperfil"));
     }
 
-    public function deletarUsuario($IdUsuario)
+    public function deletarUsuario()
     {
+        $IdUsuario = $this->request->getPost('idUsuario');
         $this->UsuarioModel->deletarUsuario($IdUsuario);
         $this->response->redirect(base_url("/cadastro"));
     }
     
-    public function alterarSenha($ID_CONTA, $novaSenha)
+    public function alterarSenha()
     {
-        $data = [
-            "ID_CONTA" => $this->request->getPost('idUsuario'),
-            "novaSenha" => $this->request->getPost('senhaAtual'),
-        ];
+        $ID_CONTA = $this->request->getPost('idUsuario');
+        $novaSenha = $this->request->getPost('novaSenha');
 
-        $this->UsuarioModel->alterarSenha($data["ID_CONTA"], $data["novaSenha"]);
+        $this->UsuarioModel->alterarSenha($ID_CONTA, $novaSenha);
         $this->response->redirect(base_url("/funfo"));
     }
 
     public function checarSenha()
     {
-        $data = [
-            "ID_CONTA" => $this->request->getPost('ID_CONTA'),
-            "senhaInserida" => $this->request->getPost('senhaAtual'),
-        ];
-        $ID_CONTA = $data["ID_CONTA"];
-        $senhaInserida = $data["senhaInserida"];
+        $ID_CONTA = $this->request->getPost('ID_CONTA');
+        $senhaInserida = $this->request->getPost('senhaAtual');
 
         $senhaInserida = md5($senhaInserida);
         var_dump($ID_CONTA);
@@ -121,8 +117,16 @@ class UsuarioController extends BaseController
         return $codigo;
     }
 
-    public function checarCodigo($codigoInserido, $ID_CONTA){
-        // to-do
+    public function checarCodigo(){
+        $codigoInserido = $this->request->getPost('codigoInserido');
+        $email = $this->request->getPost('email');
+
+        if($this->UsuarioModel->checarCodigo($codigoInserido, $email)){
+            $ID_CONTA = $this->UsuarioModel->GetIdByEmail($email);
+            $this->response->redirect(base_url("/alterar_senha", ["ID_CONTA" => $ID_CONTA]));
+        }else{
+            $this->response->redirect(base_url("/falha"));
+        }
     }
 
     public function checarEmail()
@@ -131,14 +135,11 @@ class UsuarioController extends BaseController
         /*$emailInserido = [
             $this->request->getPost("EMAIL"),
         ];*/
-        $aa = $this->UsuarioModel->checarEmail($emailInserido);
-        echo !$aa;
         if($this->UsuarioModel->checarEmail($emailInserido)){
-            echo "dentro do if";
             $codigo = $this->criarCodigo($emailInserido);
             $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
 
-            // $this->response->redirect(base_url("/emailenviado"));
+            // $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
         }
 
         // $this->response->redirect(base_url("/falhaaochecaremail"));
