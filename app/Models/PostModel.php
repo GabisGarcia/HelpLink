@@ -134,7 +134,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
     
             $email->initialize($config);
 
-            $email->setFrom('HelpLink@hotmail.com', 'HelpLink Administration');
+            $email->setFrom('HelpLinkOfficial2@hotmail.com', 'HelpLink Administration');
             $email->setTo($userEmail);
 
             $email->setSubject('Seu post:"'. $postTitle. '" foi negado pelas seguintes razões');
