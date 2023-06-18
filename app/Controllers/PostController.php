@@ -9,12 +9,13 @@ class PostController extends BaseController
     private $PostTagModel;
     private $TagModel;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->PostModel = new \App\Models\PostModel();
         $this->PostTagModel = new \App\Models\PostTagModel();
         $this->TagModel = new \App\Models\TagsModel();
     }
-    
+
     public function postar()
     {
         $session = session();
@@ -22,19 +23,19 @@ class PostController extends BaseController
         $qtsTags = sizeof($this->TagModel->getTags());
         $tags = [];
 
-        for($i = 0; $i <= $qtsTags; $i++) {
-            $tagId = 'TAGS'.$i;
-            
-            if($this->request->getPost($tagId) != null) {
+        for ($i = 0; $i <= $qtsTags; $i++) {
+            $tagId = 'TAGS' . $i;
+
+            if ($this->request->getPost($tagId) != null) {
                 array_push($tags, $this->request->getPost($tagId));
-            } 
+            }
         }
 
         $img = $this->request->getFile('IMAGEM');
         $newName = $img->getRandomName();
         $url = "/imgs/uploads";
-        $img->move(ROOTPATH . $url, $newName); 
-        
+        $img->move(ROOTPATH . $url, $newName);
+
 
         $data = [
             'ID_CONTA' => $usuario->ID_CONTA,
@@ -61,7 +62,7 @@ class PostController extends BaseController
 
     public function post_edit($idPost)
     {
-        
+
         $post = $this->PostModel->find($idPost);
 
         return view('post_edit', [
@@ -88,7 +89,7 @@ class PostController extends BaseController
     public function listarPesquisa()
     {
         $data = [
-            'Pesquisa'=> $this->request->getPost('Pesquisa'),
+            'Pesquisa' => $this->request->getPost('Pesquisa'),
             'Tags' => $this->request->getPost('Tags')
         ];
 
@@ -101,7 +102,7 @@ class PostController extends BaseController
 
     public function like($idPost, $idConta)
     {
-        $this->PostModel->like($idPost,$idConta);
+        $this->PostModel->like($idPost, $idConta);
         $this->response->redirect(base_url());
     }
 
@@ -139,11 +140,12 @@ class PostController extends BaseController
         return view("negando_post", $data);
     }
 
-    public function negar(){
+    public function negar()
+    {
         $ID_CONTA = $this->request->getPost('ID_CONTA');
         $ID_POST = $this->request->getPost('ID_POST');
         $mensagem = $this->request->getPost('mensagem');
-        
+
         $this->PostModel->negar($ID_CONTA, $ID_POST, $mensagem);
         $this->response->redirect(base_url('PostController/listarAdminView'));
     }
