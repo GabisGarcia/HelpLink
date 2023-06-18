@@ -224,9 +224,10 @@ $this->section('content');
                             </a>
                           </li>
                           <li href="#">
-                          <img src="<?=base_url()?>/img/editar.png" alt="" widht="30px" height="30px">
-
-                            Editar
+                            <a href="<?=base_url()?>/PostController/editar_post/<?= $post->ID_POST ?>">
+                              <img src="<?=base_url()?>/img/editar.png" alt="" widht="30px" height="30px">
+                                Editar
+                            </a>  
                           </li>
                         </ul>
                       </div>

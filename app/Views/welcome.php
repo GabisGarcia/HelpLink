@@ -169,7 +169,7 @@ function mostraTags($idPost)
                 <!-- Imagem da pub-->
                 <center>
                   <div class="img-pub" id="pub">
-                    <img src="<?= "http://localhost/HelpLink/imgs/uploads/" . $post->CAMINHO_IMAGEM ?>" width="300"
+                    <img src="<?= "http://localhost:8080/HelpLink/imgs/uploads/" . $post->CAMINHO_IMAGEM ?>" width="300"
                       height="300"><br><br><br>
                   </div>
                 </center>
