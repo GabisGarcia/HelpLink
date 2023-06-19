@@ -124,7 +124,6 @@ class UsuarioController extends BaseController
             $ID_CONTA = $this->UsuarioModel->GetIdByEmail($email);
             $this->response->redirect(base_url("/alterar_senha", ["ID_CONTA" => $ID_CONTA]));
         }else{
-            echo "BB";
             $this->response->redirect(base_url("/falha"));
         }
     }

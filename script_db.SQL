@@ -1,6 +1,7 @@
 CREATE DATABASE HelpLink;
 
 USE HelpLink;
+SET GLOBAL event_scheduler = ON;
 --  tabelas básicas - FEITO
 -- Hierarquia de tabelas- FEITO
 -- popular tabelas
@@ -8,6 +9,15 @@ USE HelpLink;
 -- procedures
 -- views
 -- users
+DELIMITER $$
+CREATE EVENT DELETE_CODIGOS
+ON SCHEDULE EVERY 10 MINUTE
+ON COMPLETION PRESERVE
+DO BEGIN
+    DELETE FROM CODIGOS WHERE DATA_DE_CRIACAO < (NOW() - INTERVAL 10 MINUTE);
+END $$
+
+DELIMITER ;
 
 
 -- Senha criptografada em MD5
