@@ -120,11 +120,11 @@ class UsuarioController extends BaseController
     public function checarCodigo(){
         $codigoInserido = $this->request->getPost('codigoInserido');
         $email = $this->request->getPost('email');
-
         if($this->UsuarioModel->checarCodigo($codigoInserido, $email)){
             $ID_CONTA = $this->UsuarioModel->GetIdByEmail($email);
             $this->response->redirect(base_url("/alterar_senha", ["ID_CONTA" => $ID_CONTA]));
         }else{
+            echo "BB";
             $this->response->redirect(base_url("/falha"));
         }
     }
