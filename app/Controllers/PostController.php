@@ -71,12 +71,6 @@ class PostController extends BaseController
 
     }
 
-    public function listarPostUsuario($idUsuario) {
-        $idUsuario = $this->request->getPost('ID_USUARIO');
-        $posts = $this->PostModel->listarPostUsuario($idUsuario);
-        return $posts;
-    }
-
     public function editar()
     {
         $qtsTags = sizeof($this->TagModel->getTags());

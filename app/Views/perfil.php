@@ -215,8 +215,8 @@ $this->section('content');
 
         <?php
         $postsModel = new \App\Models\PostModel();
-        $posts = $postsModel->listarInicial();
         $usuario = $session->get('user');
+        $posts = $postsModel->listarPostUsuario($usuario->ID_CONTA);
         $curtidas = $postsModel->listarCurtidas($usuario->ID_CONTA);
 
         foreach ($posts as $post) {
