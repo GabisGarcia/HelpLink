@@ -4,7 +4,7 @@
     $location = 'Location: '.base_url('/login');
     header($location);
     exit;
-  } 
+  }
 
   $user = $session->get('user');
 
@@ -44,14 +44,19 @@
         </nav>
     </header>
         <center>
-            <form class="form" action="<?= base_url('UsuarioController/checarSenha') ?>" method="post">
+            <form class="form" action="<?= base_url('UsuarioController/alterarSenha') ?>" method="post">
                 <p class="title">Mudar a senha </p>
-                <p class="message">Digite sua senha atual: </p>
+                <p class="message">Digite sua nova senha: </p>
 
                 <label>
-                    <input required="" name="senhaAtual" id="senhaAtual" type="password" class="input">
-                    <span></span>
-                    <input type="hidden" name="ID_CONTA" value="<?= $user->ID_CONTA ?>">
+                    <input required="" name="senhaInserida" id="senhaInserida" type="password" class="input">
+                    <span>Nova senha</span>
+                </label>
+
+                <label>
+                    <input required="" name="novaSenha" id="novaSenha" type="password" class="input">
+                    <span>Confirme a senha</span>
+                    <input type="hidden" name="ID_CONTA" value="<?= $idUsuario ?>">
                 </label>
 
                 <button class="submit">Enviar</button>

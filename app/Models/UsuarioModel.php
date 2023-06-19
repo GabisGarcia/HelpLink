@@ -38,7 +38,7 @@ class UsuarioModel extends Model
 
     public function alterarSenha($ID_CONTA, $novaSenha)
     {
-        $this->db->query('UPDATE USUARIO SET SENHA = "'. $novaSenha .'" WHERE $ID_CONTA = '. $ID_CONTA .';');
+        $this->db->query('UPDATE USUARIO SET SENHA = "'. $novaSenha .'" WHERE ID_CONTA = '. $ID_CONTA .';');
     }
 
     public function checarEmail($emailInserido)

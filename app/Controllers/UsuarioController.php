@@ -87,11 +87,13 @@ class UsuarioController extends BaseController
     
     public function alterarSenha()
     {
-        $ID_CONTA = $this->request->getPost('idUsuario');
+        $ID_CONTA = $this->request->getPost('ID_CONTA');
         $novaSenha = $this->request->getPost('novaSenha');
+        $novaSenha = md5($novaSenha);
+
 
         $this->UsuarioModel->alterarSenha($ID_CONTA, $novaSenha);
-        $this->response->redirect(base_url("/funfo"));
+        $this->response->redirect(base_url("/meuperfil"));
     }
 
     public function checarSenha()
@@ -100,7 +102,6 @@ class UsuarioController extends BaseController
         $senhaInserida = $this->request->getPost('senhaAtual');
 
         $senhaInserida = md5($senhaInserida);
-        var_dump($ID_CONTA);
         if($this->UsuarioModel->checarSenha($ID_CONTA, $senhaInserida)){
             $this->response->redirect(base_url("/alterar_senha")); 
 

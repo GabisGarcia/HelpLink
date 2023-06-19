@@ -44,9 +44,20 @@ class Home extends BaseController
     {
         return view('edicao_senha');
     }
+
+    public function alterarSenha()
+    {
+        return view('alterar_senha');
+    }
     
     public function visaoADM()
     {
         return view('visaoAdmin');
     }
+
+    public function apagarperfil()
+    {
+        return view('apagarperfil');
+    }
+
 }

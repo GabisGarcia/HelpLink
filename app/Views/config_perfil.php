@@ -70,7 +70,7 @@ $this->section('content');
         </div>
         <div class="cabine">
             <div class="opcao">
-                <a href=""><p class="name">Apagar perfil</p></a>
+                <a href="<?= base_url() ?>/apagarperfil"><p class="name">Apagar perfil</p></a>
             </div>
         </div>
         </div>
