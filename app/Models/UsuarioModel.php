@@ -52,12 +52,12 @@ class UsuarioModel extends Model
 
     public function GetIdByEmail($email){
         $ID_CONTA = $this->db->query('SELECT ID_CONTA FROM USUARIO WHERE EMAIL = "'. $email . '";')->getRow();
-        return $ID_CONTA;
+        return $ID_CONTA->ID_CONTA;
     }
 
     public function putCodigo($codigo, $email){
         $ID_CONTA = $this->GetIdByEmail($email);
-        $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA->ID_CONTA .', '. $codigo .');');
+        $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA .', '. $codigo .');');
     }
 
 
@@ -80,7 +80,7 @@ class UsuarioModel extends Model
 
         $email->initialize($config);
 
-        $email->setFrom('Gabrielrm813@gmail.com', 'HelpLink Administration');
+        $email->setFrom('HelpLinkOfficial2@hotmail.com', 'HelpLink Administration');
         $email->setTo($emailInserido);
 
         $email->setSubject('Requisicao de mudanca de senha');
@@ -99,6 +99,7 @@ class UsuarioModel extends Model
     public function checarCodigo($codigoInserido, $email){
         $ID_CONTA = $this->GetIdByEmail($email);
         $codigo = $this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .'')->getRow();
+        
         if($codigo != NULL){
             return true;
         }

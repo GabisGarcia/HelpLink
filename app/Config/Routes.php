@@ -59,6 +59,7 @@ $routes->get('PostController/aprovar', 'PostController::aprovar');
 $routes->get('PostController/negar', 'PostController::negar');
 $routes->get('UsuarioController/checarSenha', 'UsuarioController::checarSenha');
 $routes->get('UsuarioController/checarEmail', 'UsuarioController::checarEmail');
+$routes->get('UsuarioController/checarCodigo', 'UsuarioController::checarCodigo');
 
 
 /*
