@@ -113,6 +113,7 @@ class UsuarioController extends BaseController
     public function criarCodigo($emailInserido)
     {
         $codigo = rand(1000, 9999);
+        $this->UsuarioModel->deleteCodigo($emailInserido);
         $this->UsuarioModel->putCodigo($codigo, $emailInserido);
         return $codigo;
     }
