@@ -138,9 +138,9 @@ class UsuarioController extends BaseController
             $codigo = $this->criarCodigo($emailInserido);
             $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
 
-            $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
+            // $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
         }else{
-            $this->response->redirect(base_url("/falhaaochecaremail"));
+            // $this->response->redirect(base_url("/falhaaochecaremail"));
         }     
     }
 }
