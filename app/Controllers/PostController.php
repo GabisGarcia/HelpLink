@@ -101,15 +101,14 @@ class PostController extends BaseController
 
     public function listarPesquisa()
     {
-        $data = [
-            'Pesquisa' => $this->request->getPost('Pesquisa'),
-            'Tags' => $this->request->getPost('Tags')
-        ];
 
-        $post = $this->PostModel->listarPesquisa($data);
+        $pesquisa = $this->request->getPost('Pesquisa');
+        $tags = $this->request->getPost('Tags');
 
-        return view('lista(?)', [
-            'post' => $post,
+        $posts = $this->PostModel->listarPesquisa($pesquisa, $tags);
+
+        return view('resultadoPesquisa', [
+            'post' => $posts,
         ]);
     }
 
