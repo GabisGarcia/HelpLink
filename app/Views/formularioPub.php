@@ -242,9 +242,9 @@
       </div> 
       <br>
       <label class="labelPost" for="DESCRICAO">Descrição:</label>
-      <textarea id="mensagem" name="DESCRICAO" required></textarea>
+      <textarea id="mensagem" name="DESCRICAO" id="DESCRICAO" required></textarea>
 
-      <input  type="file"  name="IMAGEM" size="20">  
+      <input  type="file"  name="IMAGEM" id="IMAGEM" size="20">  
 
 
       <button class="botao-voltar" type="submit">Enviar</button>
