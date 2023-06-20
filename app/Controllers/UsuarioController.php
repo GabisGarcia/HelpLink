@@ -81,6 +81,7 @@ class UsuarioController extends BaseController
     public function deletarUsuario()
     {
         $IdUsuario = $this->request->getPost('ID_CONTA');
+        $this->session->destroy();
         $this->UsuarioModel->deletarUsuario($IdUsuario);
         $this->response->redirect(base_url("/login"));
     }
