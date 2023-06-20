@@ -298,7 +298,7 @@ $this->section('content');
 
     <div class="container225">
       <button type="button" class="buttonCompartilha">
-        <a href="<?= base_url() ?>/formpost">
+        <a href="<?= base_url('/formpost') ?>">
           <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">
         </a>
       </button>
