@@ -148,7 +148,7 @@ $this->section('content');
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <!-- Tema escuro -->
     <label class="ui-switch" id="toggle">
-      <input type="checkbox">
+      <input type="checkbox" class="checkbox-theme">
       <div class="slider">
         <div class="circle"></div>
       </div>

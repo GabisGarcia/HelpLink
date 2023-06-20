@@ -1,18 +1,18 @@
 <?php
 
-  $session = session();
-  if ($session->get('user') == null) {
-    $location = 'Location: '.base_url('/login');
-    header($location);
-    exit;
-  }
+$session = session();
+if ($session->get('user') == null) {
+  $location = 'Location: ' . base_url('/login');
+  header($location);
+  exit;
+}
 
-  function mostraTags($idPost)
-  {
-    $postTagModel = new \App\Models\PostTagModel();
-    $tags = $postTagModel->listarTags($idPost);
-    foreach ($tags as $tag) {
-      echo '<span class="badge bg-primary me-2 mb-2">' . $tag->NOME . '</span>';
+function mostraTags($idPost)
+{
+  $postTagModel = new \App\Models\PostTagModel();
+  $tags = $postTagModel->listarTags($idPost);
+  foreach ($tags as $tag) {
+    echo '<span class="badge bg-primary me-2 mb-2">' . $tag->NOME . '</span>';
   }
 
 }
@@ -34,66 +34,76 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <center>
-            <a class="navbar-brand js-scroll-trigger" href="">
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="<?= base_url() ?>/img/logo_white.png" alt="..." height="80px" weight="50px" /></span>
-            </a>
-        </center>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <center>
+      <a class="navbar-brand js-scroll-trigger" href="">
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+            src="<?= base_url() ?>/img/logo_white.png" alt="..." height="80px" weight="50px" /></span>
+      </a>
+    </center>
 
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
-        </ul>
-    </nav>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link js-scroll-trigger"
+          href="<?= base_url('UsuarioController/logout') ?>">Sair</a></li>
+    </ul>
+  </nav>
 
-    <section class="publi-container" id="index">
+  <section class="publi-container" id="index">
     <div class="container-fluid p-0">
 
-          <?php
-          $postsModel = new \App\Models\PostModel();
-          $posts = $postsModel->listarAdminView();
+      <?php
+      $postsModel = new \App\Models\PostModel();
+      $posts = $postsModel->listarAdminView();
 
-          foreach ($posts as $post) {
-          ?>
-            <div class="pub-card">
-              <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                  <h3 class="mb-0"><?= $post->TITULO ?></h3>
-                  <?= mostraTags($post->ID_POST) ?>
-                  <p><?= $post->DESCRICAO ?></p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary"><?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?></span></div>
-              </div>
-              <!-- Imagem da pub-->
-            <center>
-                    <div class="img-pub" id="pubb">
-                    <img src="<?= "http://localhost/HelpLink/imgs/uploads/" . $post->CAMINHO_IMAGEM ?>" width="300" height="300"><br><br><br>
-                    </div>
+      foreach ($posts as $post) {
+        ?>
+        <div class="pub-card">
+          <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+              <h3 class="mb-0">
+                <?= $post->TITULO ?>
+              </h3>
+              <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
 
-                <!-- Aprovação -->
-                <form action="<?= base_url('PostController/aprovar') ?>" method="post">
-                  <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>"> 
-                    <button type="submit" class="game-button-green">aprovar post</button>
-                </form>
-                <br>
-
-                <form action="<?= base_url('PostController/negarRedirecionar') ?>" method="post">
-                  <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>"> 
-                    <button class="game-button" action="<?= base_url() ?>">Recusar post</button>
-                </form>
-               
-
-            </center>
-              <hr>
+              <p>
+                <?= $post->DESCRICAO ?>
+              </p>
+            </div>
+            <div class="flex-shrink-0"><span class="text-primary">
+                <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
+              </span></div>
+          </div>
+          <!-- Imagem da pub-->
+          <center>
+            <div class="img-pub" id="pubb">
+              <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
+                      height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
             </div>
 
+            <!-- Aprovação -->
+            <form action="<?= base_url('PostController/aprovar') ?>" method="post">
+              <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>">
+              <button type="submit" class="game-button-green">aprovar post</button>
+            </form>
+            <br>
 
-          <?php
-          }
-          ?>
+            <form action="<?= base_url('PostController/negarRedirecionar') ?>" method="post">
+              <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>">
+              <button class="game-button" action="<?= base_url() ?>">Recusar post</button>
+            </form>
 
+
+          </center>
+          <hr>
         </div>
 
-    </section>
+
+        <?php
+      }
+      ?>
+
+    </div>
+
+  </section>
 
 </body>
