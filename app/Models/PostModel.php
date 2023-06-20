@@ -71,6 +71,13 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
         }
 
+        public function deletePost($ID_POST)
+        {
+            $this->db->query('DELETE FROM POST_TAG WHERE ID_POST = '. $ID_POST .';');
+            $this->db->query('DELETE FROM LIKES WHERE ID_POST = '. $ID_POST .';');
+            $this->db->query('DELETE FROM POST WHERE ID_POST = '. $ID_POST .';');
+        }
+
         public function like($idPost, $idConta)
         {
             $this->db->query('INSERT INTO LIKES (ID_POST, ID_CONTA) VALUES ('. $idPost . ', ' . $idConta . ');');
@@ -119,8 +126,10 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         public function EnviarEmail($userEmail, $postTitle, $mensagem)
         {
             $email = \Config\Services::email();
-        
-            $config = [
+            var_dump($userEmail);
+            var_dump($postTitle);
+            var_dump($mensagem);
+            /*$config = [
                 'protocol' => 'smtp',
                 'SMTPHost' => 'sandbox.smtp.mailtrap.io',
                 'SMTPUser' => '1c3803a3371d0a',
@@ -140,7 +149,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
             if (! $email->send()) {
                 var_dump($email->printDebugger());
-             }
+             }*/
         }
 
         public function negar($ID_CONTA, $ID_POST, $mensagem)
