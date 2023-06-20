@@ -22,7 +22,7 @@ class App extends BaseConfig
      * explicitly and never rely on auto-guessing, especially in production
      * environments.
      */
-    public string $baseURL = 'http://localhost/Curso/HelpLink/public/';
+    public string $baseURL = 'http://localhost/HelpLink/public/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

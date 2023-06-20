@@ -131,18 +131,14 @@ class UsuarioController extends BaseController
 
     public function checarEmail()
     {
-        $emailInserido = 'b.123@teste.com';
-        /*$emailInserido = [
-            $this->request->getPost("EMAIL"),
-        ];*/
+        $emailInserido = $this->request->getPost("EMAIL");
         if($this->UsuarioModel->checarEmail($emailInserido)){
             $codigo = $this->criarCodigo($emailInserido);
             $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
 
-            // $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
-        }
-
-        // $this->response->redirect(base_url("/falhaaochecaremail"));
-        
+            $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
+        }else{
+            $this->response->redirect(base_url("/falhaaochecaremail"));
+        }     
     }
 }

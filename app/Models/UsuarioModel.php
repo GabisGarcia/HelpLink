@@ -55,6 +55,11 @@ class UsuarioModel extends Model
         return $ID_CONTA->ID_CONTA;
     }
 
+    public function deleteCodigo($email){
+        $ID_CONTA = $this->GetIdByEmail($email);
+        $this->db->query('DELETE * FROM CODIGOS WHERE ID_CONTA = '. $ID_CONTA .';');
+    }
+
     public function putCodigo($codigo, $email){
         $ID_CONTA = $this->GetIdByEmail($email);
         $this->db->query('INSERT INTO CODIGOS (ID_CONTA, CODIGO) VALUES ('. $ID_CONTA .', '. $codigo .');');
