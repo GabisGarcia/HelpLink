@@ -23,6 +23,7 @@ class UsuarioModel extends Model
 
     public function deletarUsuario($idUsuario)
     {
+        $this->db->query('DELETE FROM CODIGOS WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM LIKES WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM POST WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM USUARIO WHERE ID_CONTA = '. $idUsuario .';');
