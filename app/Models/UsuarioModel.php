@@ -25,7 +25,7 @@ class UsuarioModel extends Model
     {
         $this->db->query('DELETE FROM CODIGOS WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM LIKES WHERE ID_CONTA = '. $idUsuario .';');
-        $this->db->query('DELETE FROM LIKES WHERE ID_POST IN (SELECT ID_POST FROM POST WHERE ID_CONTA = '. $idUsuario .');')
+        $this->db->query('DELETE FROM LIKES WHERE ID_POST IN (SELECT ID_POST FROM POST WHERE ID_CONTA = '. $idUsuario .');');
         $this->db->query('DELETE FROM POST WHERE ID_CONTA = '. $idUsuario .';');
         $this->db->query('DELETE FROM USUARIO WHERE ID_CONTA = '. $idUsuario .';');
     }
