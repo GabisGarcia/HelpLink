@@ -71,6 +71,12 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
         }
 
+        public function deletePost($ID_POST)
+        {
+            $this->db->query('DELETE FROM LIKES WHERE ID_POST = '. $ID_POST .';');
+            $this->db->query('DELETE FROM POST WHERE ID_POST = '. $ID_POST .';');
+        }
+
         public function like($idPost, $idConta)
         {
             $this->db->query('INSERT INTO LIKES (ID_POST, ID_CONTA) VALUES ('. $idPost . ', ' . $idConta . ');');
