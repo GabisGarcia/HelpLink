@@ -46,7 +46,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             }
             
             if($pesquisa != '' && $tags != []){
-                $resultado = $this->db->query('SELECT u.ID_CONTA, u.EMAIL, p.TITULO, p.DESCRICAO, p.VALOR, p.DOACAO, p.CONTATO, p.POST_DATE FROM USUARIO u, POST p FROM POST WHERE p.ID_POST IN (SELECT ID_POST FROM post_tag WHERE ' . $consulta .' AND TITULO LIKE "%'. $pesquisa . '%") AND p.APROVADO = 1 ;'); //checar a parte dos posts dps
+                $resultado = $this->db->query('SELECT u.ID_CONTA, u.EMAIL, p.TITULO, p.DESCRICAO, p.VALOR, p.DOACAO, p.CONTATO, p.POST_DATE FROM USUARIO u, POST p FROM POST WHERE p.ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .') AND TITULO LIKE "%'. $pesquisa . '%") AND p.APROVADO = 1 ;'); //checar a parte dos posts dps
                 return  $this->listarRes($resultado);
             }elseif($pesquisa == '' && $tags != []){
                 $resultado = $this->db->query('SELECT u.ID_CONTA, u.EMAIL, p.TITULO, p.DESCRICAO, p.VALOR, p.DOACAO, p.CONTATO, p.POST_DATE FROM USUARIO u, POST p FROM POST WHERE p.ID_POST IN (SELECT ID_POST FROM post_tag WHERE ID_TAG IN (' . $consulta .' GROUP BY ID_POST HAVING COUNT(ID_POST) = '. sizeof($tags) .') AND p.APROVADO = 1 ;');
