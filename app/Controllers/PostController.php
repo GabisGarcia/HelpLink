@@ -32,9 +32,12 @@ class PostController extends BaseController
         }
 
         $img = $this->request->getFile('IMAGEM');
-        $newName = $img->getRandomName();
-        $url = "/imgs/uploads";
-        $img->move(ROOTPATH . $url, $newName);
+        $newName = null;
+        if($img != null || $img != "") {
+            $newName = $img->getRandomName();
+            $url = "/imgs/uploads";
+            $img->move(ROOTPATH . $url, $newName);
+        }
 
 
         $data = [
