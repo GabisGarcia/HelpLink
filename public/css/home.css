@@ -7,6 +7,13 @@
   height: 50px;
 }
 
+.teste321{
+  float: right;
+}
+
+.testando123{
+  display: inline-block;
+}
 
 #botao {
   text-align: center;

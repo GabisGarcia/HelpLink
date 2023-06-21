@@ -63,6 +63,92 @@ function mostraTags($idPost)
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/welcome.css">
 </head>
 
+<style>
+    .menu {
+    position: fixed;
+    display: block;
+    right: 0;
+
+  }
+
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 50px;
+  }
+
+  .dots {
+    width: 7px;
+    height: 7px;
+    background-color: #53afaf;
+    border-radius: 50%;
+    margin-bottom: 4px;
+    transform: rotate(90deg);
+
+    right: 0;
+  }
+
+  .teste321{
+    float: right;
+  }
+
+  .dots::after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: #53afaf;
+    border-radius: 50%;
+    top: -12px;
+    z-index: -1;
+  }
+
+  .testando123{
+    display: inline-block;
+  }
+
+  .options {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+
+  .dropdown:hover .options {
+    display: block;
+  }
+
+  .options ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .options ul li {
+    padding: 8px 0;
+    cursor: pointer;
+    color: black;
+  }
+
+  .options ul li:hover {
+    background-color: #ddd;
+    padding-left: 5px;
+
+  }
+</style>
+
 <body id="page-top">
 
   <!-- Navigation-->
@@ -160,7 +246,17 @@ function mostraTags($idPost)
                       height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
                   </div>
                 </center>
+                <br>
+                <div class="testando123">
+                <div class="social-icons">
+                  <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
+                  <label class="lead mb-5">
+                    <?= $usuario->TELEFONE ?>
+                  </label>
+                </div>
+                </div>
                 <!-- Botao de like-->
+                <div class="testando123 teste321">
                 <a class="container"
                   href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
                   <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
