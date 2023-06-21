@@ -13,6 +13,7 @@
   $usuarioModel = new \App\Models\UsuarioModel();
   $usuario = $usuarioModel->find($idUsuario);
   
+  $emailUsuario = $usuario->EMAIL;
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +57,15 @@
                 <label>
                     <input required="" name="novaSenha" id="novaSenha" type="password" class="input">
                     <span>Confirme a senha</span>
-                    <input type="hidden" name="ID_CONTA" value="<?= $idUsuario ?>">
+                    <input type="hidden" name="emailUsuario" id="emailUsuario" value="<?= $emailUsuario ?>">
                 </label>
 
-                <button class="submit">Enviar</button>
+                <button class="submit" type="button">Enviar</button>
                 <p class="signin">Esqueceu sua senha? <a href="#">Recupere</a> </p>
             </form>
         </center>
+
+        <script src="<?= base_url('') ?>/js/comparador.js"></script>
+
 </body>
+

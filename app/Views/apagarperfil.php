@@ -13,7 +13,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+
 <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -28,7 +28,7 @@
       <!-- CSS-->
       <link rel="stylesheet" href="<?= base_url() ?>/css/apagar_perfil.css">
   </head>
-</head>
+
 <body>
     <center>
     <div class="card">

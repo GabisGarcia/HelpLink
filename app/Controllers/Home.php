@@ -60,4 +60,9 @@ class Home extends BaseController
         return view('apagarperfil');
     }
 
+    public function EULA()
+    {
+        return view('EULA');
+    }
+
 }

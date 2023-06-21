@@ -6,7 +6,6 @@ if ($session->get('user') == null) {
   exit;
 }
 
-
 function mostraTags($idPost)
 {
   $postTagModel = new \App\Models\PostTagModel();
@@ -18,6 +17,8 @@ function mostraTags($idPost)
 
 $postModel = new \App\Models\PostModel();
 $post = $postModel->find($idPost);
+
+$idUsuario = $post->ID_CONTA; 
 
 ?>
 <!DOCTYPE html>
@@ -72,14 +73,21 @@ $post = $postModel->find($idPost);
             <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
                       height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
           </div>
-          <label for="myInput" class="label">
-            <span class="label-title">Motivo de recusa</span>
-            <textarea id="myInput" class="textarea" name="text" placeholder="" type="text"></textarea>
-          </label>
-          <br>
-        </center>
+            <br><br>
+        <form action="<?= base_url('PostController/negar') ?>" method="post">
+            <label for="myInput" class="label">
+              <span class="label-title">Motivo de recusa</span>
+              <textarea id="mensagem" class="textarea" name="mensagem" type="text"></textarea>
+              <input type="hidden" name="ID_POST" value="<?= $post->ID_POST ?>">
+              <input type="hidden" name="ID_CONTA" value="<?= $post->ID_CONTA ?>">
+            </label>
+            <br>
+              <button class="botao-enviar"> Enviar email </button>
+          </center>
+        </form>
+      
 
-        <a href="<?= base_url() ?>"><button class="botao-enviar"> Enviar email </button></a>
+     
       </div>
 
     </div>

@@ -35,6 +35,7 @@ $routes->get('/login', 'Home::Login');
 $routes->get('/meuperfil', 'Home::Perfil');
 $routes->get('/formpost', 'Home::formularioPost');
 $routes->get('/configuracoesperfil', 'Home::Config_perfil');
+$routes->get('/EULA', 'Home::EULA');
 
 
 $routes->get('PostController/like/(:num)/(:num)', 'PostController::like/$1/$2');

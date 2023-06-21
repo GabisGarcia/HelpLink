@@ -99,6 +99,10 @@ $this->section('content');
     right: 0;
   }
 
+  .teste321{
+    float: right;
+  }
+
   .dots::after {
     content: "";
     position: absolute;
@@ -108,6 +112,10 @@ $this->section('content');
     border-radius: 50%;
     top: -12px;
     z-index: -1;
+  }
+
+  .testando123{
+    display: inline-block;
   }
 
   .options {
@@ -271,7 +279,17 @@ $this->section('content');
                       height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
               </div>
             </center>
-            <!-- Botao de like-->
+            <div class="testando123">
+            <div class="social-icons">
+              <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
+              <label class="lead mb-5">
+                <?= $usuario->TELEFONE ?>
+              </label>
+            </div>
+            </div>
+            <br>
+                        <!-- Botao de like-->
+            <div class="testando123 teste321">
             <a class="container"
               href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
               <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
@@ -283,7 +301,7 @@ $this->section('content');
               </svg>
               <?= $post->REPUTACAO ?>
             </a>
-
+            </div>
             <hr>
           </div>
 
@@ -298,7 +316,7 @@ $this->section('content');
 
     <div class="container225">
       <button type="button" class="buttonCompartilha">
-        <a href="<?= base_url() ?>/formpost">
+        <a href="<?= base_url('/formpost') ?>">
           <img src="<?= base_url() ?>/img/remove.png" height="28px" weight="28px">
         </a>
       </button>

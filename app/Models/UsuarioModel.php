@@ -38,8 +38,10 @@ class UsuarioModel extends Model
         return true;
     }
 
-    public function alterarSenha($ID_CONTA, $novaSenha)
+    public function alterarSenha($emailUsuario, $novaSenha)
     {
+        $ID_CONTA = $this->GetIdByEmail($emailUsuario);
+        var_dump($ID_CONTA);
         $this->db->query('UPDATE USUARIO SET SENHA = "'. $novaSenha .'" WHERE ID_CONTA = '. $ID_CONTA .';');
     }
 
@@ -105,8 +107,8 @@ class UsuarioModel extends Model
 
     public function checarCodigo($codigoInserido, $email){
         $ID_CONTA = $this->GetIdByEmail($email);
-        $codigo = $this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .'')->getRow();
-        
+        $codigo = $this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .';')->getRow();
+
         if($codigo != NULL){
             return true;
         }
