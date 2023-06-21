@@ -32,7 +32,7 @@ class UsuarioController extends BaseController
 
             return json_encode(["status" => "ok", "message" => "Usuário cadastrado com sucesso!", "data" => $data]);
         } catch (\Exception $e) {
-            return json_encode(["status" => "error", "message" => "Erro ao cadastrar usuário!", "data" => $data]);
+            return json_encode(["status" => "error", "message" => $e, "data" => $data]);
         }
     }
 
