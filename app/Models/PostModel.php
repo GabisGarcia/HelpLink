@@ -126,10 +126,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         public function EnviarEmail($userEmail, $postTitle, $mensagem)
         {
             $email = \Config\Services::email();
-            var_dump($userEmail);
-            var_dump($postTitle);
-            var_dump($mensagem);
-            /*$config = [
+            $config = [
                 'protocol' => 'smtp',
                 'SMTPHost' => 'sandbox.smtp.mailtrap.io',
                 'SMTPUser' => '1c3803a3371d0a',
@@ -149,19 +146,22 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
 
             if (! $email->send()) {
                 var_dump($email->printDebugger());
-             }*/
+             }
         }
 
         public function negar($ID_CONTA, $ID_POST, $mensagem)
         {
             # não haverá nenhuma modificação no post, ele será apagado e um email enviado ao usuário
-            $postTitle = $this->db->query('SELECT TITULO FROM POST WHERE ID_POST = '. $ID_POST .';');
+            $postTitle = $this->db->query('SELECT TITULO FROM POST WHERE ID_POST = '. $ID_POST .';')->getRow();
 
             $this->db->query('DELETE FROM POST_TAG WHERE ID_POST = '. $ID_POST .';');
             $this->db->query('DELETE FROM POST WHERE ID_POST = '. $ID_POST .';');
 
-            $userEmail = $this->db->query('SELECT EMAIL FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';');
+            $userEmail = $this->db->query('SELECT EMAIL FROM USUARIO WHERE ID_CONTA = '. $ID_CONTA .';')->getRow();
             
+            $userEmail = $userEmail->EMAIL;
+            $postTitle = $postTitle->TITULO;
+
             $this->EnviarEmail($userEmail, $postTitle, $mensagem);
         }
 

@@ -123,6 +123,7 @@ class UsuarioController extends BaseController
         $codigoInserido = $this->request->getPost('codigoInserido');
         $email = $this->request->getPost('email');
         if($this->UsuarioModel->checarCodigo($codigoInserido, $email)){
+            $this->UsuarioModel->deleteCodigo($email);
             $ID_CONTA = $this->UsuarioModel->GetIdByEmail($email);
             $this->response->redirect(base_url("/alterar_senha", ["ID_CONTA" => $ID_CONTA]));
         }else{
@@ -137,9 +138,9 @@ class UsuarioController extends BaseController
             $codigo = $this->criarCodigo($emailInserido);
             $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
 
-            // $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
+            $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
         }else{
-            // $this->response->redirect(base_url("/falhaaochecaremail"));
+            $this->response->redirect(base_url("/falhaaochecaremail"));
         }     
     }
 }
