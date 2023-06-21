@@ -258,7 +258,7 @@ function mostraTags($idPost)
                 <div class="social-icons">
                   <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
                   <label class="lead mb-5">
-                    <?= $usuario->TELEFONE ?>
+                    <?= $post->CONTATO ?>
                   </label>
                 </div>
                 </div>
