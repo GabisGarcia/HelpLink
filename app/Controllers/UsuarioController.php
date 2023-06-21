@@ -88,12 +88,11 @@ class UsuarioController extends BaseController
     
     public function alterarSenha()
     {
-        $ID_CONTA = $this->request->getPost('ID_CONTA');
+        $emailUsuario = $this->request->getPost('emailUsuario');
         $novaSenha = $this->request->getPost('novaSenha');
         $novaSenha = md5($novaSenha);
 
-
-        $this->UsuarioModel->alterarSenha($ID_CONTA, $novaSenha);
+        $this->UsuarioModel->alterarSenha($emailUsuario, $novaSenha);
         $this->response->redirect(base_url("/meuperfil"));
     }
 
