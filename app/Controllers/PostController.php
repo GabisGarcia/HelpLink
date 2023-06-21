@@ -21,6 +21,8 @@ class PostController extends BaseController
         $session = session();
         $usuario = $session->get('user');
         $tags = $this->request->getPost("TAGS");
+
+        var_dump($tags);
         
 
         $img = $this->request->getFile('IMAGEM');
