@@ -105,8 +105,8 @@ class UsuarioModel extends Model
 
     public function checarCodigo($codigoInserido, $email){
         $ID_CONTA = $this->GetIdByEmail($email);
-        $codigo = $this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .'')->getRow();
-        
+        $codigo = $this->db->query('SELECT CODIGO FROM CODIGOS WHERE CODIGO = '. $codigoInserido .' AND ID_CONTA = '. $ID_CONTA .';')->getRow();
+
         if($codigo != NULL){
             return true;
         }
