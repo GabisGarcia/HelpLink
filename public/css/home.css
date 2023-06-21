@@ -265,6 +265,7 @@ h6,
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  text-align: justify;
 }
 
 abbr[title] {
@@ -4499,6 +4500,13 @@ fieldset:disabled .btn {
   width: 100%;
 }
 
+.pub-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .card-img,
 .card-img-top {
   border-top-left-radius: var(--bs-card-inner-border-radius);
@@ -8444,6 +8452,11 @@ fieldset:disabled .btn {
 .text-primary {
   --bs-text-opacity: 1;
   color: #53afaf;
+  margin: 10px;
+}
+
+.inicial{
+  text-align: center;
 }
 
 .text-primary2 {
@@ -11463,10 +11476,9 @@ section.resume-section {
   padding-right: 3rem;
   padding-top: 10px;
   padding-bottom: 10px;
-  max-width: 75rem;
 }
 section.resume-section .resume-section-content {
-  width: 75%;
+
 }
 
 @media (min-width: 768px) {

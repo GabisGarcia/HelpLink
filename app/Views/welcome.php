@@ -126,6 +126,11 @@ function mostraTags($idPost)
     z-index: 1;
   }
 
+  .teste-alinhar{
+    margin: 5px;
+    text-align: justify;
+  }
+
   .dropdown:hover .options {
     display: block;
   }
@@ -192,7 +197,7 @@ function mostraTags($idPost)
     <!-- About-->
     <section class="resume-section" id="index">
       <div class="resume-section-content">
-        <h1 class="mb-0">
+        <h1 class="mb-0 inicial">
           <span class="text-primary">Página</span>
           <span class="text-primary2"> Inicial</span>
         </h1>
@@ -241,9 +246,11 @@ function mostraTags($idPost)
                 </div>
                 <!-- Imagem da pub-->
                 <center>
-                  <div class="img-pub" id="pub">
-                    <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
-                      height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
+                  <div class="pub-content" id="pub">
+                      <div class="teste-alinhar">
+                          <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
+                            height="300">') : ('<h5>' . $post->DESCRICAO . '</h5>') ?>
+                      </div>
                   </div>
                 </center>
                 <br>
@@ -251,7 +258,7 @@ function mostraTags($idPost)
                 <div class="social-icons">
                   <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
                   <label class="lead mb-5">
-                    <?= $usuario->TELEFONE ?>
+                    <?= $post->CONTATO ?>
                   </label>
                 </div>
                 </div>
@@ -268,9 +275,8 @@ function mostraTags($idPost)
                   </svg>
                   <?= $post->REPUTACAO ?>
                 </a>
-
-                <hr>
               </div>
+              <hr>
 
 
               <?php

@@ -20,20 +20,14 @@ class PostController extends BaseController
     {
         $session = session();
         $usuario = $session->get('user');
-        $qtsTags = sizeof($this->TagModel->getTags());
-        $tags = [];
+        $tags = $this->request->getPost("TAGS");
 
-        for ($i = 0; $i <= $qtsTags; $i++) {
-            $tagId = 'TAGS' . $i;
-
-            if ($this->request->getPost($tagId) != null) {
-                array_push($tags, $this->request->getPost($tagId));
-            }
-        }
+        var_dump($tags);
+        
 
         $img = $this->request->getFile('IMAGEM');
         $newName = null;
-        if($img->isValid()) {
+        if(isset($img) && $img->isValid()) {
             $newName = $img->getRandomName();
             $url = "/imgs/uploads";
             $img->move(ROOTPATH . $url, $newName);
@@ -50,10 +44,16 @@ class PostController extends BaseController
             'CAMINHO_IMAGEM' => $newName,
         ];
 
+        try {
+            $this->PostModel->save($data);
+            $this->PostTagModel->CriarRelacao($tags, null);
 
-        $this->PostModel->save($data);
-        $this->PostTagModel->CriarRelacao($tags, null);
-        $this->response->redirect(base_url());
+            return json_encode(["status" => "ok", "message" => "Post cadastrado com sucesso!", "data" => $data]);
+        } catch (\Exception $e) {
+            return json_encode(["status" => "error", "message" => $e, "data" => $data]);
+        }
+
+        
 
     }
 
