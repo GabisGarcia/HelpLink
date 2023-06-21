@@ -1,19 +1,7 @@
 <?php
-  $session = session();
-  if ($session->get('user') == null) {
-    $location = 'Location: '.base_url('/login');
-    header($location);
-    exit;
-  }
-
-  $user = $session->get('user');
-
-  $idUsuario = $user->ID_CONTA;
-
-  $usuarioModel = new \App\Models\UsuarioModel();
-  $usuario = $usuarioModel->find($idUsuario);
   
-  $emailUsuario = $usuario->EMAIL;
+  $ID_CONTA;
+  $emailUsuario;
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +20,7 @@
       <!-- CSS-->
       <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
       <link rel="stylesheet" href="<?= base_url() ?>/css/edicao_senha.css">
+      <title>Alterar senha</title>
   </head>
 
   <body class="bodyForm">
@@ -60,7 +49,7 @@
                     <input type="hidden" name="emailUsuario" id="emailUsuario" value="<?= $emailUsuario ?>">
                 </label>
 
-                <button class="submit" type="button">Enviar</button>
+                <button onclick = "comparador()" class="submit" type="button">Enviar</button>
                 <p class="signin">Esqueceu sua senha? <a href="#">Recupere</a> </p>
             </form>
         </center>

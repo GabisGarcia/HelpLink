@@ -36,7 +36,8 @@ $routes->get('/meuperfil', 'Home::Perfil');
 $routes->get('/formpost', 'Home::formularioPost');
 $routes->get('/configuracoesperfil', 'Home::Config_perfil');
 $routes->get('/EULA', 'Home::EULA');
-
+$routes->get('/checaremail', 'Home::checaremail');
+$routes->get('/inserircodigo', 'Home::inserirgodigo');
 
 $routes->get('PostController/like/(:num)/(:num)', 'PostController::like/$1/$2');
 $routes->get('PostController/dislike/(:num)/(:num)', 'PostController::dislike/$1/$2');

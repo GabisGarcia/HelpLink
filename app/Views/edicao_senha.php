@@ -13,6 +13,7 @@
   $usuarioModel = new \App\Models\UsuarioModel();
   $usuario = $usuarioModel->find($idUsuario);
   
+  $emailUsuario = $usuario->EMAIL;
 ?>
 
 <!DOCTYPE html>
@@ -52,6 +53,7 @@
                     <input required="" name="senhaAtual" id="senhaAtual" type="password" class="input">
                     <span></span>
                     <input type="hidden" name="ID_CONTA" value="<?= $user->ID_CONTA ?>">
+                    <input type="hidden" name="emailUsuario" id="emailUsuario" value="<?= $emailUsuario ?>">
                 </label>
 
                 <button class="submit">Enviar</button>

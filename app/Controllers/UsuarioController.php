@@ -99,11 +99,15 @@ class UsuarioController extends BaseController
     public function checarSenha()
     {
         $ID_CONTA = $this->request->getPost('ID_CONTA');
-        $senhaInserida = $this->request->getPost('senhaAtual');
-
+        $emailUsuario = $this->request->getPost('emailUsuario');
+        $senhaInserida = $this->request->getPost('senhaAtual');      
         $senhaInserida = md5($senhaInserida);
+
         if($this->UsuarioModel->checarSenha($ID_CONTA, $senhaInserida)){
-            $this->response->redirect(base_url("/alterar_senha")); 
+            return view('alterar_senha', [
+               'ID_CONTA' => $ID_CONTA,
+               'emailUsuario' => $emailUsuario,
+            ]);
 
         }else{
             $this->response->redirect(base_url("/editarsenha"));
@@ -121,26 +125,32 @@ class UsuarioController extends BaseController
 
     public function checarCodigo(){
         $codigoInserido = $this->request->getPost('codigoInserido');
-        $email = $this->request->getPost('email');
-        if($this->UsuarioModel->checarCodigo($codigoInserido, $email)){
-            $this->UsuarioModel->deleteCodigo($email);
-            $ID_CONTA = $this->UsuarioModel->GetIdByEmail($email);
-            $this->response->redirect(base_url("/alterar_senha", ["ID_CONTA" => $ID_CONTA]));
+        $emailInserido = $this->request->getPost('emailInserido');
+
+        if($this->UsuarioModel->checarCodigo($codigoInserido, $emailInserido)){
+            $this->UsuarioModel->deleteCodigo($emailInserido);
+            $ID_CONTA = $this->UsuarioModel->GetIdByEmail($emailInserido);
+            return view('alterar_senha', [
+                'ID_CONTA' => $ID_CONTA,
+            ]);
         }else{
-            $this->response->redirect(base_url("/falha"));
+            echo "falha";
         }
     }
 
     public function checarEmail()
     {
-        $emailInserido = $this->request->getPost("EMAIL");
+        $emailInserido = $this->request->getPost("emailInserido");
         if($this->UsuarioModel->checarEmail($emailInserido)){
             $codigo = $this->criarCodigo($emailInserido);
             $this->UsuarioModel->enviarEmail($emailInserido, $codigo);
 
-            $this->response->redirect(base_url("/emailenviado", ['email' => $emailInserido]));
+            return view('inserirCodigo', [
+                'emailInserido' => $emailInserido,
+            ]);
         }else{
-            $this->response->redirect(base_url("/falhaaochecaremail"));
+            echo "else";
+           // $this->response->redirect(base_url("/falhaaochecaremail"));
         }     
     }
 }

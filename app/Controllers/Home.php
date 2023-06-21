@@ -65,4 +65,15 @@ class Home extends BaseController
         return view('EULA');
     }
 
+    public function checaremail()
+    {
+        return view('checarEmail');
+    }
+
+    public function inserircodigo()
+    {
+        return view('inserirCodigo');
+    }
+
+
 }

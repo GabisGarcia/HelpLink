@@ -11,6 +11,8 @@ $this->extend('header');
 
 $this->section('title');
 
+    echo "HelpLink";
+
 $this->endSection();
 
 $this->section('content');
@@ -36,11 +38,12 @@ $this->section('content');
                 <img src="https://cdn0.iconfinder.com/data/icons/essentials-4/1710/lock-256.png" alt="senha" height="25" width="25">
                 <input placeholder="Password" class="input-field" name="SENHA" id="SENHA" type="password">
             </div>
-
+            <center>
             <div class="btn">
-                <button class="button2">Entrar</button>
-                <button class="button3" type="button">Esqueci a senha</button>
+                <button class="button3">Entrar</button>
+                <a href="<?= base_url('/checaremail') ?>"><button class="button3" type="button">Esqueci a senha</button></a>
             </div>
+            </center>
         </form>
 
         <a href="<?= base_url('cadastro') ?>"><button class="button1" type="button">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Não tem uma conta?
