@@ -12,6 +12,8 @@
 
         public function CriarRelacao($tags, $idPostParam)
         {
+            var_dump($tags);
+
             $idPost = ($idPostParam) ? $idPostParam : $this->db->query('SELECT ID_POST FROM POST ORDER BY ID_POST DESC LIMIT 1')->getRow()->ID_POST;
             
             $this->db->query('DELETE FROM POST_TAG WHERE ID_POST = '. $idPost .';');
