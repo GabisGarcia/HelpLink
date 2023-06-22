@@ -50,7 +50,7 @@ class PostController extends BaseController
 
             $response = [
                 'status' => 200,
-                'message' => 'Postagem realizada com sucesso! Agora esepere pela aprovação de um ADM!',
+                'message' => 'Postagem realizada com sucesso! Agora espere pela aprovação de um ADM!',
                 'data' => $data,
                 'tags' => $tags,
             ];
