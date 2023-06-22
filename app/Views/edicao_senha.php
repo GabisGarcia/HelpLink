@@ -45,6 +45,8 @@
         </nav>
     </header>
         <center>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                    src="<?= base_url() ?>/img/logo_white.png" alt="..." height="320px" weight="200px" /></span>
             <form class="form" action="<?= base_url('UsuarioController/checarSenha') ?>" method="post">
                 <p class="title">Mudar a senha </p>
                 <p class="message">Digite sua senha atual: </p>

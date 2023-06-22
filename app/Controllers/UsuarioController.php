@@ -107,6 +107,7 @@ class UsuarioController extends BaseController
             return view('alterar_senha', [
                'ID_CONTA' => $ID_CONTA,
                'emailUsuario' => $emailUsuario,
+               'barra_azul' => true,
             ]);
 
         }else{
@@ -133,6 +134,7 @@ class UsuarioController extends BaseController
             return view('alterar_senha', [
                 'ID_CONTA' => $ID_CONTA,
                 'emailUsuario' => $emailInserido,
+                'barra_azul' => false,
             ]);
         }else{
             echo "falha";

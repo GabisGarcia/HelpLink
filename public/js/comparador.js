@@ -20,7 +20,7 @@ function comparador() {
                   if(email) {
                     window.location.href = "/HelpLink/public/login"
                   } else {
-                    window.location.href = "/HelpLink/public/meusperfil"
+                    window.location.href = "/HelpLink/public/meuperfil"
                   }
               } else {
                 alert("Erro");

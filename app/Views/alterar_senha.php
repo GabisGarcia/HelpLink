@@ -2,6 +2,8 @@
   
   $ID_CONTA;
   $emailUsuario;
+  $barra_azul;
+
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +20,38 @@
       <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
       <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
       <!-- CSS-->
-      <link rel="stylesheet" href="<?= base_url() ?>/css/edicao_senha.css">
+      <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/edicao_senha.css">
+
+      <?php
+        if($barra_azul){
+        ?>  
+      <link rel="stylesheet" href="<?= base_url() ?>/css/home.css">
+      <?php    
+        }
+        ?>
+
       <title>Alterar senha</title>
   </head>
 
   <body class="bodyForm">
-
+        
+        <?php
+        if($barra_azul){
+        ?>  
+            <header id="page-top">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+                    <!-- Voltar para a welcome page-->
+                    <a href="<?= base_url() ?>/configuracoesperfil"><button class="botao-voltar"> Voltar </button></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    
+                </nav>
+            </header>
+        <?php    
+        }
+        ?>
         <center>
-        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-            src="<?= base_url() ?>/img/logo_white.png" alt="..." height="320px" weight="200px" /></span>
+            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+                src="<?= base_url() ?>/img/logo_white.png" alt="..." height="320px" weight="200px" /></span>
 
             <form class="form" method="post">
                 <p class="title">Mudar a senha </p>
