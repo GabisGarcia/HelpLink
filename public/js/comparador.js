@@ -23,10 +23,9 @@ function comparador() {
                     window.location.href = "/HelpLink/public/meusperfil"
                   }
               } else {
-                alert("Erro")
+                alert("Erro");
               }
             })
-
 
      }
 }

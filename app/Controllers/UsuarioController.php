@@ -91,7 +91,7 @@ class UsuarioController extends BaseController
         $emailUsuario = $this->request->getPost('emailUsuario');
         $novaSenha = $this->request->getPost('novaSenha');
         $novaSenha = md5($novaSenha);
-
+        
         $this->UsuarioModel->alterarSenha($emailUsuario, $novaSenha);
         $this->response->redirect(base_url("/meuperfil"));
     }
@@ -132,6 +132,7 @@ class UsuarioController extends BaseController
             $ID_CONTA = $this->UsuarioModel->GetIdByEmail($emailInserido);
             return view('alterar_senha', [
                 'ID_CONTA' => $ID_CONTA,
+                'emailUsuario' => $emailInserido,
             ]);
         }else{
             echo "falha";
