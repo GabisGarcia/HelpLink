@@ -227,57 +227,54 @@ function mostraTags($idPost)
 
               ?>
               <div class="pub-card">
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                  <div class="flex-grow-1">
-                    <h3 class="mb-0">
-                      <?= $post->TITULO ?>
-                    </h3>
-                    <?= mostraTags($post->ID_POST) ?>
+               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="flex-grow-1">
+                  <h3 class="mb-0">
+                    <?= $post->TITULO ?>
+                  </h3>
+                  <?= mostraTags($post->ID_POST) ?>
 
-                    <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
-                  </div>
-                  <div class="flex-shrink-0">
-                    <p class="text-secondary">Criado por
-                      <?= $donoPost->NOME ?>
-                    </p><span class="text-primary">
-                      <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
-                    </span>
-                  </div>
+                  <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
                 </div>
-                <!-- Imagem da pub-->
-                <center>
-                  <div class="pub-content" id="pub">
-                      <div class="teste-alinhar">
-                          <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
-                            height="300">') : ('<h5>' . $post->DESCRICAO . '</h5>') ?>
-                      </div>
-                  </div>
-                </center>
-                <br>
-                <div class="testando123">
+                <div class="flex-shrink-0">
+                  <p class="text-secondary">Criado por
+                    <?= $donoPost->NOME ?>
+                  </p>
+                  <span class="text-primary">
+                    <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
+                  </span>
+                </div>
+               </div>
+              <!-- Imagem da pub-->
+              <center>
+                <div class="img-pub" id="pub">
+                  <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
+                        height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
+                </div>
+              </center>
+              <div class="testando123">
                 <div class="social-icons">
                   <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
                   <label class="lead mb-5">
-                    <?= $post->CONTATO ?>
+                    <?= $usuario->TELEFONE ?>
                   </label>
                 </div>
-                </div>
-                <!-- Botao de like-->
-                <div class="testando123 teste321">
-                <a class="container"
-                  href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
-                  <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
-                  <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <path
-                      d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                    </path>
-                  </svg>
-                  <?= $post->REPUTACAO ?>
-                </a>
               </div>
-              <hr>
-
+            <div class="testando123 teste321">
+              <a class="container"
+                href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
+                <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <path
+                    d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
+                  </path>
+                </svg>
+                <?= $post->REPUTACAO ?>
+              </a>
+            </div>
+          </div>
+          <hr>
 
               <?php
             }
@@ -288,7 +285,7 @@ function mostraTags($idPost)
 
     </section>
     <div class="links">
-      <?= $pager->links('default', 'bootstrap_pagination') ?>
+      <?= $pager->links() ?>
     </div>
   </div>
   </div>

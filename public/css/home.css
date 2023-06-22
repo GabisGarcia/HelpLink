@@ -7764,8 +7764,10 @@ fieldset:disabled .btn {
 }
 
 .flex-shrink-0 {
-  flex-shrink: 0 !important;
-  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
 }
 
 .flex-shrink-1 {
@@ -8452,7 +8454,6 @@ fieldset:disabled .btn {
 .text-primary {
   --bs-text-opacity: 1;
   color: #53afaf;
-  margin: 10px;
 }
 
 .inicial{
@@ -11472,13 +11473,9 @@ p.lead {
 section.resume-section {
   display: flex;
   align-items: center;
-  padding-left: 50px;
-  padding-right: 3rem;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-section.resume-section .resume-section-content {
-
+  justify-content: center;
+  margin: auto;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
