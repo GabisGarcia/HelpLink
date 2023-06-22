@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use CodeIgniter\HTTP\Response;
+
 
 class PostController extends BaseController
 {
@@ -21,13 +23,11 @@ class PostController extends BaseController
         $session = session();
         $usuario = $session->get('user');
         $tags = $this->request->getPost("TAGS");
-
-        var_dump($tags);
-        
+        $tags = explode(",", $tags);
 
         $img = $this->request->getFile('IMAGEM');
         $newName = null;
-        if(isset($img) && $img->isValid()) {
+        if (isset($img) && $img->isValid()) {
             $newName = $img->getRandomName();
             $url = "/imgs/uploads";
             $img->move(ROOTPATH . $url, $newName);
@@ -46,14 +46,27 @@ class PostController extends BaseController
 
         try {
             $this->PostModel->save($data);
-            $this->PostTagModel->CriarRelacao($tags, null);
+            $this->PostTagModel->CriarRelacao($tags, $this->PostModel->getInsertID());
 
-            return json_encode(["status" => "ok", "message" => "Post cadastrado com sucesso!", "data" => $data]);
+            $response = [
+                'status' => 200,
+                'message' => 'Postagem realizada com sucesso! Agora esepere pela aprovação de um ADM!',
+                'data' => $data,
+                'tags' => $tags,
+            ];
+
+            return $this->response->setJSON($response);
         } catch (\Exception $e) {
-            return json_encode(["status" => "error", "message" => $e, "data" => $data]);
+            $response = [
+                'status' => 500,
+                'message' => 'Erro ao postar!',
+                'data' => $data,
+                'tags' => $tags,
+            ];
+
+            return $this->response->setJSON($response);
         }
 
-        
 
     }
 

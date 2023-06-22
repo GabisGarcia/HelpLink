@@ -213,15 +213,22 @@ $this->section('content');
 
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
         <span class="d-block d-lg-none">Meu perfil</span>
-        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="https://www.zooplus.pt/magazine/wp-content/uploads/2021/03/kitten-sitzt-boden-768x512-1.jpeg" alt="..." /></span>
+        <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+            src="https://www.zooplus.pt/magazine/wp-content/uploads/2021/03/kitten-sitzt-boden-768x512-1.jpeg"
+            alt="..." /></span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('/meuperfil') ?>">Sobre mim</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('/meuperfil') ?>">Minhas publicações</a>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('/meuperfil') ?>">Sobre mim</a>
           </li>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('/configuracoesperfil') ?>">Configurações</a></li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= base_url('/meuperfil') ?>">Minhas
+              publicações</a>
+          </li>
+          <li class="nav-item"><a class="nav-link js-scroll-trigger"
+              href="<?= base_url('/configuracoesperfil') ?>">Configurações</a></li>
         </ul>
       </div>
     </nav>
@@ -238,14 +245,14 @@ $this->section('content');
           <p style="display:none;" class="validate-error title-validation"></p>
           <div>
             <label class="labelPost" for="TITULO">Título:</label>
-            <input class="inputPost" type="text" id="TITULO" name="TITULO" required>
+            <input class="inputPost" type="text" maxlength="55" id="TITULO" name="TITULO" required>
           </div>
         </div>
         <div class="inputLabel-container">
           <p style="display:none;" class="validate-error contact-validation"></p>
           <div>
             <label class="labelPost" for="CONTATO">Contato:</label>
-            <input class="inputPost" type="text" id="CONTATO" name="CONTATO" required>
+            <input class="inputPost" type="text" maxlength="255" id="CONTATO" name="CONTATO" required>
           </div>
         </div>
       </div>
@@ -261,7 +268,7 @@ $this->section('content');
           <p style="display:none;" class="validate-error donation-validation"></p>
           <div>
             <label class="labelPost" for="DOCAO">Doação:</label>
-            <input class="inputPost" type="text" id="DOACAO" name="DOACAO" required>
+            <input class="inputPost" type="text" maxlength="255" id="DOACAO" name="DOACAO" required>
           </div>
         </div>
       </div>
@@ -274,19 +281,23 @@ $this->section('content');
         $tags = $tagModel->getTags();
 
         foreach ($tags as $tag) {
-        ?>
+          ?>
           <?= $tag->NOME ?>
           <label class="checkTeste">
             <input checked="" type="checkbox" name="TAGS<?= $tag->ID_TAG ?>" id="TAGS" value="<?= $tag->ID_TAG ?>">
             <span class="checkboxClass" tabindex="0">
-              <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0" height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0"
+                height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                xmlns="http://www.w3.org/2000/svg">
                 <g>
-                  <path data-original="currentColor" fill="currentColor" d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"></path>
+                  <path data-original="currentColor" fill="currentColor"
+                    d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z">
+                  </path>
                 </g>
               </svg>
             </span>
           </label>
-        <?php
+          <?php
         }
 
         ?>
@@ -294,14 +305,32 @@ $this->section('content');
       <br>
       <p style="display:none;" class="validate-error description-validation"></p>
       <label class="labelPost" for="DESCRICAO">Descrição:</label>
-      <textarea name="DESCRICAO" class="mensagem" id="DESCRICAO" required></textarea>
+      <textarea name="DESCRICAO" maxlength="5000" class="mensagem" id="DESCRICAO" required></textarea>
 
       <input type="file" name="IMAGEM" id="IMAGEM" size="20">
 
 
       <button class="botao-voltar button-submit" type="button">Enviar</button>
     </form>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header"> <strong class="me-auto">Criação de Postagem</strong>
+          <small>Agora</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <div class="alert alert-req alert-success" role="alert">
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>/js/pubValidacao.js"></script>
 </body>
-
 </html>
