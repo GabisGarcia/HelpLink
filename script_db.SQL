@@ -106,3 +106,18 @@ insert into TAGS values (null, 'Animal'),
                         (null, 'Outros');
 
 insert into POST (ID_POST, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO) values (null, 1, 'a', 'b', 50, '','c');
+
+Apresentação 
+- Iniciar falando sobre o que é o software e para o que servirá 
+- Mostrar recurso de criar uma conta nova e esquecer a Senha
+- Mostrar recurso de enviar e-mail 
+- Mostrar recurso de mudar a senha
+- Fazer login na conta criada e entrar no site
+- Mostrar e curtir posts já criados 
+- Editar seu perfil
+- Alterar senha de dentro do site
+- Criar post do 0 com as normas de validação
+- Entrar na conta de administrador e aceitar post criado
+- Na visão de admin recusar posts que violam termos e enviar e-mail
+- Entrar na conta de usuário de novo e apagar conta 
+- Entrar em outra conta e verificar post do usuário que foi apagado
