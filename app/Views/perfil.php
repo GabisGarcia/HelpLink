@@ -218,11 +218,12 @@ $this->section('content');
     <!-- Experience-->
     <section id="publicacoes">
       <div class="publi-container">
+        <center>
         <p>
         <h2 class="mb-3">Minhas publicações</h2>
         </p>
         <br>
-
+        </center>
         <?php
         $postsModel = new \App\Models\PostModel();
         $usuario = $session->get('user');

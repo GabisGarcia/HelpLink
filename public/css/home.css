@@ -348,11 +348,10 @@ sup {
 }
 
 a {
-  color: var(--bs-link-color);
   text-decoration: underline;
 }
 a:hover {
-  color: var(--bs-link-hover-color);
+  color: #53AFAF;
 }
 
 a:not([href]):not([class]),
@@ -11411,7 +11410,7 @@ p.lead {
     left: 0;
     display: flex;
     flex-direction: column;
-    width: 17rem;
+    width: 250px;
     height: 100vh;
   }
   #sideNav .navbar-brand {
