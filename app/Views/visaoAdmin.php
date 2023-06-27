@@ -64,10 +64,6 @@ function mostraTags($idPost)
                 <?= $post->TITULO ?>
               </h3>
               <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
-
-              <p>
-                <?= $post->DESCRICAO ?>
-              </p>
             </div>
             <div class="flex-shrink-0"><span class="text-primary">
                 <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
