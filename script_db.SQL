@@ -85,9 +85,10 @@ insert into USUARIO (ID_CONTA, NOME, EMAIL, SENHA, TELEFONE, ADM, DESCRICAO_USER
                                                                                 (1, 'Lucas', 'lucas.alt40@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16996201245', 0, 'Melhor 2 pedras no caminho do que 1 no rim. Beba água'),
                                                                                 (2, 'Gabriele', 'garciagabriele@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16996159113', 0, 'Sou inteligente e dedicada <3'),
                                                                                 (3, 'Letícia', 'snches.lauren@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16996218097', 0,'Adoro feios *-*'),
-                                                                                (4, 'Gabriel', 'gabriel@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16997479217', 0,'descricao do gabriel'),
-                                                                                (5, 'Marcelo', 'marcelo@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16981944022', 0,'descricao do Marcelo'),
+                                                                                (4, 'Gabriel', 'gabrielrm813@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16997479217', 0,'Biruta'),
+                                                                                (5, 'Marcelo', 'marcelodias.1285@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16981944022', 0,'Doido!'),
                                                                                 (6, 'Admin', 'admin@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '1640028922', 1,'O rei desse software, não errem ou seram banidos. Leiam a EULA.');
+
 insert into TAGS values (null, 'Animal'),
                         (null, 'Estudos'),
                         (null, 'Humanitário'),
@@ -105,5 +106,3 @@ insert into TAGS values (null, 'Animal'),
                         (null, 'Outros');
 
 insert into POST (ID_POST, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO) values (null, 1, 'a', 'b', 50, '','c');
-insert into POST_TAG values (1,1);
-insert into POST_TAG values (1,2);
