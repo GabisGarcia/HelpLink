@@ -51,14 +51,9 @@ function validaValor() {
 function validaDoacao() {
   let doacao = document.getElementById("DOACAO").value
 
-  if (doacao.length < 20) {
-    donationValidation.style.display = "block"
-    donationValidation.innerHTML =
-      "O campo doação deve conter no mínimo 20 caracteres"
-    document.getElementById("DOACAO").focus()
-    return false
+  if (doacao.length == 0) {
+    donationValidation.style.display = "none"
   }
-  donationValidation.style.display = "none"
 
   return true
 }
