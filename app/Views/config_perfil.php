@@ -74,5 +74,6 @@ $this->section('content');
             </div>
         </div>
         </div>
-
+    	
+  <script src="<?= base_url() ?>/js/tema.js"></script>
 </body>
