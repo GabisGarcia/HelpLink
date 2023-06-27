@@ -102,6 +102,9 @@ $this->section('content');
   .input-containerTeste {
     display: flex;
     margin: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .input-containerTeste input {
@@ -137,13 +140,16 @@ $this->section('content');
     --checkmark-transition: .1s;
     margin-right: 30px;
     margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
 
   }
 
   /* checkbox settings 👆 */
 
   .checkTeste {
-    display: inline-block;
+    display: flex;
   }
 
   .checkTeste input {
@@ -282,9 +288,9 @@ $this->section('content');
 
         foreach ($tags as $tag) {
           ?>
-          <?= $tag->NOME ?>
           <label class="checkTeste">
-            <input checked="" type="checkbox" name="TAGS<?= $tag->ID_TAG ?>" id="TAGS" value="<?= $tag->ID_TAG ?>">
+            <?= $tag->NOME ?>
+            <input type="checkbox" name="TAGS<?= $tag->ID_TAG ?>" id="TAGS" value="<?= $tag->ID_TAG ?>">
             <span class="checkboxClass" tabindex="0">
               <svg class="" xml:space="preserve" style="enable-background:new 0 0 512 512" viewBox="0 0 24 24" y="0" x="0"
                 height="512" width="512" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"

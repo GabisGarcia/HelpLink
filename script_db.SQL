@@ -1,7 +1,7 @@
 CREATE DATABASE HelpLink;
 
 USE HelpLink;
-SET GLOBAL event_scheduler = ON;
+/* SET GLOBAL event_scheduler = ON;
 --  tabelas básicas - FEITO
 -- Hierarquia de tabelas- FEITO
 -- popular tabelas
@@ -17,7 +17,7 @@ DO BEGIN
     DELETE FROM CODIGOS WHERE DATA_DE_CRIACAO < (NOW() - INTERVAL 10 MINUTE);
 END $$
 
-DELIMITER ;
+DELIMITER ; */
 
 
 -- Senha criptografada em MD5
@@ -33,7 +33,7 @@ CREATE TABLE USUARIO(
 
 CREATE TABLE TAGS(
     ID_TAG INT AUTO_INCREMENT PRIMARY KEY,
-    NOME VARCHAR(50) NOT NULL
+    NOME VARCHAR(23) NOT NULL
 );
 
 
@@ -82,14 +82,28 @@ FOR EACH ROW
 
 
 insert into USUARIO (ID_CONTA, NOME, EMAIL, SENHA, TELEFONE, ADM, DESCRICAO_USER) values                                -- SENHA = 1
-                                                                                (null, 'Arnaldo', 'a.teste@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999991', 1, 'descricao do arnaldo'),
-                                                                                (null, 'Bernado', 'b.123@teste.com', 'c4ca4238a0b923820dcc509a6f75849b', '16999999992', 0, 'descricao do bernado'),
-                                                                                (null, 'Carlos', 'c@teste.gov', 'c4ca4238a0b923820dcc509a6f75849b', '16999999993', 0,'desricao do carlos');
+                                                                                (1, 'Lucas', 'lucas.alt40@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16996201245', 0, 'Melhor 2 pedras no caminho do que 1 no rim. Beba água'),
+                                                                                (2, 'Gabriele', 'garciagabriele@hotmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16996159113', 0, 'Sou inteligente e dedicada <3'),
+                                                                                (3, 'Letícia', 'snches.lauren@gmail.com', 'c4ca4238a0b923820dcc509a6f75849b', '16996218097', 0,'Adoro feios *-*'),
+                                                                                (4, 'Gabriel', 'gabriel@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16997479217', 0,'descricao do gabriel'),
+                                                                                (5, 'Marcelo', 'marcelo@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '16981944022', 0,'descricao do Marcelo'),
+                                                                                (6, 'Admin', 'admin@email.com', 'c4ca4238a0b923820dcc509a6f75849b', '1640028922', 1,'O rei desse software, não errem ou seram banidos. Leiam a EULA.');
 insert into TAGS values (null, 'Animal'),
-                        (null, 'Gato'),
-                        (null, 'Cavalo');
+                        (null, 'Estudos'),
+                        (null, 'Humanitário'),
+                        (null, 'Saúde'),
+                        (null, 'Cirurgias'),
+                        (null, 'Medicamentos'),
+                        (null, 'Comunitário'),
+                        (null, 'Alimentação'),
+                        (null, 'Caridade'),
+                        (null, 'Funeral'),
+                        (null, 'Família'),
+                        (null, 'Esportes'),
+                        (null, 'Emergência'),
+                        (null, 'Desaparecidos'),
+                        (null, 'Outros');
 
-insert into TAGS values (null, 'Humanitario');
 insert into POST (ID_POST, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO) values (null, 1, 'a', 'b', 50, '','c');
 insert into POST_TAG values (1,1);
 insert into POST_TAG values (1,2);
