@@ -96,7 +96,6 @@ $this->section('content');
     border-radius: 50%;
     margin-bottom: 4px;
     transform: rotate(90deg);
-
     right: 0;
   }
 
@@ -117,6 +116,7 @@ $this->section('content');
 
   .testando123{
     display: inline-block;
+    margin: -30;
   }
 
   .options {
@@ -200,7 +200,8 @@ $this->section('content');
             <?= $usuario->DESCRICAO_USER ?>
           </p>
         </div>
-        <div class="social-icons">
+        <div class="social-icons" style="margin: 40;
+">
           <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
           <label class="lead mb-5">
             <?= $usuario->TELEFONE ?>
@@ -232,7 +233,7 @@ $this->section('content');
           $donoPost = $usuarioModel->find($post->ID_CONTA);
           ?>
 
-
+          <center>
           <div class="pub-card">
             <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
               <div class="flex-grow-1">
@@ -281,7 +282,8 @@ $this->section('content');
               </div>
             </center>
             <div class="testando123">
-            <div class="social-icons">
+            <div class="social-icons" style="margin: 40;
+">
               <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
               <label class="lead mb-5">
                 <?= $usuario->TELEFONE ?>
@@ -305,7 +307,7 @@ $this->section('content');
             </div>
             <hr>
           </div>
-
+          </center>
 
 
           <?php

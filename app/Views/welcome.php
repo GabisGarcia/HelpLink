@@ -114,6 +114,7 @@ function mostraTags($idPost)
 
   .testando123{
     display: inline-block;
+    margin: -30;
   }
 
   .options {
@@ -253,7 +254,8 @@ function mostraTags($idPost)
                 </div>
               </center>
               <div class="testando123">
-                <div class="social-icons">
+                <div class="social-icons" style="margin: 40;
+">
                   <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
                   <label class="lead mb-5">
                     <?= $usuario->TELEFONE ?>
