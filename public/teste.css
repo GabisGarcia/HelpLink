@@ -7738,6 +7738,7 @@ textarea.form-control-lg {
 
 .mb-3 {
   margin-bottom: 1rem !important;
+
 }
 
 .mb-4 {
@@ -10966,7 +10967,7 @@ p.lead {
     left: 0;
     display: flex;
     flex-direction: column;
-    width: 17rem;
+    width: 250px;
     height: 100vh;
   }
   #sideNav .navbar-brand {
