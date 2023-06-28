@@ -44,113 +44,115 @@ $this->section('content');
 ?>
 
 <head>
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HelpLink</title>
-  <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Font Awesome icons (free version)-->
-  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-  <!-- Google fonts-->
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
-    defer></script>
-  <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
-    crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
-  <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/welcome.css">
-</head>
-<style>
-  .menu {
-    position: fixed;
-    display: block;
-    right: 0;
 
-  }
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpLink</title>
+    <link rel="icon" href="<?= base_url() ?>/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+      type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
+      defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
+      crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/home.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/css/welcome.css">
+  </head>
+  <style>
+    .menu {
+      position: fixed;
+      display: block;
+      right: 0;
 
-  .menu-toggle {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    top: 20px;
-    right: 20px;
-  }
+    }
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    width: 50px;
-  }
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      top: 20px;
+      right: 20px;
+    }
 
-  .dots {
-    width: 7px;
-    height: 7px;
-    background-color: #53afaf;
-    border-radius: 50%;
-    margin-bottom: 4px;
-    transform: rotate(90deg);
-    right: 0;
-  }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      width: 50px;
+    }
 
-  .teste321{
-    float: right;
-  }
+    .dots {
+      width: 7px;
+      height: 7px;
+      background-color: #53afaf;
+      border-radius: 50%;
+      margin-bottom: 4px;
+      transform: rotate(90deg);
+      right: 0;
+    }
 
-  .dots::after {
-    content: "";
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    background-color: #53afaf;
-    border-radius: 50%;
-    top: -10px;
-    right: 0px;
-  }
+    .teste321 {
+      float: right;
+    }
 
-  .testando123{
-    display: inline-block;
-    margin: -30;
-  }
+    .dots::after {
+      content: "";
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background-color: #53afaf;
+      border-radius: 50%;
+      top: -10px;
+      right: 0px;
+    }
 
-  .options {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    padding: 12px 16px;
-    z-index: 1;
-  }
+    .testando123 {
+      display: inline-block;
+      margin: -30;
+    }
 
-  .dropdown:hover .options {
-    display: block;
-  }
+    .options {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
 
-  .options ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
+    .dropdown:hover .options {
+      display: block;
+    }
 
-  .options ul li {
-    padding: 8px 0;
-    cursor: pointer;
-    color: black;
-  }
+    .options ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
 
-  .options ul li:hover {
-    background-color: #ddd;
-    padding-left: 5px;
+    .options ul li {
+      padding: 8px 0;
+      cursor: pointer;
+      color: black;
+    }
 
-  }
-</style>
+    .options ul li:hover {
+      background-color: #ddd;
+      padding-left: 5px;
+
+    }
+  </style>
 
 <body id="page-top">
 
@@ -219,10 +221,10 @@ $this->section('content');
     <section id="publicacoes">
       <div class="publi-container">
         <center>
-        <p>
-        <h2 class="mb-3">Minhas publicações</h2>
-        </p>
-        <br>
+          <p>
+          <h2 class="mb-3">Minhas publicações</h2>
+          </p>
+          <br>
         </center>
         <?php
         $postsModel = new \App\Models\PostModel();
@@ -235,79 +237,81 @@ $this->section('content');
           ?>
 
           <center>
-          <div class="pub-card">
-            <div class="d-flex flex-column  justify-content-between mb-5">
-              <div class="flex-grow-1">
-                <div class="menu-toggle">
-                  <div class="dropdown">
-                    <div class="dots"></div>
+            <div class="pub-card">
+              <div class="d-flex flex-column  justify-content-between mb-5">
+                <div class="flex-grow-1">
+                  <div class="menu-toggle">
+                    <div class="dropdown">
+                      <div class="dots"></div>
 
-                    <div class="options">
-                      <ul>
-                        <li>
-                          <a href="<?= base_url() ?>/PostController/deletar/<?= $post->ID_POST ?>">
-                            <img src="<?= base_url() ?>/img/remover.png" alt="" widht="30px" height="30px">
-                            Excluir
-                          </a>
-                        </li>
-                        <li href="#">
-                          <a href="<?= base_url() ?>/PostController/editar_post/<?= $post->ID_POST ?>">
-                            <img src="<?= base_url() ?>/img/editar.png" alt="" widht="30px" height="30px">
-                            Editar
-                          </a>
-                        </li>
-                      </ul>
+                      <div class="options">
+                        <ul>
+                          <li>
+                            <a href="<?= base_url() ?>/PostController/deletar/<?= $post->ID_POST ?>">
+                              <img src="<?= base_url() ?>/img/remover.png" alt="" widht="30px" height="30px">
+                              Excluir
+                            </a>
+                          </li>
+                          <li href="#">
+                            <a href="<?= base_url() ?>/PostController/editar_post/<?= $post->ID_POST ?>">
+                              <img src="<?= base_url() ?>/img/editar.png" alt="" widht="30px" height="30px">
+                              Editar
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <h3 class="mb-0">
-                  <?= $post->TITULO ?>
-                </h3>
-                <?= mostraTags($post->ID_POST) ?>
+                  <h3 class="mb-0">
+                    <?= $post->TITULO ?>
+                  </h3>
+                  <?= mostraTags($post->ID_POST) ?>
 
-                <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p style="margin-left: 1rem;">' . $post->DESCRICAO . '</p>') : "" ?>
+                  <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p style="margin-left: 1rem;">' . $post->DESCRICAO . '</p>') : "" ?>
+                </div>
+                <div class="flex-shrink-0">
+                  <p class="text-secondary">Criado por
+                    <strong>
+                      <?= $donoPost->NOME ?>
+                    </strong>
+                  </p><span class="text-primary">
+                    <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
+                  </span>
+                </div>
               </div>
-              <div class="flex-shrink-0">
-                <p class="text-secondary">Criado por
-                  <?= $donoPost->NOME ?>
-                </p><span class="text-primary">
-                  <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
-                </span>
-              </div>
-            </div>
-            <!-- Imagem da pub-->
-            <center>
-              <div class="img-pub" id="pub">
-                <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
+              <!-- Imagem da pub-->
+              <center>
+                <div class="img-pub" id="pub">
+                  <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
                       height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
-              </div>
-            </center>
-            <div class="testando123">
-            <div class="social-icons" style="margin: 40;
+                </div>
+              </center>
+              <div class="testando123">
+                <div class="social-icons" style="margin: 40;
 ">
-              <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
-              <label class="lead mb-5">
-                <?= $post->CONTATO ?>
-              </label>
+                  <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
+                  <label class="lead mb-5">
+                    <?= $post->CONTATO ?>
+                  </label>
+                </div>
+              </div>
+              <br>
+              <!-- Botao de like-->
+              <div class="testando123 teste321">
+                <a class="container"
+                  href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
+                  <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
+                  <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path
+                      d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
+                    </path>
+                  </svg>
+                  <?= $post->REPUTACAO ?>
+                </a>
+              </div>
+              <hr>
             </div>
-            </div>
-            <br>
-                        <!-- Botao de like-->
-            <div class="testando123 teste321">
-            <a class="container"
-              href="<?= base_url() ?>/PostController/<?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'dislike' : 'like' ?>/<?= $post->ID_POST ?>/<?= $usuario->ID_CONTA ?>">
-              <input <?= verificaSeJaCurtiuPost($curtidas, $post->ID_POST) ? 'checked' : '' ?> type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
-                xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-              <?= $post->REPUTACAO ?>
-            </a>
-            </div>
-            <hr>
-          </div>
           </center>
 
 

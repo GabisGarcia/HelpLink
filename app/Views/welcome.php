@@ -239,7 +239,7 @@ function mostraTags($idPost)
                 </div>
                 <div class="flex-shrink-0">
                   <p class="text-secondary">Criado por
-                    <?= $donoPost->NOME ?>
+                    <strong><?= $donoPost->NOME ?></strong>
                   </p>
                   <span class="text-primary">
                     <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>

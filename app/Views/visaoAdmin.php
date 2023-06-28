@@ -63,7 +63,13 @@ function mostraTags($idPost)
               <h3 class="mb-0">
                 <?= $post->TITULO ?>
               </h3>
-              <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
+              <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>Descrição:<strong>' . $post->DESCRICAO . '</strong></p>') : "" ?>
+              <p>Doação: <strong>
+                  <?= $post->DOACAO ? $post->DOACAO : "O usuário não pediu uma doação." ?>
+                </strong></p>
+              <p>Valor: R$<strong>
+                  <?= $post->VALOR ?>
+                </strong></p>
             </div>
             <div class="flex-shrink-0"><span class="text-primary">
                 <?= date('d/m/Y H:i:s', strtotime($post->POST_DATE)) ?>
@@ -71,7 +77,7 @@ function mostraTags($idPost)
           </div>
           <!-- Imagem da pub-->
           <center>
-            <div class="img-pub" id="pubb">
+            <div class="img-pub" id="pub">
               <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<img src="http://localhost/HelpLink/imgs/uploads/' . $post->CAMINHO_IMAGEM . '" width="300"
                       height="300">') : ('<h3>' . $post->DESCRICAO . '</h3>') ?>
             </div>

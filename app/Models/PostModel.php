@@ -63,7 +63,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             $resultado = $this->db->query('SELECT ID_POST, CAMINHO_IMAGEM, ID_CONTA, TITULO, DESCRICAO, VALOR, DOACAO, CONTATO, POST_DATE, REPUTACAO, APROVADO FROM POST WHERE POST_DATE < NOW() - 7 LIMIT 5');
             $posts = $this->listarRes($resultado);
             if(!$posts || !isset($posts)) {
-                echo "<h1>NAO TEM POST</h1>";
+                echo "<h2>Não há posts disponíveis.</h2>";
                 return [];
             }
 
@@ -94,7 +94,7 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
             $resultado = $this->db->query('SELECT * FROM POST WHERE ID_CONTA = '. $idUsuario . ';');
             $posts = $this->listarRes($resultado);
             if(!$posts || !isset($posts)) {
-                echo "<h1>NAO TEM POST</h1>";
+                echo "<h2>Não há posts disponíveis.</h2>";
                 return [];
             }
 
@@ -109,9 +109,9 @@ use CodeIgniter\Validation\StrictRules\CreditCardRules;
         public function listarAdminView()
         {
             $resultado = $this->db->query("SELECT * FROM POST WHERE APROVADO = 0");
-            $posts = $this->listarRes($resultado);
+            $posts = $resultado->getResult();
             if(!$posts || !isset($posts)) {
-                echo "<h1>NAO TEM POST</h1>";
+                echo "<h1>Não há posts para serem aprovados no momento.</h1>";
                 return [];
             }
 
