@@ -110,8 +110,8 @@ $this->section('content');
     height: 7px;
     background-color: #53afaf;
     border-radius: 50%;
-    top: -12px;
-    z-index: -1;
+    top: -10px;
+    right: 0px;
   }
 
   .testando123{
@@ -236,7 +236,7 @@ $this->section('content');
 
           <center>
           <div class="pub-card">
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="d-flex flex-column  justify-content-between mb-5">
               <div class="flex-grow-1">
                 <div class="menu-toggle">
                   <div class="dropdown">
@@ -265,7 +265,7 @@ $this->section('content');
                 </h3>
                 <?= mostraTags($post->ID_POST) ?>
 
-                <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p>' . $post->DESCRICAO . '</p>') : "" ?>
+                <?= ($post->CAMINHO_IMAGEM != null || "") ? ('<p style="margin-left: 1rem;">' . $post->DESCRICAO . '</p>') : "" ?>
               </div>
               <div class="flex-shrink-0">
                 <p class="text-secondary">Criado por

@@ -131,7 +131,7 @@ async function sendData() {
           const toast = new bootstrap.Toast(toastLiveExample)
           document.querySelector(".alert-req").classList.remove("alert-success")
           document.querySelector(".alert-req").classList.add("alert-danger")
-          document.querySelector(".alert-req").innerHTML = data.message
+          document.querySelector(".alert-req").innerHTML = "Ocorreu um erro ao tentar publicar seu post. Tente novamente"
 
           toast.show()
         }

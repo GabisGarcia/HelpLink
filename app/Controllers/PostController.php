@@ -46,7 +46,9 @@ class PostController extends BaseController
 
         try {
             $this->PostModel->save($data);
-            $this->PostTagModel->CriarRelacao($tags, $this->PostModel->getInsertID());
+            if(isset($tags) && sizeof($tags) > 0) {
+                $this->PostTagModel->CriarRelacao($tags, $this->PostModel->getInsertID());
+            }
 
             $response = [
                 'status' => 200,

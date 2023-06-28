@@ -17,9 +17,11 @@
             
             $this->db->query('DELETE FROM POST_TAG WHERE ID_POST = '. $idPost .';');
 
-            foreach($tags as $tag){    
-                $this->db->query('INSERT INTO POST_TAG VALUES ('. $idPost .','. $tag .');');
-            }
+            if(isset($tags) && sizeof($tags) > 0) {
+                foreach($tags as $tag){    
+                    $this->db->query('INSERT INTO POST_TAG VALUES ('. $idPost .','. $tag .');');
+                }
+            } 
         }
 
         public function listarTags($idPost)
