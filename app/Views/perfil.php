@@ -197,19 +197,19 @@ $this->section('content');
         </h1>
         <div class="subheading mb-5">
           <p>
-            <?= $usuario->DESCRICAO_USER ?>
+            <?= $nomeUsuario->DESCRICAO_USER ?>
           </p>
         </div>
         <div class="social-icons" style="margin: 40;
 ">
           <i class="fa-brands fa-whatsapp" height="40px" weight="40px"></i>
           <label class="lead mb-5">
-            <?= $usuario->TELEFONE ?>
+            <?= $nomeUsuario->TELEFONE ?>
           </label>
           <br>
           <i class="fa fa-envelope" height="40px" weight="40px"></i>
           <label class="lead mb-5">
-            <?= $usuario->EMAIL ?>
+            <?= $nomeUsuario->EMAIL ?>
           </label>
         </div>
       </div>

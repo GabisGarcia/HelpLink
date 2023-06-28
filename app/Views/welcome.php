@@ -287,7 +287,7 @@ function mostraTags($idPost)
 
     </section>
     <div class="links">
-      <?= $pager->links() ?>
+      <?= $pager->links('default', 'bootstrap_pagination') ?>
     </div>
   </div>
   </div>

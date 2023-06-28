@@ -118,6 +118,7 @@ Apresentação
 - Alterar senha de dentro do site
 - Criar post do 0 com as normas de validação
 - Entrar na conta de administrador e aceitar post criado
+- Entrar na conta de usuário e editar ou apagar post
 - Na visão de admin recusar posts que violam termos e enviar e-mail
 - Entrar na conta de usuário de novo e apagar conta 
 - Entrar em outra conta e verificar post do usuário que foi apagado
